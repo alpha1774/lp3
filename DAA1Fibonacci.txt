@@ -1,0 +1,911 @@
+#- **DAA-1:** Write a non-recursive and a recursive program to calculate Fibonacci numbers and analyze their time and space complexity.
+
+# Fibonacci Series Using Recursive and Non-Recursive Methods
+
+# Recursive Function
+def fibonacci_recursive(n):
+    if n <= 1:
+        return n
+    return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)
+
+
+# Non-Recursive Function
+def fibonacci_non_recursive(n):
+    a, b = 0, 1
+
+    for i in range(n):
+        print(a, end=" ")
+        a, b = b, a + b
+
+
+# Main Program
+print("===== Fibonacci Series =====")
+print("1. Recursive Approach")
+print("2. Non-Recursive Approach")
+
+choice = int(input("Enter your choice: "))
+
+n = int(input("Enter the number of terms: "))
+
+if n <= 0:
+    print("Please enter a positive number.")
+
+elif choice == 1:
+    print("\nFibonacci Series (Recursive):")
+
+    for i in range(n):
+        print(fibonacci_recursive(i), end=" ")
+
+elif choice == 2:
+    print("\nFibonacci Series (Non-Recursive):")
+    fibonacci_non_recursive(n)
+
+else:
+    print("Invalid choice! Please select 1 or 2.")
+
+print()
+
+#===== END==========
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+#======VIVA QUESTIONS=====
+"""
+### Basic Questions
+
+Q1. What is the Fibonacci series?
+
+A: Fibonacci series is a sequence in which each number is the sum of the previous two numbers. It starts with 0 and 1.
+
+Q2. What is the output of the Fibonacci series for 10 terms?
+
+A: `0 1 1 2 3 5 8 13 21 34`
+
+Q3. What is recursion?
+
+A: Recursion is a programming technique in which a function calls itself to solve a problem.
+
+Q4. What is iteration?
+
+A: Iteration is a process of repeatedly executing a block of code using loops such as `for` and `while`.
+
+Q5. What is a base condition in recursion?
+
+A: A base condition is the condition that stops recursive function calls. In our program, `n <= 1` is the base condition.
+
+Q6. Why do we need a base condition?
+
+A: Without a base condition, the function may call itself indefinitely and cause a stack overflow.
+
+Q7. What is the difference between recursion and iteration?
+
+A: Recursion uses function calls to repeat operations, whereas iteration uses loops.
+
+### Program-Related Questions
+
+Q8. Why do we initialize `a = 0` and `b = 1`?
+
+A: Because 0 and 1 are the first two numbers of the Fibonacci series.
+
+Q9. What does `a, b = b, a + b` do?
+
+A: It updates both variables simultaneously. The next Fibonacci number is calculated by adding the previous two numbers.
+
+Q10. What is the purpose of `range(n)`?
+
+A: It executes the loop n times, starting from 0 and ending at n-1.
+
+Q11. What does `end=" "` do in the print statement?
+
+A: It prints numbers on the same line with a space instead of moving to a new line.
+
+Q12. Why does the recursive function return `n` when `n <= 1`?
+
+A: Because the first two Fibonacci numbers are 0 and 1, which are the base cases.
+
+Q13. What happens if we enter 0 as the number of terms?
+
+A: The program displays a message asking the user to enter a positive number.
+
+Q14. What happens if we enter an invalid choice?
+
+A: The program displays an invalid choice message.
+
+### Complexity-Related Questions
+
+Q15. What is time complexity?
+
+A: Time complexity measures how the execution time of an algorithm grows with input size.
+
+Q16. What is space complexity?
+
+A: Space complexity measures how much additional memory an algorithm requires.
+
+Q17. What is the time complexity of the recursive Fibonacci program?
+
+A: O(2ⁿ), because it makes repeated recursive calls.
+
+Q18. What is the time complexity of the non-recursive Fibonacci program?
+
+A: O(n), because it uses a loop that executes n times.
+
+Q19. Which approach is more efficient?
+
+A: The non-recursive approach is more efficient because it has O(n) time complexity and O(1) auxiliary space complexity.
+
+Q20. What is stack overflow?
+
+A: Stack overflow occurs when the call stack exceeds its available memory, often due to excessive or infinite recursion.
+
+### Advanced Questions
+
+Q21. Can Fibonacci numbers be calculated using Dynamic Programming?
+
+A: Yes. Dynamic Programming stores previously calculated Fibonacci numbers to avoid repeated calculations.
+
+Q22. What is the difference between O(n) and O(2ⁿ)?
+
+A: O(n) grows linearly with input size, whereas O(2ⁿ) grows exponentially.
+
+Q23. Can we calculate Fibonacci numbers using a while loop?
+
+A: Yes. We can use a while loop instead of a for loop to generate the series.
+"""
+------------------------------------------------------------------------------------------------------------------------------------
+
+***FIBONACCI SERIES – LINE-BY-LINE CODE EXPLANATION***
+
+1. RECURSIVE FUNCTION
+
+> > def fibonacci_recursive(n):
+
+* def is used to define a function.
+* fibonacci_recursive is the function name.
+* n represents the position of the Fibonacci number.
+
+> > if n <= 1:
+
+* Checks whether n is less than or equal to 1.
+* This is called the base condition of recursion.
+
+> > return n
+
+* Returns the value of n if it is 0 or 1.
+* For example, if n = 0, it returns 0; if n = 1, it returns 1.
+
+> > return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)
+
+* Calls the same function again with n-1 and n-2.
+* Adds the results of both function calls.
+* This generates the next Fibonacci number.
+
+2. NON-RECURSIVE FUNCTION
+
+> > def fibonacci_non_recursive(n):
+
+* Defines a function named fibonacci_non_recursive.
+* n represents the number of terms to print.
+
+> > a, b = 0, 1
+
+* Initializes the first two Fibonacci numbers.
+* a = 0 and b = 1.
+
+> > for i in range(n):
+
+* Starts a for loop.
+* The loop executes n times.
+
+> > print(a, end=" ")
+
+* Prints the current value of a.
+* end=" " prints all numbers on the same line with spaces.
+
+> > a, b = b, a + b
+
+* Updates the values of a and b.
+* The new value of a becomes the old value of b.
+* The new value of b becomes the sum of the old a and b.
+
+3. DISPLAYING THE MENU
+
+> > print("===== Fibonacci Series =====")
+
+* Displays the heading of the program.
+
+> > print("1. Recursive Approach")
+> > print("2. Non-Recursive Approach")
+
+* Displays two options to the user.
+* Option 1 is for the recursive method.
+* Option 2 is for the non-recursive method.
+
+> > choice = int(input("Enter your choice: "))
+
+* Accepts the user's choice.
+* int() converts the input into an integer.
+* Stores the choice in the variable choice.
+
+> > n = int(input("Enter the number of terms: "))
+
+* Accepts the number of terms from the user.
+* Converts the input into an integer and stores it in n.
+
+4. CONDITIONAL STATEMENTS
+
+> > if n <= 0:
+
+* Checks whether the entered number is zero or negative.
+
+> > print("Please enter a positive number.")
+
+* Displays an error message if the number of terms is not positive.
+
+> > elif choice == 1:
+
+* Checks whether the user has selected option 1.
+* elif means else-if.
+
+> > print("\nFibonacci Series (Recursive):")
+
+* Displays the heading for the recursive approach.
+* \n moves the cursor to a new line.
+
+> > for i in range(n):
+
+* Executes the loop n times.
+* Generates the required number of Fibonacci terms.
+
+> > print(fibonacci_recursive(i), end=" ")
+
+* Calls the recursive function for each value of i.
+* Prints the returned Fibonacci number on the same line.
+
+> > elif choice == 2:
+
+* Checks whether the user has selected option 2.
+
+> > print("\nFibonacci Series (Non-Recursive):")
+
+* Displays the heading for the non-recursive approach.
+
+> > fibonacci_non_recursive(n)
+
+* Calls the non-recursive function.
+* Prints the Fibonacci series using a loop.
+
+> > else:
+
+* Executes when the user enters a choice other than 1 or 2.
+
+> > print("Invalid choice! Please select 1 or 2.")
+
+* Displays an error message for an invalid choice.
+
+> > print()
+
+* Prints an empty line after the program execution.
+
+5. SAMPLE OUTPUT
+
+Example 1: Recursive Approach
+
+===== Fibonacci Series =====
+
+1. Recursive Approach
+2. Non-Recursive Approach
+   Enter your choice: 1
+   Enter the number of terms: 7
+
+Fibonacci Series (Recursive):
+0 1 1 2 3 5 8
+
+Example 2: Non-Recursive Approach
+
+===== Fibonacci Series =====
+
+1. Recursive Approach
+2. Non-Recursive Approach
+   Enter your choice: 2
+   Enter the number of terms: 7
+
+Fibonacci Series (Non-Recursive):
+0 1 1 2 3 5 8
+
+6. DIFFERENCE BETWEEN RECURSIVE AND NON-RECURSIVE APPROACH
+
+7. Recursive Approach:
+
+* Uses a function that calls itself.
+* Uses a base condition.
+* Takes more execution time.
+* Requires more memory due to repeated function calls.
+
+2. Non-Recursive Approach:
+
+* Uses loops instead of function calls.
+* Does not require a base condition.
+* Takes less execution time.
+* Requires less memory.
+
+7. TIME COMPLEXITY
+
+* Recursive Approach: O(2^n)
+* Non-Recursive Approach: O(n)
+
+8. IMPORTANT VIVA QUESTIONS AND ANSWERS
+
+Q1. What is the Fibonacci series?
+Ans: It is a sequence in which each number is the sum of the previous two numbers.
+
+Q2. What is recursion?
+Ans: Recursion is a process in which a function calls itself.
+
+Q3. What is a base condition?
+Ans: A condition that stops the recursive function from calling itself repeatedly.
+
+Q4. What is a non-recursive function?
+Ans: A function that solves a problem using loops instead of calling itself.
+
+Q5. What is the use of range(n)?
+Ans: It generates numbers from 0 to n-1.
+
+Q6. What is the use of return?
+Ans: It sends the result back from a function.
+
+Q7. What is the use of end=" "?
+Ans: It prints multiple numbers on the same line separated by spaces.
+
+Q8. Which approach is faster?
+Ans: The non-recursive approach is faster because it avoids repeated function calls.
+
+Q9. What is the output when n = 5?
+Ans: 0 1 1 2 3
+
+Q10. Why is recursion used?
+Ans: It makes problems easier to solve by dividing them into smaller similar problems.
+-------------------------------------------------------------------------------------------------------------
+1. BASIC THEORY QUESTIONS
+
+Q1. What is the Fibonacci series?
+
+Ans: Fibonacci series is a sequence of numbers in which each number is the sum of the previous two numbers.
+
+Example: 0, 1, 1, 2, 3, 5, 8, 13, 21.
+
+Q2. What is the formula for the Fibonacci series?
+
+Ans:
+
+F(n) = F(n-1) + F(n-2)
+
+Where:
+
+F(0) = 0
+F(1) = 1
+
+Q3. What is recursion?
+
+Ans: Recursion is a programming technique in which a function calls itself repeatedly until a stopping condition is reached.
+
+Q4. What is a recursive function?
+
+Ans: A function that calls itself to solve a problem is called a recursive function.
+
+Q5. What is a non-recursive function?
+
+Ans: A function that solves a problem using loops instead of calling itself is called a non-recursive function.
+
+Q6. What is a base condition?
+
+Ans: A base condition is a condition that stops recursion. Without it, the function may call itself infinitely.
+
+In our program:
+
+if n <= 1:
+
+Q7. Why do we use recursion in Fibonacci?
+
+Ans: Because Fibonacci numbers can be calculated using the sum of the previous two Fibonacci numbers.
+
+Q8. What is iteration?
+
+Ans: Iteration means repeating a set of instructions using loops such as for and while.
+
+Q9. What is the difference between recursion and iteration?
+
+Ans:
+
+Recursion uses function calls.
+Iteration uses loops.
+Recursion requires additional function call memory.
+Iteration generally requires less memory.
+
+Q10. What are the first two numbers of the Fibonacci series?
+
+Ans: 0 and 1.
+
+2. PYTHON BASIC QUESTIONS
+
+Q11. What is Python?
+
+Ans: Python is a high-level, interpreted, general-purpose programming language.
+
+Q12. What is a variable?
+
+Ans: A variable is a named memory location used to store data.
+
+Example:
+
+a = 10
+
+Q13. What is a function?
+
+Ans: A function is a reusable block of code that performs a specific task.
+
+Q14. What is the use of def?
+
+Ans: The def keyword is used to define a function in Python.
+
+Example:
+
+def hello():
+
+Q15. What is the use of return?
+
+Ans: The return statement sends a result back from a function to the calling statement.
+
+Q16. What is the use of print()?
+
+Ans: It displays output on the screen.
+
+Q17. What is the use of input()?
+
+Ans: It accepts input from the user.
+
+Q18. What is the use of int()?
+
+Ans: It converts a value into an integer.
+
+Example:
+
+n = int(input("Enter a number: "))
+
+Q19. What is the use of range(n)?
+
+Ans: It generates numbers starting from 0 up to n-1.
+
+Example:
+
+for i in range(5):
+
+Output: 0 1 2 3 4
+
+Q20. What is the use of if, elif and else?
+
+Ans:
+
+if: Checks the first condition.
+elif: Checks another condition if the previous condition is false.
+else: Executes when all previous conditions are false.
+
+Q21. What is indentation in Python?
+
+Ans: Indentation means spaces at the beginning of a line. It defines a block of code in Python.
+
+Q22. What is the use of end=" "?
+
+Ans: It prints multiple values on the same line separated by spaces instead of moving to a new line.
+
+Example:
+
+print(10, end=" ")
+print(20, end=" ")
+
+Output: 10 20
+
+Q23. What is the use of \n?
+
+Ans: It is used to move the output to a new line.
+
+Q24. Is Python case-sensitive?
+
+Ans: Yes. Python is case-sensitive. For example, Name and name are treated as different variables.
+
+Q25. What is a comment in Python?
+
+Ans: A comment is a statement that is ignored by the Python interpreter. It is used to explain the code.
+
+Example:
+
+This is a comment
+
+Q26. What is the difference between = and ==?
+
+Ans:
+
+= is an assignment operator.
+== is a comparison operator.
+
+Q27. What is the use of for loop?
+
+Ans: A for loop is used to execute a block of code repeatedly for a specified sequence or range.
+
+Q28. What is the difference between break and continue?
+
+Ans:
+
+break terminates the loop.
+continue skips the current iteration and moves to the next iteration.
+3. QUESTIONS RELATED TO YOUR PROGRAM
+
+These are particularly important because the examiner may point to any line of your code and ask its purpose.
+
+Q29. Why have you created two functions?
+
+Ans: I have created two functions to implement Fibonacci series using two different approaches: recursive and non-recursive.
+
+Q30. Why do you initialize a = 0 and b = 1?
+
+Ans: Because 0 and 1 are the first two numbers of the Fibonacci series.
+
+Q31. Why do you use a, b = b, a + b?
+
+Ans: To update the values of a and b simultaneously. The next Fibonacci number is calculated by adding the previous two numbers.
+
+Q32. Why do you use n-1 and n-2?
+
+Ans: Because every Fibonacci number is the sum of the two preceding Fibonacci numbers.
+
+Q33. Why do you use if n <= 1?
+
+Ans: It is the base condition that stops recursion when n becomes 0 or 1.
+
+Q34. What happens if you remove the base condition?
+
+Ans: The recursive function will continue calling itself without a proper stopping condition, eventually causing a RecursionError.
+
+Q35. Why do you use return instead of print in the recursive function?
+
+Ans: Because return sends the calculated value back to the calling function, allowing the two Fibonacci values to be added.
+
+Q36. Why do you use print in the non-recursive function?
+
+Ans: To display each Fibonacci number directly during every loop iteration.
+
+Q37. Why do you use range(n) in the non-recursive function?
+
+Ans: To execute the loop exactly n times and print n Fibonacci terms.
+
+Q38. Why do you use range(n) in the recursive approach?
+
+Ans: To call the recursive function for every position from 0 to n-1.
+
+Q39. What is the purpose of choice == 1?
+
+Ans: It checks whether the user selected the recursive approach.
+
+Q40. What is the purpose of choice == 2?
+
+Ans: It checks whether the user selected the non-recursive approach.
+
+Q41. Why do you check n <= 0?
+
+Ans: Because the number of terms must be positive.
+
+Q42. What happens if the user enters an invalid choice?
+
+Ans: The else block executes and displays an invalid choice message.
+
+Q43. Does your non-recursive function return anything?
+
+Ans: No. It directly prints the Fibonacci series and does not use a return statement.
+
+Q44. What is the value of i in the first iteration?
+
+Ans: 0, because range(n) starts from 0 by default.
+
+Q45. What is the value of a and b after the first iteration?
+
+Ans: Initially a = 0 and b = 1. After updating, a = 1 and b = 1.
+
+4. DRY RUN QUESTIONS
+
+The examiner may ask you to explain the execution of your program with an example.
+
+Q46. Explain the non-recursive approach for n = 5.
+
+Ans:
+
+Initially:
+
+a = 0, b = 1
+
+Iteration	a (printed)	b	New a	New b
+1	0	1	1	1
+2	1	1	1	2
+3	1	2	2	3
+4	2	3	3	5
+5	3	5	5	8
+
+Output:
+
+0 1 1 2 3
+
+Q47. Explain the recursive approach for n = 5.
+
+Ans:
+
+The recursive function uses:
+
+F(n) = F(n-1) + F(n-2)
+
+Calculations:
+
+F(0) = 0
+
+F(1) = 1
+
+F(2) = F(1) + F(0) = 1
+
+F(3) = F(2) + F(1) = 2
+
+F(4) = F(3) + F(2) = 3
+
+Output:
+
+0 1 1 2 3
+
+Q48. What will be the output if n = 1?
+
+Ans: 0
+
+Q49. What will be the output if n = 2?
+
+Ans: 0 1
+
+Q50. What will be the output if n = 10?
+
+Ans:
+
+0 1 1 2 3 5 8 13 21 34
+
+Q51. What happens if n = 0?
+
+Ans: The program displays "Please enter a positive number."
+
+Q52. What happens if n = -5?
+
+Ans: The program displays "Please enter a positive number."
+
+5. TIME AND SPACE COMPLEXITY
+
+Q53. What is time complexity?
+
+Ans: Time complexity measures how the execution time of an algorithm increases with the size of the input.
+
+Q54. What is space complexity?
+
+Ans: Space complexity measures the amount of memory required by an algorithm during execution.
+
+Q55. What is the time complexity of the recursive Fibonacci function?
+
+Ans: O(2^n) for the simple recursive implementation because it makes repeated function calls.
+
+Q56. What is the time complexity of the non-recursive Fibonacci function?
+
+Ans: O(n) because the loop executes n times.
+
+Q57. What is the space complexity of the recursive approach?
+
+Ans: O(n) because recursive function calls are stored in the call stack.
+
+Q58. What is the space complexity of the non-recursive approach?
+
+Ans: O(1) auxiliary space because it uses only a fixed number of variables.
+
+Q59. Which approach is better and why?
+
+Ans: The non-recursive approach is better in terms of execution time and memory usage because it avoids repeated function calls.
+
+Q60. What is Big O notation?
+
+Ans: Big O notation describes the upper-bound growth rate of an algorithm's time or space requirements.
+
+Remember these:
+
+O(1) – Constant complexity.
+O(n) – Linear complexity.
+O(n²) – Quadratic complexity.
+O(2^n) – Exponential complexity.
+O(log n) – Logarithmic complexity.
+6. TRICKY QUESTIONS THAT EXAMINERS MAY ASK
+
+These questions test whether you actually understand the logic.
+
+Q61. Can we generate Fibonacci series without recursion?
+
+Ans: Yes. We can use loops such as for or while loops.
+
+Q62. Can we generate Fibonacci series using a while loop?
+
+Ans: Yes. We can initialize a = 0 and b = 1 and update them inside a while loop.
+
+Q63. Can the Fibonacci series start with 1, 1 instead of 0, 1?
+
+Ans: Yes. Some variations start with 1, 1, but the standard Fibonacci series starts with 0, 1.
+
+Q64. Is 0 a Fibonacci number?
+
+Ans: Yes. Zero is the first Fibonacci number.
+
+Q65. Is 1 a Fibonacci number?
+
+Ans: Yes. One is a Fibonacci number and appears twice at the beginning of the series.
+
+Q66. Can Fibonacci numbers be negative?
+
+Ans: In the standard Fibonacci series, we start from 0 and generate non-negative numbers. However, a mathematical extension called the Negafibonacci sequence includes negative indices.
+
+Q67. What happens if we enter a decimal number instead of an integer?
+
+Ans: The int() function converts a valid numeric decimal string such as "5.5" only if directly converted from a float, not from the string. int("5.5") raises a ValueError.
+
+Q68. What happens if we enter a character instead of a number?
+
+Ans: The int() function raises a ValueError because it cannot convert an alphabetic character into an integer.
+
+Q69. Can a function call another function?
+
+Ans: Yes. A function can call another function, and a function can also call itself.
+
+Q70. Can recursion be converted into iteration?
+
+Ans: Yes. Many recursive problems, including Fibonacci, can be solved using loops.
+
+Q71. What is a stack?
+
+Ans: A stack is a linear data structure that follows LIFO (Last In, First Out).
+
+Q72. What is a call stack?
+
+Ans: A call stack is a memory structure that stores information about active function calls, including their local variables and return addresses.
+
+Q73. What is stack overflow?
+
+Ans: Stack overflow occurs when the call stack exceeds its available memory limit, often because of excessive recursion.
+
+Q74. What is memoization?
+
+Ans: Memoization is an optimization technique that stores previously calculated results so they do not need to be calculated again.
+
+Q75. Can we improve the recursive Fibonacci approach?
+
+Ans: Yes. We can use memoization or dynamic programming to avoid repeated calculations and reduce the time complexity to O(n).
+
+Q76. What is dynamic programming?
+
+Ans: Dynamic programming is a technique that solves complex problems by breaking them into smaller overlapping subproblems and storing their results.
+
+Q77. What is the difference between memoization and tabulation?
+
+Ans:
+
+Memoization uses a top-down approach, usually with recursion.
+Tabulation uses a bottom-up approach, usually with iteration.
+
+Q78. Is Fibonacci series an example of dynamic programming?
+
+Ans: Yes. It is a common example used to explain dynamic programming because it has overlapping subproblems.
+
+7. MORE TWISTED OUTPUT-BASED QUESTIONS
+
+Q79. What will this code print?
+
+print(fibonacci_recursive(5))
+
+Ans: 5
+
+Explanation: The function returns the Fibonacci number at position 5.
+
+Q80. What will this code print?
+
+print(fibonacci_recursive(6))
+
+Ans: 8
+
+Q81. What happens here?
+
+a, b = 0, 1
+a = b
+b = a + b
+
+Ans: a = 1 and b = 2.
+
+Note: This is different from simultaneous assignment because the value of a is updated before calculating b.
+
+Q82. What is the output?
+
+for i in range(1, 5):
+print(i)
+
+Ans:
+
+1
+2
+3
+4
+
+Q83. What is the output?
+
+print(list(range(5)))
+
+Ans: [0, 1, 2, 3, 4]
+
+Q84. What is the output?
+
+print(5 // 2)
+
+Ans: 2. The // operator performs floor division.
+
+Q85. What is the output?
+
+print(5 % 2)
+
+Ans: 1. The % operator returns the remainder.
+
+Q86. What happens if we write n < 1 instead of n <= 1 in the recursive function?
+
+Ans: The base condition will stop only at n = 0 or negative values. It will not stop at n = 1, causing incorrect recursive execution for positive inputs.
+
+Q87. What happens if we write return 1 instead of return n?
+
+Ans: Both F(0) and F(1) will return 1, so the Fibonacci series will be incorrect.
+
+Q88. What happens if we remove end=" "?
+
+Ans: Each Fibonacci number will be printed on a separate line because print() moves to the next line by default.
+
+Q89. Can we use a while loop instead of a for loop?
+
+Ans: Yes. Both loops can be used to generate the Fibonacci series.
+
+Q90. What is the difference between print and return?
+
+Ans:
+
+print displays a value on the screen.
+return sends a value back to the calling function.
+8. COMMON ERRORS IN YOUR PROGRAM
+
+Q91. What is RecursionError?
+
+Ans: It occurs when the maximum recursion depth is exceeded.
+
+Q92. What is ValueError?
+
+Ans: It occurs when a function receives an argument of the correct type but an inappropriate value, such as converting "abc" into an integer.
+
+Q93. What is SyntaxError?
+
+Ans: It occurs when Python code violates the language's syntax rules.
+
+Q94. What is IndentationError?
+
+Ans: It occurs when the indentation of a code block is incorrect.
+
+Q95. Why is Python indentation important?
+
+Ans: Python uses indentation to identify blocks of code instead of curly brackets.
+
+9. IMPORTANT DIFFERENCE TABLES
+Recursive	        				Non-Recursive
+Uses function calls.					Uses loops.
+Has a base condition.					Uses loop termination.
+More memory usage.					Less memory usage.
+O(2^n) time for this implementation.			O(n) time.
+O(n) auxiliary space.					O(1) auxiliary space.
+print()	return
+Displays output.					Returns a value.
+Does not send a calculated result back to the caller.	Sends a result back to the caller.
+Used to show Fibonacci numbers.				Used to calculate and return Fibonacci numbers.

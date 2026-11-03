@@ -1,0 +1,1039 @@
+"""
+Q.•	ML-1: Given a bank customer, build a neural network-based classifier that can determine whether they will leave or not in the next 6 months. 
+o	Dataset: Kaggle bank customer churn (10,000 samples, 14 features such as CustomerId, CreditScore, Geography, Gender, Age, Tenure, Balance). Link: https://www.kaggle.com/barelydedicated/bank-customer-churn-modeling
+o	Steps: 
+1.	Read the dataset.
+2.	Separate the feature and target sets, and split into training and test sets.
+3.	Normalize the train and test data.
+4.	Initialize and build the model. Identify points of improvement and implement them.
+5.	Print the accuracy score and confusion matrix (5 points).
+
+Dataset Download : https://drive.google.com/file/d/1VxDUw9CG2Uac2N8pjojdDmQ8iTl4pVzB/view?usp=sharing
+"""
+
+# =====================================================
+# CELL 1: IMPORT LIBRARIES
+# =====================================================
+
+import pandas as pd
+import numpy as np
+
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import accuracy_score, confusion_matrix
+
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout
+from tensorflow.keras.callbacks import EarlyStopping
+
+
+# =====================================================
+# CELL 2: READ DATASET
+# =====================================================
+
+data = pd.read_csv("Churn_Modelling.csv")
+
+print("Dataset Loaded Successfully")
+print(data.head())
+
+
+# =====================================================
+# CELL 3: DATASET INFORMATION
+# =====================================================
+
+print("\nDataset Information:")
+print(data.info())
+
+print("\nMissing Values:")
+print(data.isnull().sum())
+
+print("\nDataset Shape:", data.shape)
+
+
+# =====================================================
+# CELL 4: DATA PREPROCESSING
+# =====================================================
+
+# Remove unnecessary columns
+data = data.drop(["RowNumber", "CustomerId", "Surname"], axis=1)
+
+# Convert categorical data into numerical data
+data = pd.get_dummies(
+    data, columns=["Geography", "Gender"], dtype=int
+)
+
+# Separate features and target
+X = data.drop("Exited", axis=1)
+y = data["Exited"]
+
+print("\nFeatures and Target Separated")
+
+
+# =====================================================
+# CELL 5: SPLIT TRAINING AND TESTING DATA
+# =====================================================
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+print("Training Data:", X_train.shape)
+print("Testing Data:", X_test.shape)
+
+
+# =====================================================
+# CELL 6: NORMALIZE DATA
+# =====================================================
+
+scaler = StandardScaler()
+
+# Fit scaler on training data
+X_train = scaler.fit_transform(X_train)
+
+# Transform testing data
+X_test = scaler.transform(X_test)
+
+print("Data Normalized Successfully")
+
+
+# =====================================================
+# CELL 7: BUILD NEURAL NETWORK MODEL
+# =====================================================
+
+model = Sequential()
+
+# First hidden layer
+model.add(Dense(16, activation="relu",
+                input_shape=(X_train.shape[1],)))
+
+# Second hidden layer
+model.add(Dense(8, activation="relu"))
+
+# Dropout to reduce overfitting
+model.add(Dropout(0.2))
+
+# Output layer
+model.add(Dense(1, activation="sigmoid"))
+
+model.summary()
+
+
+# =====================================================
+# CELL 8: COMPILE MODEL
+# =====================================================
+
+model.compile(
+    optimizer="adam",
+    loss="binary_crossentropy",
+    metrics=["accuracy"]
+)
+
+print("Model Compiled Successfully")
+
+
+# =====================================================
+# CELL 9: TRAIN MODEL
+# =====================================================
+
+# Early stopping to prevent overfitting
+early_stop = EarlyStopping(
+    monitor="val_loss",
+    patience=5,
+    restore_best_weights=True
+)
+
+history = model.fit(
+    X_train,
+    y_train,
+    epochs=30,
+    batch_size=32,
+    validation_split=0.2,
+    callbacks=[early_stop]
+)
+
+
+# =====================================================
+# CELL 10: MAKE PREDICTIONS
+# =====================================================
+
+predictions = model.predict(X_test)
+
+# Convert probabilities into 0 or 1
+y_pred = (predictions > 0.5).astype(int)
+
+print("Predictions Completed")
+
+
+# =====================================================
+# CELL 11: CALCULATE ACCURACY
+# =====================================================
+
+accuracy = accuracy_score(y_test, y_pred)
+
+print("\nModel Accuracy:", accuracy * 100, "%")
+
+
+# =====================================================
+# CELL 12: CONFUSION MATRIX
+# =====================================================
+
+cm = confusion_matrix(y_test, y_pred)
+
+print("\nConfusion Matrix:")
+print(cm)
+
+
+# =====================================================
+# CELL 13: POINTS OF IMPROVEMENT
+# =====================================================
+
+print("\nPoints of Improvement:")
+print("1. Data Normalization using StandardScaler")
+print("2. Multiple Hidden Layers")
+print("3. Dropout to reduce Overfitting")
+print("4. Early Stopping")
+print("5. Adam Optimizer")
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+#=======VIVA Questions======
+"""
+Q4. What is a Neural Network?
+Ans: A Neural Network is a machine learning model inspired by the human brain that learns patterns from data.
+
+Q5. What type of machine learning problem is this?
+Ans: Supervised Learning and Binary Classification.
+
+Q6. What is Binary Classification?
+Ans: Binary Classification is a classification problem in which the output has only two possible classes, such as 0 and 1.
+
+Q9. What is Feature Selection?
+Ans: Feature Selection is the process of selecting relevant input variables for training a machine learning model.
+
+Q11. What is One-Hot Encoding?
+Ans: One-Hot Encoding converts categorical values into separate binary columns.
+
+Q12. Why do we use pd.get_dummies()?
+Ans: To convert categorical columns such as Geography and Gender into numerical columns.
+
+Data Normalization Questions
+Q15. What is Normalization?
+Ans: Normalization is the process of scaling features to a common range or distribution so that features with larger values do not dominate model training.
+
+Q16. Why do we use StandardScaler?
+Ans: StandardScaler standardizes features by subtracting the mean and dividing by the standard deviation.
+
+Q17. What is the formula of StandardScaler?
+->   z = Original value - Mean / Standard Deviation
+
+Q18. Why do we use fit_transform() on training data and transform() on testing data?
+Ans: To, calculate scaling parameters using training data only and apply the same parameters to testing data, preventing data leakage.
+
+Neural Network Questions
+Q19. What are the main layers of a Neural Network?
+Ans:
+1. Input Layer
+2. Hidden Layer
+3. Output Layer
+
+Q20. What is an Activation Function?
+Ans: An Activation Function determines whether and how strongly 
+     a neuron should activate based on its input.
+
+Q21. What is ReLU?
+Ans: ReLU stands for Rectified Linear Unit. It returns zero for negative values and the same value for positive values.
+     ReLU(x)= max(0,x)
+
+Q22. Why do we use Sigmoid in the output layer?
+Ans: Sigmoid converts the output into a probability between 0 and 1, making it suitable for binary classification.
+
+Q23. What is Dropout?
+Ans: Dropout is a regularization technique that randomly disables some neurons during training to reduce overfitting.
+
+Q24. What is Overfitting?
+Ans: Overfitting occurs when a model performs well on training data but poorly on unseen testing data.
+
+Q28. What is Adam Optimizer?
+Ans: Adam stands for Adaptive Moment Estimation. It,
+     Is an optimization algorithm that adjusts the learning rate for model parameters.
+
+Q29. What is a Loss Function?
+Ans: A loss function measures the difference between actual and predicted outputs.
+
+Q30. Why do we use Binary Crossentropy?
+Ans: Because this is a binary classification problem with two possible outputs, 0 and 1.
+
+Q31. What is Early Stopping?
+Ans: Early Stopping stops model training when validation performance stops improving, helping prevent overfitting.
+
+Q32. What does patience=5 mean?
+Ans: Training stops if the monitored validation loss does not improve for 5 consecutive epochs.
+
+Q33. What is Accuracy?
+Ans: Accuracy = correct prediction/total prediction x 100
+
+Q34. What is a Confusion Matrix?
+Ans: A Confusion Matrix is a table used to evaluate 
+     a classification model by comparing actual and 
+     predicted values.
+
+Q35. What are TP, TN, FP, and FN?
+Ans:
+- TP (True Positive): Model correctly predicts the positive class.
+- TN (True Negative): Model correctly predicts the negative class.
+- FP (False Positive): Model incorrectly predicts positive when the actual class is negative.
+- FN (False Negative): Model incorrectly predicts negative when the actual class is positive.
+
+Q17. What does axis=1 mean in data.drop()?
+Ans: It indicates that columns should be removed. axis=0 is used to remove rows.
+
+Q2. What is Underfitting?
+Ans: Underfitting occurs when a machine learning model is too simple to learn the patterns in the training data, 
+     resulting in poor performance on both training and testing data.
+
+Q1. What is Precision?
+Ans: P = TP/TP+FP
+
+Q11. What does data.info() do?
+Ans: It displays dataset information such as column names, data types, and non-null values.
+
+Q27. What does Dense(16, activation="relu") mean?
+Ans: It creates a fully connected hidden layer containing 16 neurons with ReLU activation.
+"""
+==================================================
+PART 1: IMPORT LIBRARIES
+
+import pandas as pd
+
+Imports the Pandas library.
+Pandas is used for data manipulation and analysis.
+pd is an alias for pandas.
+
+import numpy as np
+
+Imports the NumPy library.
+NumPy is used for numerical calculations and array operations.
+np is an alias for numpy.
+
+from sklearn.model_selection import train_test_split
+
+Imports train_test_split from Scikit-learn.
+It is used to divide the dataset into training and testing data.
+
+from sklearn.preprocessing import StandardScaler
+
+Imports StandardScaler.
+It is used to normalize or standardize numerical data.
+
+from sklearn.metrics import accuracy_score, confusion_matrix
+
+Imports accuracy_score and confusion_matrix.
+accuracy_score calculates model accuracy.
+confusion_matrix evaluates the model's predictions.
+
+from tensorflow.keras.models import Sequential
+
+Imports the Sequential model from TensorFlow Keras.
+It is used to create a neural network layer by layer.
+
+from tensorflow.keras.layers import Dense, Dropout
+
+Imports Dense and Dropout layers.
+Dense creates fully connected neural network layers.
+Dropout helps reduce overfitting.
+
+from tensorflow.keras.callbacks import EarlyStopping
+
+Imports EarlyStopping.
+It stops model training when performance stops improving.
+==================================================
+PART 2: READ DATASET
+
+data = pd.read_csv("Churn_Modelling.csv")
+
+Reads the CSV dataset using Pandas.
+Stores the dataset in the variable data.
+The dataset contains customer information and whether customers left the bank.
+
+print("Dataset Loaded Successfully")
+
+Displays a message confirming that the dataset is loaded.
+
+print(data.head())
+
+Displays the first five rows of the dataset.
+head() is used to preview the dataset.
+==================================================
+PART 3: DATASET INFORMATION
+
+print("\nDataset Information:")
+
+Displays the heading Dataset Information.
+
+print(data.info())
+
+Displays information about the dataset.
+Shows column names, data types and non-null values.
+
+print("\nMissing Values:")
+
+Displays the heading Missing Values.
+
+print(data.isnull().sum())
+
+Checks for missing values in each column.
+isnull() identifies missing values.
+sum() counts the missing values.
+
+print("\nDataset Shape:", data.shape)
+
+Displays the dimensions of the dataset.
+shape returns the number of rows and columns.
+
+Example: (10000, 14) means 10,000 rows and 14 columns.
+
+==================================================
+PART 4: DATA PREPROCESSING
+
+data = data.drop(["RowNumber", "CustomerId", "Surname"], axis=1)
+
+Removes unnecessary columns from the dataset.
+RowNumber represents the row number.
+CustomerId represents the customer's identification number.
+Surname represents the customer's last name.
+axis=1 indicates that columns are being removed.
+
+data = pd.get_dummies(data, columns=["Geography", "Gender"], dtype=int)
+
+Converts categorical data into numerical data.
+This process is called One-Hot Encoding.
+Geography and Gender contain categorical values.
+Creates separate binary columns for different categories.
+dtype=int stores the encoded values as 0 and 1.
+
+Example:
+
+Gender:
+
+Male = 1, Female = 0
+
+Geography:
+
+France = 1 or 0
+Germany = 1 or 0
+Spain = 1 or 0
+
+Note: One-hot encoding creates separate columns for each category.
+
+X = data.drop("Exited", axis=1)
+
+Separates the input features from the dataset.
+Removes the Exited column.
+X contains customer details used for prediction.
+
+y = data["Exited"]
+
+Separates the target variable.
+y contains the Exited column.
+0 means the customer stayed.
+1 means the customer left the bank.
+
+print("\nFeatures and Target Separated")
+
+Displays a message confirming that features and target are separated.
+==================================================
+PART 5: SPLIT TRAINING AND TESTING DATA
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+Divides the dataset into training and testing sets.
+X_train contains input features for training.
+X_test contains input features for testing.
+y_train contains actual target values for training.
+y_test contains actual target values for testing.
+test_size=0.2 means 20% data is used for testing and 80% for training.
+random_state=42 ensures reproducible splitting.
+
+Example:
+
+For 10,000 records:
+
+Training data = 8,000 records.
+Testing data = 2,000 records.
+
+print("Training Data:", X_train.shape)
+
+Displays the dimensions of training data.
+
+print("Testing Data:", X_test.shape)
+
+Displays the dimensions of testing data.
+==================================================
+PART 6: NORMALIZE DATA
+
+scaler = StandardScaler()
+
+Creates an object of StandardScaler.
+It is used to standardize the input features.
+
+X_train = scaler.fit_transform(X_train)
+
+fit() calculates the mean and standard deviation from training data.
+transform() standardizes the training data.
+Converts the features to a common scale.
+
+Formula:
+
+Z = (X - Mean) / Standard Deviation
+
+X_test = scaler.transform(X_test)
+
+Standardizes the testing data using the same mean and standard deviation calculated from training data.
+This prevents data leakage.
+
+print("Data Normalized Successfully")
+
+Displays a message confirming that data normalization is completed.
+==================================================
+PART 7: BUILD NEURAL NETWORK MODEL
+
+model = Sequential()
+
+Creates a Sequential Neural Network model.
+Sequential means layers are arranged one after another.
+
+FIRST HIDDEN LAYER
+
+model.add(Dense(16, activation="relu", input_shape=(X_train.shape[1],)))
+
+Adds the first hidden layer to the neural network.
+Dense represents a fully connected layer.
+16 represents the number of neurons.
+activation="relu" uses the ReLU activation function.
+input_shape specifies the number of input features.
+
+ReLU Formula:
+
+f(x) = max(0, x)
+
+It converts negative values into zero and keeps positive values unchanged.
+
+SECOND HIDDEN LAYER
+
+model.add(Dense(8, activation="relu"))
+
+Adds the second hidden layer.
+Contains 8 neurons.
+Uses ReLU activation.
+Learns additional patterns from the data.
+
+DROPOUT LAYER
+
+model.add(Dropout(0.2))
+
+Adds a Dropout layer.
+Randomly disables 20% of neurons during training.
+Helps prevent overfitting.
+Improves the model's ability to generalize.
+
+OUTPUT LAYER
+
+model.add(Dense(1, activation="sigmoid"))
+
+Adds the output layer.
+Contains one neuron because this is a binary classification problem.
+Uses the sigmoid activation function.
+Produces a probability between 0 and 1.
+
+Sigmoid Formula:
+
+f(x) = 1 / (1 + e^-x)
+
+Example:
+
+Probability = 0.85
+
+Prediction = 1 (Customer will leave).
+
+Probability = 0.20
+
+Prediction = 0 (Customer will stay).
+
+model.summary()
+
+Displays the complete neural network architecture.
+Shows the layers, output shapes and number of parameters.
+==================================================
+PART 8: COMPILE MODEL
+
+model.compile(
+
+Compiles the neural network.
+Configures the optimizer, loss function and evaluation metrics.
+
+optimizer="adam",
+
+Uses the Adam optimizer.
+Adam stands for Adaptive Moment Estimation.
+It adjusts learning rates during training to optimize model performance.
+
+loss="binary_crossentropy",
+
+Defines the loss function.
+It measures the difference between actual and predicted values.
+It is commonly used for binary classification problems.
+
+metrics=["accuracy"]
+
+Specifies accuracy as the evaluation metric.
+Measures the percentage of correct predictions.
+
+)
+
+Closes the compile() function.
+
+print("Model Compiled Successfully")
+
+Displays a confirmation message.
+==================================================
+PART 9: TRAIN MODEL
+
+early_stop = EarlyStopping(monitor="val_loss", patience=5, restore_best_weights=True)
+
+Creates an EarlyStopping callback.
+monitor="val_loss" monitors validation loss.
+patience=5 means training stops if validation loss does not improve for 5 consecutive epochs.
+restore_best_weights=True restores the model weights from the epoch with the best validation loss.
+
+history = model.fit(
+
+Starts training the neural network.
+Stores the training history in the variable history.
+
+X_train,
+
+Provides training input features to the model.
+
+y_train,
+
+Provides actual training output values.
+
+epochs=30,
+
+Specifies that the model can train for a maximum of 30 epochs.
+One epoch means one complete pass through the training dataset.
+
+batch_size=32,
+
+Divides the training data into batches of 32 records.
+The model updates its weights after processing each batch.
+
+validation_split=0.2,
+
+Uses 20% of the training data for validation.
+Helps monitor model performance during training.
+
+callbacks=[early_stop]
+
+Applies the EarlyStopping callback during training.
+Stops training when validation loss stops improving.
+
+)
+
+Completes the model.fit() function.
+==================================================
+PART 10: MAKE PREDICTIONS
+
+predictions = model.predict(X_test)
+
+Uses the trained model to predict the testing data.
+Returns probability values between 0 and 1.
+
+y_pred = (predictions > 0.5).astype(int)
+
+Converts predicted probabilities into binary values.
+If probability is greater than 0.5, prediction becomes 1.
+Otherwise, prediction becomes 0.
+astype(int) converts the results into integers.
+
+print("Predictions Completed")
+
+Displays a message confirming that predictions are completed.
+==================================================
+PART 11: CALCULATE ACCURACY
+
+accuracy = accuracy_score(y_test, y_pred)
+
+Compares actual values with predicted values.
+Calculates the percentage of correct predictions.
+Stores the result in accuracy.
+
+print("\nModel Accuracy:", accuracy * 100, "%")
+
+Displays model accuracy in percentage.
+Multiplication by 100 converts the accuracy into percentage form.
+
+Formula:
+
+Accuracy = (Correct Predictions / Total Predictions) × 100
+
+==================================================
+PART 12: CONFUSION MATRIX
+
+cm = confusion_matrix(y_test, y_pred)
+
+Creates a confusion matrix.
+Compares actual values with predicted values.
+Stores the result in cm.
+
+print("\nConfusion Matrix:")
+
+Displays the heading Confusion Matrix.
+
+print(cm)
+
+Displays the confusion matrix.
+
+Confusion Matrix Structure:
+
+	Predicted 0	Predicted 1
+Actual 0	True Negative	False Positive
+Actual 1	False Negative	True Positive
+
+Explanation:
+
+True Positive (TP): Correctly predicts that a customer will leave.
+True Negative (TN): Correctly predicts that a customer will stay.
+False Positive (FP): Predicts that a customer will leave, but the customer actually stays.
+False Negative (FN): Predicts that a customer will stay, but the customer actually leaves.
+==================================================
+PART 13: POINTS OF IMPROVEMENT
+
+print("\nPoints of Improvement:")
+
+Displays the heading Points of Improvement.
+
+print("1. Data Normalization using StandardScaler")
+
+Displays that normalization improves the consistency of feature scales.
+
+print("2. Multiple Hidden Layers")
+
+Displays that multiple hidden layers help the network learn complex patterns.
+
+print("3. Dropout to reduce Overfitting")
+
+Displays that Dropout helps prevent overfitting.
+
+print("4. Early Stopping")
+
+Displays that Early Stopping prevents unnecessary training.
+
+print("5. Adam Optimizer")
+
+Displays that the Adam optimizer helps update model weights efficiently.
+==================================================
+PART 14: IMPORTANT THEORY QUESTIONS AND ANSWERS
+
+Q1. What is Customer Churn Prediction?
+
+Ans: Customer Churn Prediction is the process of predicting whether a customer will stop using a company's services or leave the company.
+
+Q2. What is ANN?
+
+Ans: ANN stands for Artificial Neural Network. It is a machine learning model inspired by the working of the human brain.
+
+Q3. What is Machine Learning?
+
+Ans: Machine Learning is a branch of Artificial Intelligence that enables computers to learn patterns from data and make predictions.
+
+Q4. What is Deep Learning?
+
+Ans: Deep Learning is a subset of Machine Learning that uses neural networks with multiple layers to learn complex patterns.
+
+Q5. What is supervised learning?
+
+Ans: Supervised learning is a machine learning technique in which a model learns from labelled training data.
+
+Q6. What type of problem is Customer Churn Prediction?
+
+Ans: It is a binary classification problem because the output has two classes: 0 and 1.
+
+Q7. What is a feature?
+
+Ans: A feature is an input variable used by a machine learning model to make predictions.
+
+Q8. What is a target variable?
+
+Ans: A target variable is the output that the model tries to predict. In this program, it is Exited.
+
+Q9. What is data preprocessing?
+
+Ans: Data preprocessing is the process of cleaning and transforming raw data into a suitable format for machine learning.
+
+Q10. What is One-Hot Encoding?
+
+Ans: One-Hot Encoding converts categorical data into multiple binary columns containing 0s and 1s.
+
+Q11. What is StandardScaler?
+
+Ans: StandardScaler is a preprocessing technique that standardizes data using mean and standard deviation.
+
+Q12. What is a neural network?
+
+Ans: A neural network is a computing model consisting of interconnected neurons arranged in layers.
+
+Q13. What is a neuron?
+
+Ans: A neuron is a basic processing unit of a neural network that receives inputs, applies weights and bias, and produces an output.
+
+Q14. What is an activation function?
+
+Ans: An activation function determines the output of a neuron and introduces non-linearity into a neural network.
+
+Q15. What is ReLU?
+
+Ans: ReLU stands for Rectified Linear Unit. It converts negative values into zero and keeps positive values unchanged.
+
+Q16. What is Sigmoid?
+
+Ans: Sigmoid is an activation function that converts values into a range between 0 and 1.
+
+Q17. What is Dropout?
+
+Ans: Dropout is a regularization technique that randomly disables some neurons during training to reduce overfitting.
+
+Q18. What is an epoch?
+
+Ans: An epoch is one complete pass of the entire training dataset through the neural network.
+
+Q19. What is batch size?
+
+Ans: Batch size is the number of training samples processed before updating the model weights.
+
+Q20. What is an optimizer?
+
+Ans: An optimizer updates the weights and biases of a neural network to minimize the loss function.
+
+Q21. What is the Adam optimizer?
+
+Ans: Adam stands for Adaptive Moment Estimation. It is an optimization algorithm used to update neural network weights efficiently.
+
+Q22. What is loss function?
+
+Ans: A loss function measures the difference between actual and predicted outputs.
+
+Q23. What is Binary Crossentropy?
+
+Ans: Binary Crossentropy is a loss function used for binary classification problems.
+
+Q24. What is Early Stopping?
+
+Ans: Early Stopping is a technique that stops model training when validation performance stops improving.
+
+Q25. What is overfitting?
+
+Ans: Overfitting occurs when a model performs well on training data but poorly on unseen testing data.
+
+Q26. What is underfitting?
+
+Ans: Underfitting occurs when a model fails to learn the important patterns in the training data.
+
+Q27. What is accuracy?
+
+Ans: Accuracy is the ratio of correctly predicted values to the total number of predictions.
+
+Q28. What is a confusion matrix?
+
+Ans: A confusion matrix is a table used to evaluate a classification model by comparing actual and predicted values.
+
+Q29. What is TensorFlow?
+
+Ans: TensorFlow is an open-source machine learning framework developed by Google.
+
+Q30. What is Keras?
+
+Ans: Keras is a high-level deep learning API used to build and train neural networks.
+
+==================================================
+PART 15: TIME AND SPACE COMPLEXITY
+
+Unlike simple algorithms, ANN does not have one fixed time complexity for the entire program. It depends on the number of samples, features, neurons, layers and training epochs.
+
+Important points:
+
+Data preprocessing: Depends on the dataset size and number of features.
+Neural network training: Depends on the architecture, batch size and epochs.
+Prediction: Depends on the number of testing records and model architecture.
+
+For a fully connected network, approximate training computation is:
+
+O(E × N × (d × h1 + h1 × h2 + h2 × 1))
+
+Where:
+
+E = Number of epochs.
+N = Number of training samples.
+d = Number of input features.
+h1 = Number of neurons in the first hidden layer.
+h2 = Number of neurons in the second hidden layer.
+==================================================
+PART 16: TOP 10 MOST IMPORTANT VIVA QUESTIONS AND ANSWERS
+
+Q1. What is the main objective of this project?
+
+Ans: To predict whether a bank customer will leave the bank or continue using its services using an Artificial Neural Network.
+
+Q2. Which algorithm is used in this project?
+
+Ans: Artificial Neural Network (ANN).
+
+Q3. What is the target variable?
+
+Ans: Exited. It represents whether the customer left the bank (1) or stayed (0).
+
+Q4. Why do we use train_test_split?
+
+Ans: To divide the dataset into training and testing data.
+
+Q5. Why do we use StandardScaler?
+
+Ans: To standardize the input features so that they have comparable scales.
+
+Q6. Why do we use ReLU and Sigmoid?
+
+Ans: ReLU is used in hidden layers to introduce non-linearity, while Sigmoid is used in the output layer to produce a probability between 0 and 1.
+
+Q7. Why do we use Dropout?
+
+Ans: To reduce overfitting by randomly disabling some neurons during training.
+
+Q8. Why do we use Adam optimizer?
+
+Ans: To update the model weights efficiently and minimize the loss function.
+
+Q9. Why do we use EarlyStopping?
+
+Ans: To stop training when validation loss stops improving and restore the best model weights.
+
+Q10. What is the use of a confusion matrix?
+
+Ans: It evaluates the classification model using True Positive, True Negative, False Positive and False Negative values.
+
+==================================================
+PART 17: TRICKY QUESTIONS EXAMINERS MAY ASK
+
+Q1. Why is Customer Churn Prediction called binary classification?
+
+Ans: Because the output has only two possible classes: 0 (customer stays) and 1 (customer leaves).
+
+Q2. Why do we remove CustomerId and Surname?
+
+Ans: They are identification-related columns and are not useful predictive features for this model.
+
+Q3. Why do we remove RowNumber?
+
+Ans: It is only a row identifier and does not provide useful information for predicting customer churn.
+
+Q4. What happens if we do not normalize the data?
+
+Ans: Features with larger numerical ranges may dominate the learning process and make training less effective.
+
+Q5. Why do we fit StandardScaler only on training data?
+
+Ans: To prevent data leakage from the testing data into the training process.
+
+Q6. Why do we use sigmoid instead of ReLU in the output layer?
+
+Ans: Sigmoid produces probabilities between 0 and 1, which is suitable for binary classification.
+
+Q7. What happens if the prediction probability is exactly 0.5?
+
+Ans: In this program, the condition is predictions > 0.5, so a probability of exactly 0.5 is classified as 0.
+
+Q8. What happens if we increase the number of epochs?
+
+Ans: Training may improve initially, but too many epochs can cause overfitting and increase training time.
+
+Q9. What happens if we increase the dropout rate?
+
+Ans: More neurons are randomly disabled during training. A very high dropout rate may cause underfitting.
+
+Q10. What happens if we remove EarlyStopping?
+
+Ans: The model will continue training for the specified maximum number of epochs even if validation loss stops improving.
+
+Q11. What is the difference between training and testing data?
+
+Ans:
+
+Training data is used to teach the model.
+Testing data is used to evaluate the trained model on unseen data.
+
+Q12. What is validation data?
+
+Ans: Validation data is used during training to monitor model performance and help tune the model.
+
+Q13. What is the difference between validation and testing data?
+
+Ans:
+
+Validation data helps monitor and tune the model during training.
+Testing data evaluates the final model after training.
+
+Q14. What is the difference between classification and regression?
+
+Ans:
+
+Classification predicts categories or classes.
+Regression predicts continuous numerical values.
+
+Q15. Can ANN solve regression problems?
+
+Ans: Yes. ANN can solve both classification and regression problems by using suitable output layers and loss functions.
+
+Q16. Why is the output layer Dense(1)?
+
+Ans: Because the problem has only one output variable representing whether the customer leaves or stays.
+
+Q17. Why do we use binary_crossentropy?
+
+Ans: Because the target variable contains two classes, 0 and 1.
+
+Q18. What does random_state=42 do?
+
+Ans: It ensures that the dataset is split consistently every time the program runs.
+
+Q19. What is the difference between fit() and transform()?
+
+Ans:
+
+fit() learns parameters such as mean and standard deviation.
+transform() applies those learned parameters to the data.
+
+Q20. What happens if the dataset contains missing values?
+
+Ans: Missing values should be handled using suitable techniques such as removing records or filling missing values before training the model.
+
+==================================================
+PART 18: HOW TO EXPLAIN YOUR PROGRAM TO THE EXAMINER
+
+"My program implements Customer Churn Prediction using an Artificial Neural Network.
+
+First, I import the required libraries such as Pandas, NumPy, Scikit-learn and TensorFlow.
+
+Then, I load the Churn_Modelling.csv dataset and check its information, shape and missing values.
+
+Next, I remove unnecessary columns and convert categorical data into numerical form using One-Hot Encoding.
+
+After that, I separate the input features and target variable and divide the dataset into training and testing sets in an 80:20 ratio.
+
+Then, I normalize the data using StandardScaler.
+
+Next, I build a Sequential Neural Network containing two hidden layers with ReLU activation, a Dropout layer and one output neuron with Sigmoid activation.
+
+I compile the model using the Adam optimizer, Binary Crossentropy loss function and Accuracy metric.
+
+After that, I train the model using 30 maximum epochs, a batch size of 32 and Early Stopping.
+
+Finally, I make predictions on testing data, calculate accuracy and display the confusion matrix to evaluate the model."

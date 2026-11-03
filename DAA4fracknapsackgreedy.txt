@@ -1,0 +1,574 @@
+#•	DAA-4: Write a program to solve a fractional Knapsack problem using a greedy method.
+# Fractional Knapsack using Greedy Method
+
+n = int(input("Enter number of items: "))
+
+weight = []
+profit = []
+ratio = []
+
+# Accept weight and profit of each item
+for i in range(n):
+    w = float(input("Enter weight: "))
+    p = float(input("Enter profit: "))
+
+    weight.append(w)
+    profit.append(p)
+
+    # Calculate profit/weight ratio
+    ratio.append(p / w)
+
+capacity = float(input("Enter knapsack capacity: "))
+
+# Sort items according to ratio in descending order
+for i in range(n):
+    for j in range(i + 1, n):
+
+        if ratio[i] < ratio[j]:
+
+            # Swap ratios
+            ratio[i], ratio[j] = ratio[j], ratio[i]
+
+            # Swap corresponding weights
+            weight[i], weight[j] = weight[j], weight[i]
+
+            # Swap corresponding profits
+            profit[i], profit[j] = profit[j], profit[i]
+
+# Calculate maximum profit
+total_profit = 0
+
+for i in range(n):
+
+    # If complete item fits in knapsack
+    if weight[i] <= capacity:
+        total_profit += profit[i]
+        capacity -= weight[i]
+
+    # If only a fraction of item fits
+    else:
+        total_profit += ratio[i] * capacity
+        capacity = 0
+        break
+
+# Display maximum profit
+print("Maximum Profit:", total_profit)
+
+#---END----
+
+
+#====SAMPLE INPUT====
+"""
+Enter number of items: 3
+
+Enter weight: 10
+Enter profit: 60
+
+Enter weight: 20
+Enter profit: 100
+
+Enter weight: 30
+Enter profit: 120
+
+Enter knapsack capacity: 50
+
+Maximum Profit: 240.0 """
+
+
+#======VIVA Questions====
+"""
+Viva Questions and Answers
+Basic Questions
+
+Q1. What is the Knapsack Problem?
+Ans: The Knapsack Problem is an optimization problem in which we select items to maximize total profit without exceeding the given capacity.
+
+Q2. What is Fractional Knapsack?
+Ans: Fractional Knapsack allows us to take either a complete item or a fraction of an item.
+
+Q3. Which algorithmic technique is used in Fractional Knapsack?
+Ans: Greedy Algorithm.
+
+Q4. What is the main objective of Fractional Knapsack?
+Ans: To maximize total profit within the given knapsack capacity.
+
+Q5. What is the difference between Fractional and 0/1 Knapsack?
+Ans: In Fractional Knapsack, we can take a fraction of an item, whereas in 0/1 Knapsack, we must either take the complete item or leave it.
+
+Q6. What is the profit-to-weight ratio?
+
+Ans: It, is the profit earned per unit of weight, calculated using: Ratio = Profit/Weight
+
+
+Greedy Algorithm Questions
+Q7. Why do we use the Greedy method in Fractional Knapsack?
+Ans: Because selecting items with the highest profit-to-weight ratio first helps maximize the total profit.
+
+Q8. Why do we sort items in descending order of ratio?
+Ans: To select the most profitable items per unit of weight first.
+
+Q9. What happens if the complete item fits in the knapsack?
+Ans: We take the complete item and subtract its weight from the remaining capacity.
+
+Q10. What happens if only a fraction of an item fits?
+Ans: We take the fraction that fits, calculate its profit, and stop the algorithm.
+
+Q11. Can we take half of an item in Fractional Knapsack?
+Ans: Yes. We can take any fraction of an item.
+
+Q12. Is Greedy Algorithm always optimal for Fractional Knapsack?
+Ans: Yes. Selecting items in descending order of profit-to-weight ratio gives an optimal solution for Fractional Knapsack.
+
+Program-Related Questions
+Q13. Why do we use three lists: weight, profit, and ratio?
+
+Ans: To store the weight, profit, and profit-to-weight ratio of each item.
+
+Q14. What does ratio.append(p / w) do?
+
+Ans: It calculates and stores the profit-to-weight ratio of an item.
+
+Q15. Why do we use nested loops for sorting?
+
+Ans: To arrange items in descending order of their profit-to-weight ratios.
+
+Q16. Why do we swap weight, profit, and ratio together?
+
+Ans: To maintain the correct relationship between each item's weight, profit, and ratio.
+
+Q17. What does total_profit = 0 represent?
+Ans: It initializes the total profit to zero.
+
+Q18. Why do we use capacity -= weight[i]?
+
+Ans: To reduce the remaining knapsack capacity after selecting a complete item.
+
+Q19. Explain total_profit += ratio[i] * capacity.
+
+Ans: It calculates the profit earned by taking a fraction of the current item that fits in the remaining capacity.
+
+Q20. Why do we use break in the else condition?
+
+Ans: Because the knapsack becomes full after taking the required fraction of the item, so no more items can be added.
+Complexity-Related Questions
+Q21. What is the time complexity of this program?
+
+Ans: O(n²), because the nested loops are used for sorting the items.
+
+Q22. What is the space complexity of this program?
+
+Ans: O(n), because three lists are used to store item weights, profits, and ratios.
+
+Q23. Can we improve the time complexity?
+
+Ans: Yes. We can use Python's built-in sorting function to sort the items in O(n log n) time.
+
+Advanced Questions
+Q24. What is an optimal solution?
+Ans: An optimal solution is the solution that provides the maximum possible profit within the given capacity.
+
+Q25. What happens if the knapsack capacity is zero?
+Ans: No items can be selected, and the maximum profit is zero.
+
+Q26. What happens if the total weight of all items is less than the capacity?
+
+Ans: All items can be selected, and the remaining capacity stays unused.
+
+Q27. Where is the Knapsack Problem used?
+
+Ans: It is used in resource allocation, cargo loading, investment planning, and budget optimization.
+
+Q28. What is the difference between Greedy and Dynamic Programming?
+
+Ans: Greedy makes the best local choice at each step, whereas Dynamic Programming solves and stores results of smaller subproblems.
+"""
+
+------------------------------------------------------------------------------------------------------------------------------------------
+FRACTIONAL KNAPSACK PROBLEM – LINE-BY-LINE CODE EXPLANATION
+1. ACCEPT NUMBER OF ITEMS
+
+n = int(input("Enter number of items: "))
+
+input() accepts the number of items from the user.
+int() converts the input into an integer.
+Stores the total number of items in variable n.
+2. INITIALIZE LISTS
+
+weight = []
+
+Creates an empty list to store the weights of items.
+
+profit = []
+
+Creates an empty list to store the profits of items.
+
+ratio = []
+
+Creates an empty list to store the profit-to-weight ratio of each item.
+3. ACCEPT WEIGHT AND PROFIT OF EACH ITEM
+
+for i in range(n):
+
+Starts a for loop.
+Executes n times to accept the details of each item.
+
+w = float(input("Enter weight: "))
+
+Accepts the weight of an item.
+float() converts the input into a decimal number.
+Stores it in variable w.
+
+p = float(input("Enter profit: "))
+
+Accepts the profit of an item.
+Converts it into a decimal number.
+Stores it in variable p.
+
+weight.append(w)
+
+Adds the weight of the current item to the weight list.
+append() is used to add an element to a list.
+
+profit.append(p)
+
+Adds the profit of the current item to the profit list.
+4. CALCULATE PROFIT/WEIGHT RATIO
+
+ratio.append(p / w)
+
+Calculates the profit-to-weight ratio of each item.
+Divides profit by weight.
+Stores the calculated ratio in the ratio list.
+
+Formula:
+
+Ratio = Profit / Weight
+
+Example:
+
+Profit = 60, Weight = 10
+
+Ratio = 60 / 10 = 6
+
+5. ACCEPT KNAPSACK CAPACITY
+
+capacity = float(input("Enter knapsack capacity: "))
+
+Accepts the maximum weight the knapsack can carry.
+Converts the input into a decimal number.
+Stores it in capacity.
+6. SORT ITEMS ACCORDING TO RATIO
+
+for i in range(n):
+
+Starts the outer loop.
+Executes n times.
+
+for j in range(i + 1, n):
+
+Starts the inner loop.
+Compares the current item with the remaining items.
+
+if ratio[i] < ratio[j]:
+
+Checks whether the current item's ratio is smaller than the next item's ratio.
+If true, swapping is performed.
+This sorts items in descending order of profit-to-weight ratio.
+7. SWAP RATIOS
+
+ratio[i], ratio[j] = ratio[j], ratio[i]
+
+Swaps the ratios of two items.
+The item with the higher ratio moves towards the beginning.
+8. SWAP CORRESPONDING WEIGHTS
+
+weight[i], weight[j] = weight[j], weight[i]
+
+Swaps the corresponding weights.
+Ensures that weights remain associated with their correct items.
+9. SWAP CORRESPONDING PROFITS
+
+profit[i], profit[j] = profit[j], profit[i]
+
+Swaps the corresponding profits.
+Maintains the correct relationship between weight, profit and ratio.
+10. INITIALIZE MAXIMUM PROFIT
+
+total_profit = 0
+
+Initializes the total profit to zero.
+The profit earned from selected items is added to this variable.
+11. SELECT ITEMS FOR KNAPSACK
+
+for i in range(n):
+
+Starts a loop to examine each item after sorting.
+Items are considered in descending order of profit-to-weight ratio.
+12. CHECK WHETHER COMPLETE ITEM FITS
+
+if weight[i] <= capacity:
+
+Checks whether the complete item can fit inside the remaining knapsack capacity.
+
+total_profit += profit[i]
+
+Adds the complete profit of the item to total_profit.
+
+capacity -= weight[i]
+
+Subtracts the item's weight from the remaining knapsack capacity.
+Updates the available capacity.
+13. SELECT FRACTION OF AN ITEM
+
+else:
+
+Executes when the complete item cannot fit inside the remaining capacity.
+
+total_profit += ratio[i] * capacity
+
+Calculates the profit earned by taking only a fraction of the item.
+Multiplies the profit-to-weight ratio by the remaining capacity.
+Adds the calculated profit to total_profit.
+
+Formula:
+
+Fractional Profit = Ratio × Remaining Capacity
+
+capacity = 0
+
+Sets the remaining capacity to zero.
+Indicates that the knapsack is completely full.
+
+break
+
+Stops the loop because no more capacity is available.
+No additional items can be selected.
+14. DISPLAY MAXIMUM PROFIT
+
+print("Maximum Profit:", total_profit)
+
+Displays the maximum profit obtained from the selected items.
+The result includes both complete items and fractional items.
+15. SAMPLE INPUT AND OUTPUT
+
+Input:
+
+Enter number of items: 3
+
+Enter weight: 10
+Enter profit: 60
+
+Enter weight: 20
+Enter profit: 100
+
+Enter weight: 30
+Enter profit: 120
+
+Enter knapsack capacity: 50
+
+Output:
+
+Maximum Profit: 240.0
+
+Explanation:
+
+First, calculate the profit-to-weight ratio.
+
+Item	Weight	Profit	Ratio
+Item 1	10	60	6
+Item 2	20	100	5
+Item 3	30	120	4
+
+The items are already sorted in descending order of ratio.
+
+Knapsack capacity = 50.
+
+Step 1: Select Item 1 completely.
+
+Profit = 60
+
+Remaining capacity = 50 - 10 = 40.
+
+Step 2: Select Item 2 completely.
+
+Profit = 100
+
+Remaining capacity = 40 - 20 = 20.
+
+Step 3: Select 20 weight units of Item 3.
+
+Fractional profit = 4 × 20 = 80.
+
+Total Profit = 60 + 100 + 80 = 240.
+------------------------------------------------------------------------------------------------------------------------------------------
+16. IMPORTANT THEORY QUESTIONS AND ANSWERS
+
+Q1. What is the Fractional Knapsack Problem?
+
+Ans: It is an optimization problem in which items can be divided into fractions to maximize total profit without exceeding the knapsack capacity.
+
+Q2. Which algorithm is used in Fractional Knapsack?
+
+Ans: Greedy Algorithm.
+
+Q3. What is a Greedy Algorithm?
+
+Ans: A greedy algorithm selects the best possible choice at each step to achieve an optimal solution.
+
+Q4. What is a knapsack?
+
+Ans: A knapsack is a container having a fixed weight capacity used to store selected items.
+
+Q5. What is profit-to-weight ratio?
+
+Ans: It is the profit earned per unit of weight.
+
+Formula:
+
+Ratio = Profit / Weight
+
+Q6. Why do we sort items in descending order of ratio?
+
+Ans: To select items that provide maximum profit per unit of weight first.
+
+Q7. What is fractional selection?
+
+Ans: Fractional selection means taking only a portion of an item instead of selecting the complete item.
+
+Q8. Can we take half of an item in Fractional Knapsack?
+
+Ans: Yes. We can take any fraction of an item.
+
+Q9. What is the difference between Fractional and 0/1 Knapsack?
+
+Ans:
+
+Fractional Knapsack allows taking fractions of items.
+0/1 Knapsack allows either selecting the complete item or rejecting it.
+
+Q10. Is the Greedy Algorithm optimal for Fractional Knapsack?
+
+Ans: Yes. Selecting items in descending order of profit-to-weight ratio gives an optimal solution for Fractional Knapsack.
+
+17. TIME AND SPACE COMPLEXITY
+
+Time Complexity: O(n²)
+
+Explanation:
+
+Accepting item details takes O(n).
+Calculating ratios takes O(n).
+Sorting using nested loops takes O(n²).
+Selecting items takes O(n).
+
+Therefore, overall time complexity is O(n²).
+
+Space Complexity: O(n)
+
+Explanation:
+
+Weight list requires O(n) space.
+Profit list requires O(n) space.
+Ratio list requires O(n) space.
+
+Therefore, overall space complexity is O(n).
+
+18. TOP 10 MOST IMPORTANT VIVA QUESTIONS AND ANSWERS
+
+Q1. What is Fractional Knapsack?
+
+Ans: It is an optimization problem in which items can be divided into fractions to maximize profit within a given capacity.
+
+Q2. Which algorithm is used?
+
+Ans: Greedy Algorithm.
+
+Q3. What is the formula for calculating the ratio?
+
+Ans: Ratio = Profit / Weight.
+
+Q4. Why do we sort items in descending order?
+
+Ans: To select items with the highest profit per unit of weight first.
+
+Q5. What is the difference between Fractional and 0/1 Knapsack?
+
+Ans: Fractional Knapsack allows dividing items, whereas 0/1 Knapsack allows only complete selection or rejection.
+
+Q6. What is the use of append()?
+
+Ans: It adds an element to the end of a list.
+
+Q7. Why do we use float()?
+
+Ans: To accept decimal values for weight, profit and capacity.
+
+Q8. What is the use of break?
+
+Ans: It terminates the loop when the knapsack becomes full.
+
+Q9. What is the time complexity of this program?
+
+Ans: O(n²), because sorting is performed using nested loops.
+
+Q10. Is the Greedy Algorithm always optimal for Knapsack?
+
+Ans: It is optimal for Fractional Knapsack but not always optimal for 0/1 Knapsack.
+
+19. TRICKY QUESTIONS EXAMINERS MAY ASK
+
+Q1. What happens if two items have the same ratio?
+
+Ans: Both items have the same profit per unit of weight. Either can be selected first without affecting the optimal profit.
+
+Q2. What happens if the knapsack capacity is zero?
+
+Ans: No items can be selected, and the maximum profit is zero.
+
+Q3. What happens if the capacity is greater than the total weight of all items?
+
+Ans: All items can be selected completely, and the total profit will be the sum of all item profits.
+
+Q4. What happens if the profit is zero?
+
+Ans: The item provides no profit, so selecting it is unnecessary.
+
+Q5. What happens if the weight of an item is zero?
+
+Ans: Division by zero occurs while calculating the ratio. The program will raise a ZeroDivisionError.
+
+Q6. Can we solve Fractional Knapsack using a sorting function?
+
+Ans: Yes. We can use Python's built-in sort() function or sorted() function instead of nested loops.
+
+Q7. Why do we swap weight and profit along with ratio?
+
+Ans: To maintain the correct relationship between each item's weight, profit and ratio after sorting.
+
+Q8. What happens if we sort in ascending order?
+
+Ans: Items with lower profit-to-weight ratios will be selected first, which may result in less profit.
+
+Q9. Can we use a while loop instead of a for loop?
+
+Ans: Yes. A while loop can also be used to select items until the knapsack becomes full or all items are processed.
+
+Q10. Why is Fractional Knapsack called an optimization problem?
+
+Ans: Because it aims to find the maximum possible profit while satisfying the given capacity constraint.
+
+20. HOW TO EXPLAIN YOUR PROGRAM TO THE EXAMINER
+
+"My program implements the Fractional Knapsack Problem using the Greedy Algorithm.
+
+First, I accept the number of items and their respective weights and profits from the user.
+
+Then, I calculate the profit-to-weight ratio for each item.
+
+After that, I sort the items in descending order of their ratios using nested loops and swapping.
+
+Next, I initialize the total profit to zero and check whether each complete item fits into the remaining knapsack capacity.
+
+If the complete item fits, I select it and update the remaining capacity. Otherwise, I select only the required fraction of that item, calculate its profit and make the remaining capacity zero.
+
+Finally, I display the maximum profit obtained."

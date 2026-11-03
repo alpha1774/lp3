@@ -1,0 +1,989 @@
+#•	ML-2: Classify emails using binary classification: Normal State (Not Spam) and Abnormal State (Spam). Use K-Nearest Neighbors and Support Vector Machine, and analyze their performance. 
+# Download Dataset : https://drive.google.com/file/d/1Ctx3bx0TGYshBtDdvSxWQvay9IEhj9t-/view?usp=sharing
+
+# =====================================================
+# CELL 1: IMPORT LIBRARIES
+# =====================================================
+
+import pandas as pd
+import numpy as np
+
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import SVC
+
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report
+
+
+# =====================================================
+# CELL 2: READ DATASET
+# =====================================================
+
+data = pd.read_csv("emails.csv")
+
+print("Dataset Loaded Successfully")
+print(data.head())
+
+print("\nDataset Shape:", data.shape)
+
+
+# =====================================================
+# CELL 3: DATA PREPROCESSING
+# =====================================================
+
+# Remove unnecessary Email ID column
+data = data.drop("Email No.", axis=1)
+
+# Separate features and target
+X = data.drop("Prediction", axis=1)
+y = data["Prediction"]
+
+print("\nFeatures and Target Separated")
+print("Features Shape:", X.shape)
+print("Target Shape:", y.shape)
+
+
+# =====================================================
+# CELL 4: SPLIT TRAINING AND TESTING DATA
+# =====================================================
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
+
+print("\nTraining Data:", X_train.shape)
+print("Testing Data:", X_test.shape)
+
+
+# =====================================================
+# CELL 5: NORMALIZE DATA
+# =====================================================
+
+scaler = StandardScaler()
+
+# Fit and transform training data
+X_train = scaler.fit_transform(X_train)
+
+# Transform testing data
+X_test = scaler.transform(X_test)
+
+print("\nData Normalized Successfully")
+
+
+# =====================================================
+# CELL 6: K-NEAREST NEIGHBORS (KNN)
+# =====================================================
+
+# Initialize KNN model
+knn = KNeighborsClassifier(n_neighbors=5)
+
+# Train KNN model
+knn.fit(X_train, y_train)
+
+# Predict test data
+knn_pred = knn.predict(X_test)
+
+# Calculate accuracy
+knn_accuracy = accuracy_score(y_test, knn_pred)
+
+print("\nKNN Accuracy:", knn_accuracy * 100, "%")
+
+print("\nKNN Confusion Matrix:")
+print(confusion_matrix(y_test, knn_pred))
+
+
+# =====================================================
+# CELL 7: SUPPORT VECTOR MACHINE (SVM)
+# =====================================================
+
+# Initialize SVM model
+svm = SVC(kernel="linear")
+
+# Train SVM model
+svm.fit(X_train, y_train)
+
+# Predict test data
+svm_pred = svm.predict(X_test)
+
+# Calculate accuracy
+svm_accuracy = accuracy_score(y_test, svm_pred)
+
+print("\nSVM Accuracy:", svm_accuracy * 100, "%")
+
+print("\nSVM Confusion Matrix:")
+print(confusion_matrix(y_test, svm_pred))
+
+
+# =====================================================
+# CELL 8: CLASSIFICATION REPORT
+# =====================================================
+
+print("\nKNN Classification Report:")
+print(classification_report(y_test, knn_pred))
+
+print("\nSVM Classification Report:")
+print(classification_report(y_test, svm_pred))
+
+
+# =====================================================
+# CELL 9: PERFORMANCE COMPARISON
+# =====================================================
+
+print("\n===== MODEL PERFORMANCE COMPARISON =====")
+
+print("KNN Accuracy:", knn_accuracy * 100, "%")
+print("SVM Accuracy:", svm_accuracy * 100, "%")
+
+if knn_accuracy > svm_accuracy:
+    print("\nKNN performs better.")
+elif svm_accuracy > knn_accuracy:
+    print("\nSVM performs better.")
+else:
+    print("\nBoth models have equal accuracy.")
+
+#=====VIVA Questions====
+"""
+Q3. What type of Machine Learning problem is this?
+Ans: Supervised Learning and Binary Classification.
+
+Q4. What is Binary Classification?
+Ans: Binary Classification is a classification problem in which the output has only two possible classes.
+
+Q1. What is Supervised Learning?
+Ans: Supervised Learning is a type of Machine Learning in which a model is trained using labelled data (input with correct output).
+
+Example: Spam Email Classification.
+
+Q2. What is Unsupervised Learning?
+Ans: Unsupervised Learning is a type of Machine Learning in which a model learns patterns from unlabelled data without predefined outputs.
+Example: Customer Segmentation using K-Means.
+
+Q3. What is Classification?
+Ans: Classification is a Supervised Learning technique used to predict categories or classes.
+Example: Spam or Not Spam.
+Types of Classification:
+1. Binary Classification: Two classes (Spam / Not Spam).
+2. Multiclass Classification: More than two classes (Red / Green / Blue).
+3. Multilabel Classification: One data point can belong to multiple classes.
+
+Q4. What is Regression?
+Ans: Regression is a Supervised Learning technique used to predict continuous numerical values.
+Example: House Price Prediction.
+Types of Regression:
+1. Linear Regression: Predicts output using a straight-line relationship.
+2. Multiple Linear Regression: Uses multiple input features.
+3. Polynomial Regression: Models curved relationships.
+4. Logistic Regression: Used for classification despite its name.
+
+Q6. What is KNN?
+Ans: K-Nearest Neighbors is 
+     a supervised machine learning algorithm that classifies 
+     a data point based on the majority class of its nearest neighbors.
+
+Q7. What is SVM?
+Ans: Support Vector Machine is a supervised machine learning algorithm that finds the best decision boundary to separate different classes.
+
+Q9. What is the target variable in this dataset?
+
+Ans: Prediction, which represents whether an email is spam or not spam.
+
+Q10. What do 0 and 1 represent in the target variable?
+
+Ans:
+- 0 = Not Spam.
+- 1 = Spam.
+
+Q12. What are features in Machine Learning?
+
+Ans: Features are the input variables used by a machine learning model to make predictions.
+
+Q13. What is Train-Test Split?
+
+Ans: It divides the dataset into training data and testing data.
+
+Q14. What does test_size=0.2 mean?
+
+Ans: It means 80% of the data is used for training and 20% for testing.
+
+Q15. What is the purpose of stratify=y?
+Ans: It, maintains the same class distribution in both training and testing datasets.
+     Data Normalization Questions
+
+Q16. What is Normalization?
+Ans: Normalization is the process of scaling features to a common range or distribution.
+
+Q17. Why do we use StandardScaler?
+Ans: StandardScaler standardizes features by subtracting the mean and dividing by the standard deviation.
+
+Q18. What is the formula of StandardScaler?
+->   Z = Originial Value - Mean / Standard Deviation
+
+KNN Questions
+Q20. What is K-Nearest Neighbors?
+
+Ans: KNN classifies 
+     a new data point based on the majority class 
+     of its K nearest data points.
+
+Q21. What does K represent in KNN?
+Ans: K represents the number of nearest neighbors considered for classification.
+
+Q22. What is the value of K in our program?
+Ans: K = 5.
+
+Q23. Why do we use K = 5?
+Ans: It, is a commonly used starting value that considers five nearest neighbors for classification. 
+     The best value can be found through hyperparameter tuning.
+
+Q24. How does KNN classify an email?
+
+Ans: It calculates the distance between the new email and existing training emails, selects the five nearest neighbors, and assigns the majority class.
+
+Q25. What is Euclidean Distance?
+
+Ans: Euclidean Distance measures the straight-line distance between two data points. 
+d= root[(x2−x1)^2+(y2−y1)^2]
+
+
+Q26. What happens if K is too small?
+Ans: The model may become sensitive to noise and overfit.
+
+Q27. What happens if K is too large?
+Ans: The model may become too generalized and underfit.
+
+SVM Questions
+Q28. What is Support Vector Machine?
+Ans: SVM is an algorithm that finds an optimal decision boundary to separate different classes.
+
+Q29. What is a Hyperplane?
+Ans: A hyperplane is a decision boundary that separates data points belonging to different classes.
+
+Q30. What are Support Vectors?
+Ans: Support Vectors are the data points closest to the decision boundary. They help determine its position.
+
+Q31. What is a Kernel in SVM?
+Ans: A Kernel is a function that helps SVM separate data that may not be linearly separable in the original feature space.
+
+Q32. What is the Linear Kernel?
+Ans: A Linear Kernel separates classes using a straight-line decision boundary in two dimensions or 
+a    hyperplane in higher dimensions.
+
+Q33. Why do we use kernel="linear"?
+Ans: To, create an SVM model that uses a linear decision boundary.
+     Code-Based Questions
+
+Q34. What does pd.read_csv() do?
+Ans: It reads a CSV file and loads it into a Pandas DataFrame.
+
+Q35. What does data.head() display?
+Ans: It displays the first five rows of the dataset by default.
+
+Q36. What does data.shape return?
+Ans: It returns the number of rows and columns in the dataset.
+
+Q37. What does data.drop("Email No.", axis=1) do?
+Ans: It removes the Email No. column from the dataset.
+
+Q38. What does X = data.drop("Prediction", axis=1) do?
+Ans: It stores all input features by removing the target column.
+
+Q39. What does y = data["Prediction"] do?
+Ans: It, stores the target variable.
+
+Q40. What does knn.fit(X_train, y_train) do?
+Ans: It, trains the KNN model using the training data.
+
+Q41. What does svm.fit(X_train, y_train) do?
+Ans: It, trains the SVM model using the training data.
+
+Q42. What does predict() do?
+Ans: It, predicts the output class for the testing data.
+
+Q43. What does accuracy_score() calculate?
+Ans: It, calculates the percentage of correctly classified predictions.
+
+Q44. What does classification_report() display?
+Ans: It, displays precision, recall, F1-score, and support for each class.
+
+Q45. What does confusion_matrix() display?
+Ans: It, displays the number of correct and incorrect predictions for each class.
+
+Q46. What does if knn_accuracy > svm_accuracy do?
+Ans: It, compares the accuracy of both models to identify which model performs better based on accuracy.
+
+Q9. How does the KNN algorithm work?
+
+Ans:
+1. Select the value of K.
+2. Calculate the distance between data points.
+3. Find the K nearest neighbors.
+4. Count their classes.
+5. Assign the majority class as the prediction.
+
+Evaluation and Advanced Questions
+Q47. What is Precision?
+Ans: Precision measures how many of the model's positive predictions are actually correct.
+->   P = TP/TP+NP
+
+Q48. What is Recall?
+Ans: Recall measures how many actual positive cases are correctly identified by the model.
+Recall = TP/ TP + FN
+
+Q49. What is F1-Score?
+Ans: F1-Score is the harmonic mean of Precision and Recall.
+F1=2 x Prcision x Recall / Prcision + Recall
+
+
+Q50. What are TP, TN, FP, and FN?
+
+Ans:
+- TP (True Positive): Correctly predicted positive class.
+- TN (True Negative): Correctly predicted negative class.
+- FP (False Positive): Predicted positive when the actual class is negative.
+- FN (False Negative): Predicted negative when the actual class is positive.
+
+Q51. Which algorithm is better, KNN or SVM?
+Ans: It depends on the dataset. We compare their accuracy, precision, recall, and F1-score to determine which performs better.
+
+Q52. What is Overfitting?
+Ans: Overfitting occurs when a model performs well on training data but poorly on unseen testing data.
+
+Q53. What is Underfitting?
+Ans: Underfitting occurs when a model is too simple to learn the patterns in the data and performs poorly on both training and testing data.
+
+Q54. What is the difference between KNN and SVM?
+Ans:
+KNN	                           SVM
+Distance-based algorithm	   Boundary-based algorithm
+Uses nearest neighbors	       Uses a hyperplane
+Lazy learning algorithm	       Eager learning algorithm
+Sensitive to feature scaling   Sensitive to feature scaling
+
+Q55. Where is Email Spam Classification used?
+Ans: It is used in email services such as Gmail and Outlook to detect unwanted or suspicious emails.
+"""
+------------------------------------------------------------------------------------------------------------------------------------------
+EMAIL SPAM CLASSIFICATION USING KNN AND SVM – LINE-BY-LINE CODE EXPLANATION
+
+This program classifies emails into two categories:
+
+Spam (unwanted or promotional emails).
+Not Spam (genuine emails).
+
+It uses two Machine Learning algorithms:
+
+K-Nearest Neighbors (KNN).
+Support Vector Machine (SVM).
+
+Both models are trained and tested, and their performance is compared using accuracy, confusion matrix and classification report.
+
+==================================================
+PART 1: IMPORT LIBRARIES
+
+import pandas as pd
+
+Imports the Pandas library.
+Used for reading, storing and manipulating datasets.
+pd is an alias for pandas.
+
+import numpy as np
+
+Imports the NumPy library.
+Used for numerical calculations and array operations.
+np is an alias for numpy.
+
+from sklearn.model_selection import train_test_split
+
+Imports train_test_split from Scikit-learn.
+Used to divide the dataset into training and testing data.
+
+from sklearn.preprocessing import StandardScaler
+
+Imports StandardScaler.
+Used to standardize numerical data so that features have comparable scales.
+
+from sklearn.neighbors import KNeighborsClassifier
+
+Imports the K-Nearest Neighbors algorithm.
+Used to classify emails based on their nearest neighbouring data points.
+
+from sklearn.svm import SVC
+
+Imports Support Vector Classifier.
+Used to classify emails by finding an optimal separating boundary.
+
+from sklearn.metrics import accuracy_score
+
+Imports accuracy_score.
+Used to calculate the percentage of correct predictions.
+
+from sklearn.metrics import confusion_matrix
+
+Imports confusion_matrix.
+Used to compare actual and predicted classifications.
+
+from sklearn.metrics import classification_report
+
+Imports classification_report.
+Used to display precision, recall, F1-score and support.
+==================================================
+PART 2: READ DATASET
+
+data = pd.read_csv("emails.csv")
+
+Reads the emails.csv dataset using Pandas.
+Stores the dataset in the variable data.
+The dataset contains email-related features and their spam classification.
+
+print("Dataset Loaded Successfully")
+
+Displays a message confirming that the dataset is loaded.
+
+print(data.head())
+
+Displays the first five rows of the dataset.
+head() is used to preview the dataset.
+
+print("\nDataset Shape:", data.shape)
+
+Displays the dimensions of the dataset.
+shape returns the number of rows and columns.
+==================================================
+PART 3: DATA PREPROCESSING
+
+data = data.drop("Email No.", axis=1)
+
+Removes the Email No. column from the dataset.
+This column is only an email identifier.
+axis=1 indicates that a column is being removed.
+
+X = data.drop("Prediction", axis=1)
+
+Separates the input features from the dataset.
+Removes the Prediction column.
+X contains the features used to classify emails.
+
+y = data["Prediction"]
+
+Separates the target variable.
+y contains the actual email classification.
+0 generally represents Not Spam.
+1 generally represents Spam.
+
+print("\nFeatures and Target Separated")
+
+Displays a message confirming that features and target are separated.
+
+print("Features Shape:", X.shape)
+
+Displays the dimensions of the input features.
+
+print("Target Shape:", y.shape)
+
+Displays the dimensions of the target variable.
+==================================================
+PART 4: SPLIT TRAINING AND TESTING DATA
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+
+Divides the dataset into training and testing sets.
+X_train contains training input features.
+X_test contains testing input features.
+y_train contains training target values.
+y_test contains testing target values.
+test_size=0.2 means 20% data is used for testing and 80% for training.
+random_state=42 ensures reproducible splitting.
+stratify=y maintains the proportion of spam and non-spam classes in both sets.
+
+Example:
+
+For 5,000 records:
+
+Training data = 4,000 records.
+Testing data = 1,000 records.
+
+print("\nTraining Data:", X_train.shape)
+
+Displays the dimensions of training data.
+
+print("Testing Data:", X_test.shape)
+
+Displays the dimensions of testing data.
+==================================================
+PART 5: NORMALIZE DATA
+
+scaler = StandardScaler()
+
+Creates an object of StandardScaler.
+It is used to standardize the input features.
+
+X_train = scaler.fit_transform(X_train)
+
+fit() calculates the mean and standard deviation from training data.
+transform() standardizes the training data.
+Converts features to a common scale.
+
+Formula:
+
+Z = (X - Mean) / Standard Deviation
+
+X_test = scaler.transform(X_test)
+
+Standardizes the testing data.
+Uses the same mean and standard deviation calculated from training data.
+Prevents data leakage.
+
+print("\nData Normalized Successfully")
+
+Displays a message confirming that data normalization is completed.
+==================================================
+PART 6: K-NEAREST NEIGHBORS (KNN)
+
+knn = KNeighborsClassifier(n_neighbors=5)
+
+Creates a KNN classification model.
+n_neighbors=5 means the model considers the five nearest data points to classify an email.
+KNN classifies an email based on the majority class among its nearest neighbours.
+
+knn.fit(X_train, y_train)
+
+Trains the KNN model using training data.
+Stores the training examples for future classification.
+
+knn_pred = knn.predict(X_test)
+
+Uses the trained KNN model to predict the classes of testing emails.
+Stores predicted results in knn_pred.
+
+knn_accuracy = accuracy_score(y_test, knn_pred)
+
+Compares actual testing values with predicted values.
+Calculates the accuracy of the KNN model.
+Stores the result in knn_accuracy.
+
+print("\nKNN Accuracy:", knn_accuracy * 100, "%")
+
+Displays KNN accuracy in percentage.
+Multiplication by 100 converts the accuracy into percentage form.
+
+print("\nKNN Confusion Matrix:")
+
+Displays the heading for the KNN confusion matrix.
+
+print(confusion_matrix(y_test, knn_pred))
+
+Displays the confusion matrix.
+Compares actual email classifications with predicted classifications.
+==================================================
+PART 7: SUPPORT VECTOR MACHINE (SVM)
+
+svm = SVC(kernel="linear")
+
+Creates a Support Vector Machine classification model.
+SVC stands for Support Vector Classifier.
+kernel="linear" uses a linear kernel.
+It finds the best separating hyperplane between spam and non-spam emails.
+
+svm.fit(X_train, y_train)
+
+Trains the SVM model using training data.
+The model learns the separating boundary between the two classes.
+
+svm_pred = svm.predict(X_test)
+
+Uses the trained SVM model to predict the testing email classifications.
+Stores predictions in svm_pred.
+
+svm_accuracy = accuracy_score(y_test, svm_pred)
+
+Compares actual and predicted values.
+Calculates the accuracy of the SVM model.
+
+print("\nSVM Accuracy:", svm_accuracy * 100, "%")
+
+Displays SVM accuracy in percentage.
+
+print("\nSVM Confusion Matrix:")
+
+Displays the heading for the SVM confusion matrix.
+
+print(confusion_matrix(y_test, svm_pred))
+
+Displays the confusion matrix for the SVM model.
+==================================================
+PART 8: CLASSIFICATION REPORT
+
+print("\nKNN Classification Report:")
+
+Displays the heading for the KNN classification report.
+
+print(classification_report(y_test, knn_pred))
+
+Displays the classification performance of KNN.
+Includes precision, recall, F1-score and support.
+
+print("\nSVM Classification Report:")
+
+Displays the heading for the SVM classification report.
+
+print(classification_report(y_test, svm_pred))
+
+Displays the classification performance of SVM.
+Includes precision, recall, F1-score and support.
+
+IMPORTANT METRICS:
+
+Precision:
+Measures how many predicted spam emails are actually spam.
+Recall:
+Measures how many actual spam emails are correctly identified.
+F1-score:
+It is the harmonic mean of precision and recall.
+Support:
+Represents the number of actual samples belonging to each class.
+==================================================
+PART 9: PERFORMANCE COMPARISON
+
+print("\n===== MODEL PERFORMANCE COMPARISON =====")
+
+Displays the heading for model performance comparison.
+
+print("KNN Accuracy:", knn_accuracy * 100, "%")
+
+Displays the accuracy of the KNN model.
+
+print("SVM Accuracy:", svm_accuracy * 100, "%")
+
+Displays the accuracy of the SVM model.
+
+if knn_accuracy > svm_accuracy:
+
+Checks whether KNN accuracy is greater than SVM accuracy.
+
+print("\nKNN performs better.")
+
+Displays that KNN has higher accuracy.
+
+elif svm_accuracy > knn_accuracy:
+
+Checks whether SVM accuracy is greater than KNN accuracy.
+
+print("\nSVM performs better.")
+
+Displays that SVM has higher accuracy.
+
+else:
+
+Executes when both models have equal accuracy.
+
+print("\nBoth models have equal accuracy.")
+
+Displays that both models have the same accuracy.
+==================================================
+PART 10: SAMPLE OUTPUT (ILLUSTRATIVE)
+Dataset Loaded Successfully
+
+Training Data: (4136, 3000)
+Testing Data: (1035, 3000)
+
+Data Normalized Successfully
+
+KNN Accuracy: 95.0 %
+
+SVM Accuracy: 97.0 %
+
+===== MODEL PERFORMANCE COMPARISON =====
+
+KNN Accuracy: 95.0 %
+SVM Accuracy: 97.0 %
+
+SVM performs better.
+
+Note: These accuracy values are examples. Actual output depends on the dataset and execution.
+
+==================================================
+PART 11: IMPORTANT THEORY QUESTIONS AND ANSWERS
+
+Q1. What is Email Spam Classification?
+
+Ans: Email Spam Classification is the process of identifying whether an email is spam or genuine using Machine Learning algorithms.
+
+Q2. What is Machine Learning?
+
+Ans: Machine Learning is a branch of Artificial Intelligence that enables computers to learn patterns from data and make predictions.
+
+Q3. What is supervised learning?
+
+Ans: Supervised learning is a Machine Learning technique in which a model learns from labelled training data.
+
+Q4. What is classification?
+
+Ans: Classification is a Machine Learning technique used to predict categories or classes of data.
+
+Q5. What is KNN?
+
+Ans: K-Nearest Neighbors is a supervised Machine Learning algorithm that classifies data based on the majority class of its nearest neighbours.
+
+Q6. What is SVM?
+
+Ans: Support Vector Machine is a supervised Machine Learning algorithm that finds an optimal hyperplane to separate different classes.
+
+Q7. What is a hyperplane?
+
+Ans: A hyperplane is a decision boundary that separates different classes in a dataset.
+
+Q8. What are support vectors?
+
+Ans: Support vectors are the data points closest to the separating hyperplane. They help determine the position of the decision boundary.
+
+Q9. What is a kernel in SVM?
+
+Ans: A kernel is a function that helps SVM handle classification problems by finding suitable decision boundaries.
+
+Q10. What is StandardScaler?
+
+Ans: StandardScaler is a preprocessing technique that standardizes numerical features using mean and standard deviation.
+
+Q11. What is train_test_split?
+
+Ans: It is a function used to divide a dataset into training and testing data.
+
+Q12. What is stratify=y?
+
+Ans: It maintains the same class proportions in both training and testing datasets.
+
+Q13. What is accuracy?
+
+Ans: Accuracy measures the percentage of correctly classified predictions.
+
+Q14. What is a confusion matrix?
+
+Ans: A confusion matrix is a table that compares actual and predicted classifications.
+
+Q15. What is precision?
+
+Ans: Precision measures how many positive predictions are actually positive.
+
+Q16. What is recall?
+
+Ans: Recall measures how many actual positive cases are correctly identified.
+
+Q17. What is F1-score?
+
+Ans: F1-score is the harmonic mean of precision and recall.
+
+Q18. What is overfitting?
+
+Ans: Overfitting occurs when a model performs well on training data but poorly on unseen data.
+
+Q19. What is underfitting?
+
+Ans: Underfitting occurs when a model fails to learn important patterns from the training data.
+
+Q20. Which library is used for Machine Learning?
+
+Ans: Scikit-learn is used for implementing KNN, SVM and other Machine Learning algorithms.
+
+==================================================
+PART 12: TIME AND SPACE COMPLEXITY
+K-NEAREST NEIGHBORS (KNN)
+
+Training Time Complexity:
+
+Generally O(1) for basic KNN because it mainly stores the training data.
+
+Prediction Time Complexity:
+
+O(N × D) per query using brute-force distance calculation.
+
+Where:
+
+N = Number of training samples.
+D = Number of features.
+
+Space Complexity:
+
+O(N × D) because the training dataset is stored.
+SUPPORT VECTOR MACHINE (SVM)
+
+Training Time Complexity:
+
+Depends on the kernel, dataset size and optimization method.
+For a linear SVM, practical training cost varies with the implementation and data.
+
+Prediction Time Complexity:
+
+Depends on the number of support vectors and features.
+Approximately O(S × D) per prediction.
+
+Where:
+
+S = Number of support vectors.
+D = Number of features.
+==================================================
+PART 13: TOP 10 MOST IMPORTANT VIVA QUESTIONS AND ANSWERS
+
+Q1. What is the main objective of this program?
+
+Ans: To classify emails as spam or non-spam using KNN and SVM algorithms.
+
+Q2. Which algorithms are used in this program?
+
+Ans: K-Nearest Neighbors and Support Vector Machine.
+
+Q3. What is the difference between KNN and SVM?
+
+Ans:
+
+KNN classifies data based on its nearest neighbours.
+SVM classifies data by finding an optimal separating hyperplane.
+
+Q4. Why do we use StandardScaler?
+
+Ans: To standardize the features so that they have comparable scales.
+
+Q5. What is the use of n_neighbors=5?
+
+Ans: It means KNN considers the five nearest neighbours for classification.
+
+Q6. What is the use of kernel="linear"?
+
+Ans: It specifies that SVM should use a linear decision boundary.
+
+Q7. What is the use of fit()?
+
+Ans: It trains the Machine Learning model using the training data.
+
+Q8. What is the use of predict()?
+
+Ans: It predicts the class of new or testing data.
+
+Q9. Why do we use a confusion matrix?
+
+Ans: To evaluate the classification performance by comparing actual and predicted results.
+
+Q10. Which algorithm performs better, KNN or SVM?
+
+Ans: The algorithm with higher evaluation performance on the testing data performs better. The result depends on the dataset.
+
+==================================================
+PART 14: TRICKY QUESTIONS EXAMINERS MAY ASK
+
+Q1. What happens if K is increased in KNN?
+
+Ans: More neighbours are considered. It may make the model less sensitive to noise, but a very large K can cause underfitting.
+
+Q2. What happens if K = 1?
+
+Ans: The model classifies a new data point using only its nearest neighbour. It may become sensitive to noise.
+
+Q3. Why is KNN called a lazy learning algorithm?
+
+Ans: Because it does not build an explicit model during training. It stores the training data and performs calculations during prediction.
+
+Q4. Why is KNN sensitive to feature scaling?
+
+Ans: Because it uses distance calculations, and features with larger numerical values can dominate the distance.
+
+Q5. What is Euclidean distance?
+
+Ans: It is the straight-line distance between two points.
+
+Formula:
+
+d = √[(x2-x1)² + (y2-y1)²]
+
+Q6. What happens if we do not use StandardScaler?
+
+Ans: Features with larger ranges may dominate distance calculations in KNN and affect SVM performance.
+
+Q7. What is the difference between linear and non-linear SVM?
+
+Ans:
+
+Linear SVM uses a linear decision boundary.
+Non-linear SVM uses kernels to create more complex decision boundaries.
+
+Q8. What is the use of C in SVM?
+
+Ans: C is a regularization parameter that controls the trade-off between classification errors and the margin size.
+
+Q9. What is the use of support vectors?
+
+Ans: They determine the position of the separating hyperplane.
+
+Q10. What happens if two classes have overlapping data?
+
+Ans: The model may make classification errors because the classes are not completely separable.
+
+Q11. Why do we use random_state=42?
+
+Ans: To get reproducible results when splitting the dataset.
+
+Q12. What happens if we remove stratify=y?
+
+Ans: The proportion of spam and non-spam emails may become different in the training and testing datasets.
+
+Q13. Why do we remove Email No.?
+
+Ans: It is an identification column and does not provide useful information for predicting spam classification.
+
+Q14. What is the difference between fit() and predict()?
+
+Ans:
+
+fit() trains the model.
+predict() generates predictions using the trained model.
+
+Q15. Can KNN and SVM be used for regression?
+
+Ans: Yes. KNN has KNeighborsRegressor, and SVM has SVR for regression problems.
+
+Q16. What is the difference between accuracy and precision?
+
+Ans:
+
+Accuracy measures overall correct predictions.
+Precision measures the correctness of positive predictions.
+
+Q17. What is the difference between precision and recall?
+
+Ans:
+
+Precision focuses on how many predicted positive cases are correct.
+Recall focuses on how many actual positive cases are identified.
+
+Q18. Why do we use classification_report()?
+
+Ans: To display precision, recall, F1-score and support for each class.
+
+Q19. Can SVM handle multiple classes?
+
+Ans: Yes. SVM can handle multiclass classification using strategies such as One-vs-One and One-vs-Rest.
+
+Q20. Which algorithm is faster, KNN or SVM?
+
+Ans: KNN has very little training cost but can be slow during prediction. SVM generally has higher training cost, but prediction can be faster depending on the number of support vectors.
+
+==================================================
+PART 15: HOW TO EXPLAIN YOUR PROGRAM TO THE EXAMINER
+
+"My program implements Email Spam Classification using two Machine Learning algorithms: K-Nearest Neighbors and Support Vector Machine.
+
+First, I import the required libraries and load the emails.csv dataset using Pandas.
+
+Then, I remove the unnecessary Email No. column and separate the input features and target variable.
+
+After that, I split the dataset into training and testing data in an 80:20 ratio using train_test_split. I also use stratify to maintain the proportion of both classes.
+
+Next, I normalize the data using StandardScaler.
+
+Then, I create and train the KNN model using five nearest neighbours and the SVM model using a linear kernel.
+
+After training, I make predictions on the testing data and calculate the accuracy of both models.
+
+Finally, I display their confusion matrices and classification reports and compare their accuracy to determine which model performs better."

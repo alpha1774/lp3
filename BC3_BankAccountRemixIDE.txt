@@ -1,0 +1,268 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+// Bank Account Smart Contract
+contract BankAccount {
+
+    // Store account balance
+    mapping(address => uint) public balance;
+
+    // Deposit money
+    function deposit() public payable {
+        require(msg.value > 0, "Amount must be greater than zero");
+
+        balance[msg.sender] += msg.value;
+    }
+
+    // Withdraw money
+    function withdraw(uint amount) public {
+        require(amount > 0, "Invalid amount");
+
+        require(balance[msg.sender] >= amount,
+                "Insufficient balance");
+
+        balance[msg.sender] -= amount;
+
+        payable(msg.sender).transfer(amount);
+    }
+
+    // Show account balance
+    function showBalance() public view returns (uint) {
+        return balance[msg.sender];
+    }
+}
+
+//-------------- END OF PROGRAM----------
+
+
+
+
+
+//(Alternative Code) Try Below Program If Above Doesn't Work
+
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Bank {
+
+    // Store customer balances
+    mapping(address => uint) public balanceOf;
+
+    // Deposit money
+    function deposit() public payable {
+        require(msg.value > 0, "Deposit must be greater than zero");
+
+        balanceOf[msg.sender] += msg.value;
+    }
+
+    // Withdraw entire balance
+    function withdraw() public payable {
+
+        // Do not accept additional ETH during withdrawal
+        require(msg.value == 0, "Do not send ETH while withdrawing");
+
+        uint amount = balanceOf[msg.sender];
+
+        require(amount > 0, "Insufficient balance");
+
+        // Update balance before transferring ETH
+        balanceOf[msg.sender] = 0;
+
+        // Transfer money to customer
+        payable(msg.sender).transfer(amount);
+    }
+
+    // Show account balance
+    function showBalance() public view returns (uint) {
+        return balanceOf[msg.sender];
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------
+1. Open Remix IDE
+
+Go to:
+
+Remix IDE – Online Solidity Editor
+
+This is an online environment where you can write, compile, deploy, and execute Solidity smart contracts.
+
+2. Create a Solidity File
+Open Remix IDE.
+On the left side, click File Explorer.
+Open the contracts folder.
+Click the New File icon.
+Name the file:
+BankAccount.sol
+Delete any existing code.
+Paste your Bank Account Smart Contract code.
+
+Important: Your code contains two contracts:
+
+BankAccount
+Bank (alternative implementation)
+
+For your practical, I recommend using the first contract, BankAccount, initially.
+
+3. Compile the Smart Contract
+Click the Solidity Compiler icon on the left.
+Select compiler version 0.8.x (for example, 0.8.20).
+Click Compile BankAccount.sol.
+Wait for the green tick.
+
+If compilation succeeds, your smart contract is ready for deployment.
+
+4. Deploy the Smart Contract
+Click Deploy & Run Transactions on the left.
+Under Environment, select:
+Remix VM (Cancun)
+
+If Cancun is unavailable, select another Remix VM option.
+
+Under Contract, select:
+BankAccount
+Keep the Value field at 0.
+Click Deploy.
+
+Your contract will be deployed.
+
+You should see:
+
+Deployed Contracts
+
+BankAccount at 0x...
+
+Remix VM is a simulated blockchain, so you don't need real ETH or MetaMask for this practical.
+
+5. Execute the Smart Contract
+
+After deployment, expand BankAccount under Deployed Contracts.
+
+You will see three functions:
+
+deposit()
+withdraw()
+showBalance()
+
+Let's execute them one by one.
+
+Step 1: Deposit Money
+Find the Value field in Deploy & Run Transactions.
+Enter:
+1
+Select the unit Ether.
+Click the red deposit button.
+
+You have deposited 1 ETH into your smart contract account.
+
+Remember: The Value field specifies how much ETH you send with a payable function.
+
+Step 2: Check Balance
+
+Click:
+
+showBalance
+
+Expected result:
+
+1000000000000000000
+
+Why?
+
+Because Solidity stores Ether amounts in Wei.
+
+1 ETH = 1000000000000000000 Wei
+Step 3: Withdraw Money
+
+Your first contract's withdraw function requires an amount.
+
+Enter:
+
+500000000000000000
+
+This represents 0.5 ETH in Wei.
+
+Click the withdraw button.
+
+The contract transfers 0.5 ETH back to your account.
+
+Step 4: Check Balance Again
+
+Click:
+
+showBalance
+
+Expected result:
+
+500000000000000000
+
+Your remaining balance is 0.5 ETH.
+
+6. Expected Practical Execution
+Operation	Amount
+Initial balance	0 ETH
+Deposit	1 ETH
+Balance after deposit	1 ETH
+Withdraw	0.5 ETH
+Final balance	0.5 ETH
+7. What If You Want to Run the Alternative Code?
+
+If you want to execute the second contract:
+
+Keep the same Solidity file.
+Go to Solidity Compiler.
+Compile the file.
+Under Contract, select Bank.
+Click Deploy.
+
+The alternative contract has slightly different functions:
+
+Function	Purpose
+deposit()	Deposits ETH
+withdraw()	Withdraws the entire balance
+showBalance()	Displays the current balance
+
+Difference: The first contract allows withdrawal of a specified amount, whereas the alternative contract withdraws the entire deposited balance.
+
+8. Important Viva Questions
+
+Q1. Where do we execute Solidity programs?
+
+Using Remix IDE.
+
+Q2. What is Solidity?
+
+Solidity is a high-level programming language used to develop smart contracts on Ethereum-compatible blockchains.
+
+Q3. What is a smart contract?
+
+A smart contract is a program deployed on a blockchain that automatically executes predefined instructions.
+
+Q4. What is Remix VM?
+
+It is a simulated blockchain environment provided by Remix IDE for testing smart contracts.
+
+Q5. What does payable mean?
+
+It allows a function to receive Ether.
+
+Q6. What is msg.sender?
+
+It represents the address of the account that called the function.
+
+Q7. What is msg.value?
+
+It represents the amount of Ether sent with the current transaction, measured in Wei.
+
+Q8. What is mapping in Solidity?
+
+Mapping is a key-value data structure used to store information. Here, it stores the balance associated with each address.
+
+Q9. What is require()?
+
+It checks a condition. If the condition is false, the transaction is reverted.
+
+Q10. What is Wei?
+
+Wei is the smallest unit of Ether.
+
+1 ETH = 10^18 Wei

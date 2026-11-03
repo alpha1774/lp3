@@ -1,0 +1,720 @@
+#•	DAA-3: Write a program to implement Huffman Encoding using a greedy strategy. 
+
+import heapq
+
+# Node class for Huffman Tree
+class Node:
+    def __init__(self, char, freq):
+        self.char = char
+        self.freq = freq
+        self.left = None
+        self.right = None
+
+    def __lt__(self, other):
+        return self.freq < other.freq
+
+
+# Generate Huffman Codes
+def generate_codes(root, code, huffman_codes):
+
+    if root is None:
+        return
+
+    # Leaf node
+    if root.char is not None:
+        huffman_codes[root.char] = code if code else "0"
+        return
+
+    generate_codes(root.left, code + "0", huffman_codes)
+    generate_codes(root.right, code + "1", huffman_codes)
+
+
+# Huffman Encoding
+def huffman_encoding(text):
+
+    if not text:
+        print("Input text cannot be empty.")
+        return
+
+    # Calculate character frequencies
+    frequency = {}
+
+    for char in text:
+        frequency[char] = frequency.get(char, 0) + 1
+
+    # Create priority queue
+    heap = []
+
+    for char, freq in frequency.items():
+        heapq.heappush(heap, Node(char, freq))
+
+    # Build Huffman Tree
+    while len(heap) > 1:
+
+        left = heapq.heappop(heap)
+        right = heapq.heappop(heap)
+
+        merged = Node(None, left.freq + right.freq)
+        merged.left = left
+        merged.right = right
+
+        heapq.heappush(heap, merged)
+
+    # Generate Huffman Codes
+    root = heapq.heappop(heap)
+    huffman_codes = {}
+
+    generate_codes(root, "", huffman_codes)
+
+    # Display results
+    print("\nCharacter Frequencies and Huffman Codes:")
+
+    for char, freq in frequency.items():
+        display_char = "Space" if char == " " else char
+        print(f"{display_char} : Frequency = {freq}, Code = {huffman_codes[char]}")
+
+    # Encode input text
+    encoded_text = ""
+
+    for char in text:
+        encoded_text += huffman_codes[char]
+
+    print("\nOriginal Text:", text)
+    print("Encoded Text:", encoded_text)
+
+
+# Main Program
+print("===== Huffman Encoding =====")
+
+text = input("Enter a string: ")
+
+huffman_encoding(text)
+
+#---- END ----
+------------------------------------------------------------------------------------------------------------------------------------------
+#===SAMPLE INPUT=======
+"""
+===== Huffman Encoding =====
+Enter a string: AAAABBCD
+
+Character Frequencies and Huffman Codes:
+A : Frequency = 4, Code = 0
+B : Frequency = 2, Code = 10
+C : Frequency = 1, Code = 110
+D : Frequency = 1, Code = 111
+
+Original Text: AAAABBCD
+Encoded Text: 00001010110111
+"""
+-----------------------------------------------------------------------------------------------------------------------------------------
+#====VIVA Questions====
+"""
+Viva Questions and Answers
+Basic Questions
+Q1. What is Huffman Encoding?
+
+Ans: Huffman Encoding is a lossless data compression technique that assigns variable-length binary codes to characters based on their frequencies.
+
+Q2. What is lossless compression?
+
+Ans: Lossless compression reduces data size without losing any original information.
+
+Q3. What is the main objective of Huffman Encoding?
+
+Ans: To reduce the total number of bits required to represent data.
+
+Q4. Which algorithmic technique is used in Huffman Encoding?
+
+Ans: Greedy Algorithm.
+
+Q5. Why is Huffman Encoding called a greedy algorithm?
+
+Ans: Because it repeatedly selects the two nodes with the lowest frequencies and combines them.
+
+Q6. What is a Huffman Tree?
+
+Ans: A Huffman Tree is a binary tree used to generate unique binary codes for characters.
+
+Q7. What is the difference between fixed-length and variable-length encoding?
+
+Ans: Fixed-length encoding uses the same number of bits for every character, whereas variable-length encoding uses different numbers of bits depending on character frequency.
+Algorithm-Related Questions
+Q8. How does Huffman Encoding work?
+
+Ans:
+1. Calculate the frequency of each character.
+2. Create a node for each character.
+3. Insert all nodes into a priority queue.
+4. Remove the two nodes with the lowest frequencies.
+5. Combine them into a new node.
+6. Repeat until only one node remains.
+7. Generate binary codes by traversing the tree.
+
+Q9. What is a priority queue?
+Ans: A priority queue is a data structure in which elements are removed according to their priority. In this program, the node with the lowest frequency is removed first.
+
+Q10. Why do we select the two nodes with the lowest frequencies?
+Ans: To generate an optimal prefix code with minimum weighted encoding cost.
+
+Q11. What is a prefix code?
+Ans: A prefix code is a code in which no character's code is the prefix of another character's code.
+
+Q12. Why is Huffman Encoding considered efficient?
+
+Ans: Because frequently occurring characters receive shorter codes, while less frequent characters receive longer codes.
+Program-Related Questions
+Q13. What is the purpose of heapq in Python?
+
+Ans: The heapq module implements a min-heap priority queue.
+
+Q14. What is a Node class?
+
+Ans: A Node class represents each character or internal node in the Huffman Tree.
+
+Q15. What does __init__() do?
+
+Ans: It initializes the attributes of a Node object, such as character, frequency, left child, and right child.
+
+Q16. What is the purpose of __lt__()?
+
+Ans: It compares two nodes based on their frequencies so that heapq can maintain the min-heap order.
+
+Q17. What does heapq.heappush() do?
+
+Ans: It inserts an element into the priority queue.
+
+Q18. What does heapq.heappop() do?
+
+Ans: It removes and returns the element with the lowest frequency.
+
+Q19. Why do we use root.left and root.right?
+
+Ans: They represent the left and right child nodes of the Huffman Tree.
+
+Q20. Why do we assign 0 to the left branch and 1 to the right branch?
+
+Ans: To generate binary codes while traversing the Huffman Tree. These assignments are conventional and can be reversed.
+
+Q21. What does frequency.get(char, 0) + 1 do?
+
+Ans: It counts the frequency of each character in the input string.
+
+Q22. Why do we use root.char is not None?
+
+Ans: To identify a leaf node containing an actual character.
+
+Q23. What happens if the input contains only one unique character?
+
+Ans: The program assigns the code 0 to that character.
+
+Complexity-Related Questions
+Q24. What is the time complexity of Huffman Encoding?
+Ans: O(n + k log k), where n is the input string length and k is the number of unique characters.
+
+Q25. What is the space complexity of Huffman Encoding?
+
+Ans: O(n + k), including the frequency dictionary, Huffman Tree, and generated codes.
+
+Q26. What is the main advantage of Huffman Encoding?
+Ans: It reduces storage requirements by assigning shorter codes to frequently occurring characters.
+
+Q27. What is the main disadvantage of Huffman Encoding?
+
+Ans: The Huffman Tree or code table must also be stored or transmitted to decode the compressed data.
+
+Q28. Where is Huffman Encoding used?
+Ans: It is used in data compression formats and algorithms such as ZIP, JPEG, and other compression systems.
+                                                  """
+------------------------------------------------------------------------------------------------------------------------------------------
+HUFFMAN ENCODING – LINE-BY-LINE CODE EXPLANATION
+1. IMPORTING LIBRARY
+
+import heapq
+
+import is used to include a library in Python.
+heapq is a built-in Python module.
+It is used to implement a priority queue (min-heap).
+It helps retrieve the node with the smallest frequency first.
+2. NODE CLASS FOR HUFFMAN TREE
+
+class Node:
+
+class is a keyword used to create a class.
+Node is the class name.
+It represents a node in the Huffman Tree.
+
+def init(self, char, freq):
+
+__init__() is a constructor.
+It is automatically called when an object is created.
+self refers to the current object.
+char represents the character.
+freq represents the frequency of that character.
+
+self.char = char
+
+Stores the character in the node.
+
+self.freq = freq
+
+Stores the frequency of the character in the node.
+
+self.left = None
+
+Initializes the left child of the node as empty.
+
+self.right = None
+
+Initializes the right child of the node as empty.
+
+def lt(self, other):
+
+Defines the less-than operator.
+It compares the frequencies of two nodes.
+It helps heapq arrange nodes according to their frequencies.
+
+return self.freq < other.freq
+
+Returns True if the current node has a smaller frequency than the other node.
+This helps maintain the min-heap order.
+3. GENERATE HUFFMAN CODES
+
+def generate_codes(root, code, huffman_codes):
+
+Defines a function named generate_codes.
+root represents the current node of the Huffman Tree.
+code stores the binary code generated so far.
+huffman_codes stores the final character-to-code mapping.
+
+if root is None:
+
+Checks whether the current node is empty.
+
+return
+
+Stops the function if the node is empty.
+
+if root.char is not None:
+
+Checks whether the current node is a leaf node.
+A leaf node contains an actual character.
+
+huffman_codes[root.char] = code if code else "0"
+
+Stores the Huffman code of the character in the dictionary.
+If the code is empty, assigns "0".
+This handles the case where the input contains only one unique character.
+
+return
+
+Stops further recursion after finding a leaf node.
+
+generate_codes(root.left, code + "0", huffman_codes)
+
+Recursively visits the left child.
+Adds 0 to the current binary code.
+Left branches are represented by 0.
+
+generate_codes(root.right, code + "1", huffman_codes)
+
+Recursively visits the right child.
+Adds 1 to the current binary code.
+Right branches are represented by 1.
+4. HUFFMAN ENCODING FUNCTION
+
+def huffman_encoding(text):
+
+Defines a function named huffman_encoding.
+text represents the input string entered by the user.
+
+if not text:
+
+Checks whether the input string is empty.
+
+print("Input text cannot be empty.")
+
+Displays an error message if the input is empty.
+
+return
+
+Stops the function if the input is empty.
+5. CALCULATE CHARACTER FREQUENCIES
+
+frequency = {}
+
+Creates an empty dictionary.
+It stores each character and its frequency.
+
+for char in text:
+
+Starts a loop to read each character from the input string.
+
+frequency[char] = frequency.get(char, 0) + 1
+
+Counts the frequency of each character.
+get(char, 0) returns the existing count or 0 if the character is not present.
+Adds 1 whenever the character appears.
+
+Example:
+
+Input: AABBC
+
+Frequency:
+
+A = 2
+
+B = 2
+
+C = 1
+
+6. CREATE PRIORITY QUEUE
+
+heap = []
+
+Creates an empty list to store the nodes of the Huffman Tree.
+This list is used as a priority queue.
+
+for char, freq in frequency.items():
+
+Iterates through the character-frequency dictionary.
+Extracts each character and its frequency.
+
+heapq.heappush(heap, Node(char, freq))
+
+Creates a new Node object.
+Inserts the node into the priority queue.
+The min-heap maintains the smallest frequency at the top.
+7. BUILD HUFFMAN TREE
+
+while len(heap) > 1:
+
+Repeats the process until only one node remains.
+The remaining node becomes the root of the Huffman Tree.
+
+left = heapq.heappop(heap)
+
+Removes the node having the smallest frequency from the heap.
+Stores it in left.
+
+right = heapq.heappop(heap)
+
+Removes the next smallest frequency node.
+Stores it in right.
+
+merged = Node(None, left.freq + right.freq)
+
+Creates a new internal node.
+Its character is None because it does not represent an actual character.
+Its frequency is the sum of the left and right node frequencies.
+
+merged.left = left
+
+Assigns the left node as the left child of the new node.
+
+merged.right = right
+
+Assigns the right node as the right child of the new node.
+
+heapq.heappush(heap, merged)
+
+Inserts the newly created merged node back into the priority queue.
+The process continues until the Huffman Tree is completed.
+8. GENERATE HUFFMAN CODES
+
+root = heapq.heappop(heap)
+
+Removes the remaining node from the heap.
+This node becomes the root of the Huffman Tree.
+
+huffman_codes = {}
+
+Creates an empty dictionary.
+It stores the final Huffman codes for each character.
+
+generate_codes(root, "", huffman_codes)
+
+Calls the generate_codes function.
+Starts code generation from the root.
+An empty string is passed because no binary code has been generated initially.
+9. DISPLAY CHARACTER FREQUENCIES AND CODES
+
+print("\nCharacter Frequencies and Huffman Codes:")
+
+Displays the heading.
+\n moves the cursor to a new line.
+
+for char, freq in frequency.items():
+
+Iterates through the frequency dictionary.
+Gets each character and its frequency.
+
+display_char = "Space" if char == " " else char
+
+Checks whether the character is a blank space.
+If it is a space, displays the word "Space".
+Otherwise, displays the actual character.
+
+print(f"{display_char} : Frequency = {freq}, Code = {huffman_codes[char]}")
+
+Displays the character, its frequency and its Huffman code.
+f is used for formatted strings.
+10. ENCODE INPUT TEXT
+
+encoded_text = ""
+
+Creates an empty string to store the encoded binary output.
+
+for char in text:
+
+Iterates through every character in the original input text.
+
+encoded_text += huffman_codes[char]
+
+Finds the Huffman code of the current character.
+Adds that binary code to encoded_text.
+Repeats until the entire input string is encoded.
+11. DISPLAY FINAL RESULTS
+
+print("\nOriginal Text:", text)
+
+Displays the original input string.
+
+print("Encoded Text:", encoded_text)
+
+Displays the final Huffman encoded binary string.
+12. MAIN PROGRAM
+
+print("===== Huffman Encoding =====")
+
+Displays the heading of the program.
+
+text = input("Enter a string: ")
+
+Accepts a string from the user.
+Stores the entered string in the variable text.
+
+huffman_encoding(text)
+
+Calls the huffman_encoding() function.
+Passes the input string to generate Huffman codes and encode the text.
+13. SAMPLE INPUT AND OUTPUT
+
+Input:
+
+===== Huffman Encoding =====
+
+Enter a string: AABBC
+
+Output:
+
+Character Frequencies and Huffman Codes:
+
+A : Frequency = 2, Code = 11
+
+B : Frequency = 2, Code = 0
+
+C : Frequency = 1, Code = 10
+
+Original Text: AABBC
+
+Encoded Text: 1111001010
+
+Note: Huffman codes may differ when multiple nodes have equal frequencies because their ordering can vary. The encoded result will still be valid.
+------------------------------------------------------------------------------------------------------------------------------------------
+14. IMPORTANT THEORY
+
+Q1. What is Huffman Encoding?
+
+Ans: Huffman Encoding is a lossless data compression technique that assigns variable-length binary codes to characters based on their frequencies.
+
+Q2. Who developed Huffman Coding?
+
+Ans: David A. Huffman developed Huffman Coding in 1952.
+
+Q3. Which algorithm is used in Huffman Encoding?
+
+Ans: Greedy Algorithm.
+
+Q4. What is a Huffman Tree?
+
+Ans: A binary tree used to generate variable-length binary codes for characters.
+
+Q5. What is a leaf node?
+
+Ans: A node that does not have any children and contains an actual character.
+
+Q6. What is an internal node?
+
+Ans: A node that combines two nodes and stores their total frequency. It does not represent an actual character.
+
+Q7. What is a priority queue?
+
+Ans: A data structure that processes elements according to their priority.
+
+Q8. What is a min-heap?
+
+Ans: A complete binary tree in which the parent node has a value smaller than or equal to its children.
+
+Q9. Why do we use heapq?
+
+Ans: To efficiently select the two nodes having the smallest frequencies.
+
+Q10. What is lossless compression?
+
+Ans: Lossless compression reduces data size without losing the original information.
+
+Q11. Why are frequently occurring characters assigned shorter codes?
+
+Ans: To reduce the total number of bits required to represent the input text.
+
+Q12. What is prefix-free coding?
+
+Ans: A coding technique in which no code is the prefix of another code.
+
+Q13. Why is Huffman Coding prefix-free?
+
+Ans: Because each character is represented by a leaf node in the Huffman Tree, so no character's code is the prefix of another character's code.
+
+Q14. What is the use of 0 and 1 in the Huffman Tree?
+
+Ans:
+
+Left branch represents 0.
+Right branch represents 1.
+
+Q15. Can Huffman Coding compress data?
+
+Ans: Yes. It reduces the average number of bits required to represent characters.
+
+15. TIME AND SPACE COMPLEXITY
+
+Time Complexity: O(n + k log k)
+
+Where:
+
+n = Length of the input string.
+k = Number of unique characters.
+
+Explanation:
+
+Frequency calculation takes O(n).
+Building the Huffman Tree takes O(k log k).
+Generating Huffman codes takes O(k).
+Encoding the input text takes O(n).
+
+Space Complexity: O(n + k)
+
+Frequency dictionary requires O(k) space.
+Huffman Tree requires O(k) space.
+Encoded output requires O(n) space.
+16. TOP 10 MOST IMPORTANT VIVA QUESTIONS AND ANSWERS
+
+Q1. What is Huffman Encoding?
+
+Ans: It is a lossless data compression technique that assigns shorter binary codes to frequently occurring characters and longer codes to less frequent characters.
+
+Q2. Which algorithm is used in Huffman Encoding?
+
+Ans: Greedy Algorithm.
+
+Q3. Why do we use heapq?
+
+Ans: To implement a min-heap priority queue and select the two nodes with the smallest frequencies.
+
+Q4. What is the use of lt()?
+
+Ans: It compares the frequencies of two nodes and helps heapq arrange them.
+
+Q5. Why do we combine the two smallest frequencies?
+
+Ans: To build the Huffman Tree using the greedy approach.
+
+Q6. What is the difference between a leaf node and an internal node?
+
+Ans: A leaf node represents an actual character, whereas an internal node represents the combined frequency of two nodes.
+
+Q7. Why do we assign 0 to the left branch and 1 to the right branch?
+
+Ans: To generate unique binary codes for each character.
+
+Q8. What is prefix-free coding?
+
+Ans: A coding technique in which no character's code is the prefix of another character's code.
+
+Q9. What is the use of frequency dictionary?
+
+Ans: It stores each character and the number of times it appears in the input string.
+
+Q10. What is the main advantage of Huffman Encoding?
+
+Ans: It reduces storage space by assigning shorter codes to frequently occurring characters.
+
+17. TRICKY QUESTIONS EXAMINERS MAY ASK
+
+Q1. What happens if the input string is empty?
+
+Ans: The program displays an error message and stops execution.
+
+Q2. What happens if the input contains only one unique character?
+
+Ans: The program assigns the code "0" to that character.
+
+Q3. Can two characters have the same frequency?
+
+Ans: Yes. Two or more characters can have the same frequency.
+
+Q4. Will Huffman codes always be the same for the same input?
+
+Ans: Not necessarily. If multiple nodes have equal frequencies, different valid tie-breaking orders may generate different Huffman codes.
+
+Q5. Is Huffman Encoding a fixed-length or variable-length coding technique?
+
+Ans: It is a variable-length coding technique.
+
+Q6. Can we decode the encoded text?
+
+Ans: Yes. We can traverse the Huffman Tree using the binary bits to recover the original characters.
+
+Q7. What happens if we use a normal list instead of a priority queue?
+
+Ans: We can still implement Huffman Coding, but selecting the smallest frequencies becomes less efficient.
+
+Q8. What happens if we assign 1 to the left branch and 0 to the right branch?
+
+Ans: The Huffman codes will change, but they will still be valid if the tree structure remains unchanged.
+
+Q9. Is Huffman Coding always guaranteed to reduce file size?
+
+Ans: No. For small inputs, storing the Huffman Tree and encoding information may add overhead.
+
+Q10. What is the difference between Huffman Coding and ASCII?
+
+Ans:
+
+ASCII generally uses fixed-length 7-bit character codes.
+Huffman Coding uses variable-length codes based on character frequencies.
+
+Q11. What is the difference between compression and encoding?
+
+Ans:
+
+Compression reduces the amount of data required.
+Encoding converts data into a particular representation.
+
+Q12. Why is Huffman Coding called a greedy algorithm?
+
+Ans: Because it repeatedly selects the two nodes with the smallest frequencies and combines them.
+
+18. HOW TO EXPLAIN YOUR PROGRAM TO THE EXAMINER
+
+"My program implements Huffman Encoding, which is a lossless data compression technique based on the Greedy Algorithm.
+
+First, I calculate the frequency of each character in the input string and store it in a dictionary.
+
+Then, I create a min-heap using the heapq module and insert all character nodes according to their frequencies.
+
+Next, I repeatedly remove the two nodes with the smallest frequencies, combine them into a new internal node and insert the merged node back into the heap. This process continues until the Huffman Tree is created.
+
+After that, I generate binary codes by traversing the tree. I assign 0 to the left branch and 1 to the right branch.
+
+Finally, I encode the original text using the generated Huffman codes and display the character frequencies, codes and encoded text."

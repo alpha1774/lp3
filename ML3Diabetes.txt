@@ -1,0 +1,760 @@
+"""
+•	ML-3: Implement the K-Nearest Neighbors algorithm on the diabetes.csv dataset. Compute the confusion matrix, accuracy, error rate, precision and recall. 
+o	Dataset link: https://www.kaggle.com/datasets/abdallamahgoub/diabetes OR https://drive.google.com/file/d/1gYSJj2AQeuVKDuGocEFLymvVf3t4H4pi/view?usp=sharing
+"""
+
+# =====================================================
+# CELL 1: IMPORT LIBRARIES
+# =====================================================
+
+import pandas as pd
+import numpy as np
+
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import KNeighborsClassifier
+
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import precision_score
+from sklearn.metrics import recall_score
+
+
+# =====================================================
+# CELL 2: READ DATASET
+# =====================================================
+
+data = pd.read_csv("diabetes.csv")
+
+print("Dataset Loaded Successfully")
+print(data.head())
+
+print("\nDataset Shape:", data.shape)
+
+
+# =====================================================
+# CELL 3: SEPARATE FEATURES AND TARGET
+# =====================================================
+
+# X contains input features
+X = data.drop("Outcome", axis=1)
+
+# Y contains output
+y = data["Outcome"]
+
+print("\nFeatures and Target Separated")
+
+
+# =====================================================
+# CELL 4: SPLIT TRAINING AND TESTING DATA
+# =====================================================
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
+
+print("Training Data:", X_train.shape)
+print("Testing Data:", X_test.shape)
+
+
+# =====================================================
+# CELL 5: NORMALIZE DATA
+# =====================================================
+
+scaler = StandardScaler()
+
+# Fit and transform training data
+X_train = scaler.fit_transform(X_train)
+
+# Transform testing data
+X_test = scaler.transform(X_test)
+
+print("\nData Normalized Successfully")
+
+
+# =====================================================
+# CELL 6: BUILD AND TRAIN KNN MODEL
+# =====================================================
+
+# Select number of neighbors
+knn = KNeighborsClassifier(n_neighbors=5)
+
+# Train the model
+knn.fit(X_train, y_train)
+
+print("\nKNN Model Trained Successfully")
+
+
+# =====================================================
+# CELL 7: MAKE PREDICTIONS
+# =====================================================
+
+y_pred = knn.predict(X_test)
+
+print("\nPredictions Completed")
+
+
+# =====================================================
+# CELL 8: CONFUSION MATRIX
+# =====================================================
+
+cm = confusion_matrix(y_test, y_pred)
+
+print("\nConfusion Matrix:")
+print(cm)
+
+
+# =====================================================
+# CELL 9: CALCULATE PERFORMANCE METRICS
+# =====================================================
+
+accuracy = accuracy_score(y_test, y_pred)
+
+error_rate = 1 - accuracy
+
+precision = precision_score(y_test, y_pred, zero_division=0)
+
+recall = recall_score(y_test, y_pred, zero_division=0)
+
+print("\n===== PERFORMANCE METRICS =====")
+
+print("Accuracy:", accuracy * 100, "%")
+
+print("Error Rate:", error_rate * 100, "%")
+
+print("Precision:", precision * 100, "%")
+
+print("Recall:", recall * 100, "%")
+
+------------------------------------------------------------------------------------------------------------------------------------------
+#===== viva questions====
+"""
+Evaluation Questions
+
+Q34. What is Accuracy?
+Ans: Accuracy measures the percentage of correctly predicted results.
+Accuracy= TP+TN / TP+TN+FP+FN x 100
+
+Q35. What is Error Rate?
+
+Ans: Error Rate measures the percentage of incorrectly predicted results.
+     Error Rate=1-Accuracy
+
+Q47. What is Precision?
+Ans: Precision measures how many of the model's positive predictions are actually correct.
+->   P = TP/TP+NP
+
+Q48. What is Recall?
+Ans: Recall measures how many actual positive cases are correctly identified by the model.
+Recall = TP/ TP + FN
+
+Q38. What is the difference between Precision and Recall?
+Ans:
+- Precision focuses on how many predicted positive cases are correct.
+- Recall focuses on how many actual positive cases are correctly identified.
+
+Q3. What type of Machine Learning is used?
+Ans: Supervised Learning.
+
+Q4. What is KNN?
+Ans: K-Nearest Neighbors is a supervised machine learning algorithm that classifies a data point based on the majority class of its nearest neighbors.
+
+Q5. What type of classification is used?
+Ans: Binary Classification.
+
+Q6. What is the target variable in this dataset?
+Ans: Outcome.
+- 0 = No Diabetes.
+- 1 = Diabetes.
+
+2. KNN Algorithm Questions
+Q9. How does the KNN algorithm work?
+
+Ans:
+1. Select the value of K.
+2. Calculate the distance between data points.
+3. Find the K nearest neighbors.
+4. Count their classes.
+5. Assign the majority class as the prediction.
+Q10. What does K represent in KNN?
+
+Ans: K represents the number of nearest neighbors considered for classification.
+
+Q11. What is the value of K in our program?
+
+Ans: K = 5.
+
+Q12. Why do we use K = 5?
+
+Ans: It is a commonly used starting value that considers five nearest neighbors for classification.
+
+Q13. What is Euclidean Distance?
+Ans: It is the straight-line distance between two data points.
+
+Q14. What happens if K is too small?
+
+Ans: The model may become sensitive to noise and overfit.
+
+Q15. What happens if K is too large?
+
+Ans: The model may become too generalized and underfit.
+
+Q16. Is KNN a supervised or unsupervised algorithm?
+
+Ans: KNN is a supervised learning algorithm.
+
+Q17. Is KNN a lazy learning algorithm?
+
+Ans: Yes. It stores the training data and performs calculations when making predictions.
+3. Code-Based Viva Questions
+Q18. Why do we import Pandas?
+
+Ans: To read and manipulate the dataset.
+
+Q19. What does pd.read_csv() do?
+
+Ans: It reads a CSV file and loads it into a DataFrame.
+
+Q20. What does data.head() display?
+
+Ans: It displays the first five rows of the dataset by default.
+
+Q21. What does data.shape return?
+
+Ans: It returns the number of rows and columns in the dataset.
+
+Q22. What does data.drop("Outcome", axis=1) do?
+
+Ans: It removes the Outcome column from the dataset and stores the remaining columns as input features.
+
+Q23. What is the purpose of X and y?
+
+Ans:
+- X contains input features.
+- y contains the target variable.
+Q24. What does test_size=0.2 mean?
+
+Ans: It means 80% of the data is used for training and 20% for testing.
+
+Q25. What is random_state=42?
+
+Ans: It ensures reproducibility by maintaining the same random data split.
+
+Q26. What is the purpose of stratify=y?
+
+Ans: It maintains the same proportion of both classes in training and testing datasets.
+
+Q27. Why do we use StandardScaler()?
+
+Ans: To standardize features so that larger numerical values do not dominate distance calculations.
+
+Q28. What is the difference between fit_transform() and transform()?
+
+Ans:
+- fit_transform() learns scaling parameters and transforms training data.
+- transform() applies the same parameters to testing data.
+
+Q29. What does KNeighborsClassifier(n_neighbors=5) do?
+Ans: It initializes a KNN classifier that considers the five nearest neighbors.
+
+Q30. What does knn.fit(X_train, y_train) do?
+
+Ans: It trains the KNN model using the training data.
+
+Q31. What does knn.predict(X_test) do?
+
+Ans: It predicts whether the test samples belong to class 0 or class 1.
+
+4. Evaluation Metrics Questions
+Q32. What is a Confusion Matrix?
+
+Ans: A Confusion Matrix is a table used to evaluate a classification model by comparing actual and predicted values.
+
+Q33. What are TP, TN, FP, and FN?
+
+Ans:
+- TP (True Positive): Correctly predicted positive class.
+- TN (True Negative): Correctly predicted negative class.
+- FP (False Positive): Predicted positive when the actual class is negative.
+- FN (False Negative): Predicted negative when the actual class is positive.
+
+Q40. What is Overfitting?
+
+Ans: Overfitting occurs when a model performs well on training data but poorly on unseen testing data.
+
+Q41. What is Underfitting?
+
+Ans: Underfitting occurs when a model is too simple to learn patterns and performs poorly on both training and testing data.
+
+Q42. What is the difference between Classification and Regression?
+
+Ans:
+- Classification predicts categories.
+- Regression predicts continuous numerical values.
+
+Q3. What type of Machine Learning problem is this?
+Ans: Supervised Learning and Binary Classification.
+
+Q4. What is Binary Classification?
+Ans: Binary Classification is a classification problem in which the output has only two possible classes.
+
+Q1. What is Supervised Learning?
+Ans: Supervised Learning is a type of Machine Learning in which a model is trained using labelled data (input with correct output).
+
+Example: Spam Email Classification.
+
+Q2. What is Unsupervised Learning?
+Ans: Unsupervised Learning is a type of Machine Learning in which a model learns patterns from unlabelled data without predefined outputs.
+Example: Customer Segmentation using K-Means.
+
+Q3. What is Classification?
+Ans: Classification is a Supervised Learning technique used to predict categories or classes.
+Example: Spam or Not Spam.
+Types of Classification:
+1. Binary Classification: Two classes (Spam / Not Spam).
+2. Multiclass Classification: More than two classes (Red / Green / Blue).
+3. Multilabel Classification: One data point can belong to multiple classes.
+
+Q4. What is Regression?
+Ans: Regression is a Supervised Learning technique used to predict continuous numerical values.
+Example: House Price Prediction.
+Types of Regression:
+1. Linear Regression: Predicts output using a straight-line relationship.
+2. Multiple Linear Regression: Uses multiple input features.
+3. Polynomial Regression: Models curved relationships.
+4. Logistic Regression: Used for classification despite its name.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Diabetes Prediction Using K-Nearest Neighbors (KNN)
+1. Aim of the Program
+
+To develop a machine learning model using the K-Nearest Neighbors (KNN) algorithm to predict whether a person has diabetes or not based on medical attributes such as glucose level, blood pressure, insulin, BMI, age, etc.
+
+The model uses the diabetes.csv dataset and evaluates its performance using accuracy, error rate, precision, recall, and a confusion matrix.
+
+2. Line-by-Line Code Explanation
+CELL 1: Import Libraries
+
+Purpose: Import the required Python libraries for data handling, preprocessing, model training, and evaluation.
+
+>> import pandas as pd
+
+Imports the Pandas library.
+Used to read and manipulate datasets.
+pd is an alias for Pandas.
+
+>> import numpy as np
+
+Imports NumPy.
+Used for numerical calculations and array operations.
+np is an alias for NumPy.
+Note: NumPy is imported but not directly used in this program.
+
+>> from sklearn.model_selection import train_test_split
+
+Imports the train_test_split function.
+Divides the dataset into training and testing data.
+
+>> from sklearn.preprocessing import StandardScaler
+
+Imports StandardScaler.
+Used to normalize features so that they have a similar scale.
+
+>> from sklearn.neighbors import KNeighborsClassifier
+
+Imports the KNN classification algorithm.
+It predicts the class based on the nearest neighboring data points.
+
+>> from sklearn.metrics import confusion_matrix
+
+Imports the confusion matrix function.
+Used to compare actual and predicted results.
+
+>> from sklearn.metrics import accuracy_score
+
+Calculates the percentage of correct predictions.
+
+>> from sklearn.metrics import precision_score
+
+Calculates how many predicted positive cases are actually positive.
+
+>> from sklearn.metrics import recall_score
+
+Calculates how many actual positive cases are correctly identified.
+CELL 2: Read Dataset
+
+Purpose: Load the diabetes dataset and display its information.
+
+>> data = pd.read_csv("diabetes.csv")
+
+Reads the CSV file named diabetes.csv.
+Stores the dataset in the variable data.
+
+>> print("Dataset Loaded Successfully")
+
+Displays a success message.
+
+>> print(data.head())
+
+Displays the first five rows of the dataset.
+Helps us understand the structure and columns.
+
+>> print("\nDataset Shape:", data.shape)
+
+Displays the dimensions of the dataset.
+\n moves the output to a new line.
+data.shape returns the number of rows and columns.
+
+Dataset attributes generally include:
+
+Pregnancies – Number of pregnancies.
+Glucose – Glucose concentration.
+BloodPressure – Blood pressure.
+SkinThickness – Skin thickness.
+Insulin – Insulin level.
+BMI – Body Mass Index.
+DiabetesPedigreeFunction – Diabetes history-related score.
+Age – Age of the person.
+Outcome – Target variable (0 or 1).
+CELL 3: Separate Features and Target
+
+Purpose: Separate input variables from the output variable.
+
+>> X = data.drop("Outcome", axis=1)
+
+Removes the Outcome column from the dataset.
+Stores the remaining columns in X.
+X contains input features used for prediction.
+axis=1 means column-wise operation.
+
+>> y = data["Outcome"]
+
+Selects the Outcome column.
+Stores it in y.
+It is the target variable.
+0 means non-diabetic and 1 means diabetic in the commonly used Pima Indians Diabetes dataset.
+
+>> print("\nFeatures and Target Separated")
+
+Displays a confirmation message.
+
+Remember:
+
+X = Input features.
+y = Output or target variable.
+CELL 4: Split Training and Testing Data
+
+Purpose: Divide the dataset into training and testing sets.
+
+>> X_train, X_test, y_train, y_test = train_test_split(
+
+>> X, y, test_size=0.2, random_state=42, stratify=y
+
+>> )
+
+Explanation:
+
+X – Input features.
+y – Target variable.
+test_size=0.2 – Uses 20% of the data for testing.
+Remaining 80% is used for training.
+random_state=42 – Ensures reproducible splitting.
+stratify=y – Maintains the same proportion of diabetic and non-diabetic cases in both sets.
+
+>> print("Training Data:", X_train.shape)
+
+Displays the dimensions of training features.
+
+>> print("Testing Data:", X_test.shape)
+
+Displays the dimensions of testing features.
+
+Why do we split the dataset?
+
+Training data teaches the model, while testing data checks how well the model predicts unseen data.
+
+CELL 5: Normalize Data
+
+Purpose: Bring all input features to a similar scale.
+
+>> scaler = StandardScaler()
+
+Creates an object of StandardScaler.
+It standardizes the data using mean and standard deviation.
+
+>> X_train = scaler.fit_transform(X_train)
+
+fit() calculates the mean and standard deviation from training data.
+transform() standardizes the training data.
+The result replaces the original X_train.
+
+>> X_test = scaler.transform(X_test)
+
+Standardizes the testing data using the training data's mean and standard deviation.
+We do not use fit_transform() on testing data because it could cause data leakage.
+
+>> print("\nData Normalized Successfully")
+
+Displays a confirmation message.
+
+Why is normalization important in KNN?
+
+KNN calculates distances between data points. If one feature has a much larger range than another, it may dominate the distance calculation. Normalization prevents this problem.
+
+CELL 6: Build and Train KNN Model
+
+Purpose: Create and train the KNN classification model.
+
+>> knn = KNeighborsClassifier(n_neighbors=5)
+
+Creates a KNN classifier.
+n_neighbors=5 means the model considers the five nearest data points.
+The majority class among those five neighbors determines the prediction.
+
+>> knn.fit(X_train, y_train)
+
+Trains the KNN model using training data.
+The model stores the training examples for future distance calculations.
+
+>> print("\nKNN Model Trained Successfully")
+
+Displays a success message.
+
+How does KNN work?
+
+Select a value of K.
+Calculate the distance between the new data point and training points.
+Identify the K nearest neighbors.
+Count their class labels.
+Assign the majority class as the prediction.
+CELL 7: Make Predictions
+
+Purpose: Predict whether the test data belongs to diabetic or non-diabetic classes.
+
+>> y_pred = knn.predict(X_test)
+
+Uses the trained KNN model to predict the output.
+Stores predictions in y_pred.
+The output is either 0 or 1.
+
+>> print("\nPredictions Completed")
+
+Displays a confirmation message.
+CELL 8: Confusion Matrix
+
+Purpose: Compare actual results with predicted results.
+
+>> cm = confusion_matrix(y_test, y_pred)
+
+Creates a confusion matrix.
+y_test contains actual values.
+y_pred contains predicted values.
+
+>> print("\nConfusion Matrix:")
+
+Displays the heading.
+
+>> print(cm)
+
+Displays the confusion matrix.
+
+Confusion Matrix Structure:
+
+	Predicted 0	Predicted 1
+Actual 0	True Negative (TN)	False Positive (FP)
+Actual 1	False Negative (FN)	True Positive (TP)
+
+Explanation:
+
+True Negative (TN): Correctly predicted non-diabetic.
+True Positive (TP): Correctly predicted diabetic.
+False Positive (FP): Predicted diabetic, but actually non-diabetic.
+False Negative (FN): Predicted non-diabetic, but actually diabetic.
+CELL 9: Calculate Performance Metrics
+
+Purpose: Evaluate the performance of the trained KNN model.
+
+>> accuracy = accuracy_score(y_test, y_pred)
+
+Calculates the proportion of correct predictions.
+
+Formula:
+
+Accuracy = (TP + TN) / (TP + TN + FP + FN)
+
+>> error_rate = 1 - accuracy
+
+Calculates the proportion of incorrect predictions.
+
+Formula:
+
+Error Rate = 1 − Accuracy
+
+>> precision = precision_score(y_test, y_pred, zero_division=0)
+
+Calculates the precision of the model.
+It measures how many predicted diabetic cases are actually diabetic.
+
+Formula:
+
+Precision = TP / (TP + FP)
+
+zero_division=0 prevents division-by-zero warnings and returns 0 if the denominator is zero.
+
+>> recall = recall_score(y_test, y_pred, zero_division=0)
+
+Calculates recall.
+It measures how many actual diabetic cases are correctly identified.
+
+Formula:
+
+Recall = TP / (TP + FN)
+
+zero_division=0 handles cases where the denominator is zero.
+
+>> print("\n===== PERFORMANCE METRICS =====")
+
+Displays the performance metrics heading.
+
+>> print("Accuracy:", accuracy * 100, "%")
+
+Displays accuracy as a percentage.
+
+>> print("Error Rate:", error_rate * 100, "%")
+
+Displays the percentage of incorrect predictions.
+
+>> print("Precision:", precision * 100, "%")
+
+Displays precision as a percentage.
+
+>> print("Recall:", recall * 100, "%")
+
+Displays recall as a percentage.
+3. Important Theory for Viva
+What is Diabetes Prediction?
+
+Diabetes prediction is a machine learning application that uses medical information to predict whether a person is likely to have diabetes.
+
+What is KNN?
+
+K-Nearest Neighbors is a supervised machine learning algorithm used for classification and regression. It predicts the class of a new data point based on the majority class of its nearest neighbors.
+
+Why is KNN called a lazy learning algorithm?
+
+Because it does not build an explicit model during training. It stores the training data and performs distance calculations when a prediction is requested.
+
+What is StandardScaler?
+
+StandardScaler is a preprocessing technique that transforms features so that they have approximately:
+
+Mean = 0
+Standard deviation = 1
+What is the value of K in this program?
+
+The value of K is 5. Therefore, the model considers the five nearest neighbors when making predictions.
+
+What is supervised learning?
+
+Supervised learning is a machine learning technique in which a model learns from labelled data containing both input features and known output values.
+
+4. Time and Space Complexity
+
+Let:
+
+N = Number of training records.
+D = Number of input features.
+M = Number of testing records.
+K = Number of neighbors.
+Operation	Complexity
+Dataset loading	Depends on dataset size
+Train-test split	O(N × D)
+Standardization	O(N × D)
+KNN training	Approximately O(1) model-building overhead, excluding data storage
+KNN prediction	O(M × N × D + M × N log N) for a brute-force implementation
+Confusion matrix	O(M)
+
+KNN Space Complexity: O(N × D) for storing the training data.
+----------------------------------------------------------------------------------------------------------------------------------------
+5. Top 10 Viva Questions and Answers
+
+Q1. What is the full form of KNN?
+
+K-Nearest Neighbors.
+
+Q2. Is KNN supervised or unsupervised?
+
+KNN is a supervised machine learning algorithm.
+
+Q3. Why is KNN used in this program?
+
+It is used to classify whether a person is diabetic or non-diabetic based on medical attributes.
+
+Q4. What is the value of K in this program?
+
+K = 5.
+
+Q5. Why do we use StandardScaler?
+
+To bring all features to a similar scale and prevent larger-valued features from dominating distance calculations.
+
+Q6. What is the purpose of train_test_split?
+
+To divide the dataset into training and testing data.
+
+Q7. What does Outcome represent?
+
+It is the target variable. 0 represents non-diabetic and 1 represents diabetic in the commonly used dataset.
+
+Q8. What is the difference between precision and recall?
+
+Precision measures how many predicted positive cases are actually positive.
+Recall measures how many actual positive cases are correctly identified.
+
+Q9. What happens if we increase the value of K?
+
+The model considers more neighbors. This can make predictions smoother, but choosing K too large may lead to underfitting.
+
+Q10. What are the disadvantages of KNN?
+
+Prediction can be slow for large datasets.
+It requires feature scaling.
+It is sensitive to irrelevant features.
+Choosing the correct K value is important.
+6. Tricky Viva Questions
+
+Q1. Why do we use stratify=y?
+
+To maintain the same proportion of diabetic and non-diabetic cases in training and testing data.
+
+Q2. Why do we use fit_transform() on training data but only transform() on testing data?
+
+To prevent data leakage. The testing data must use the scaling parameters calculated from training data.
+
+Q3. Can KNN work without normalization?
+
+Yes, but features with larger numerical ranges may dominate distance calculations and reduce prediction quality.
+
+Q4. What happens if K = 1?
+
+The model considers only the nearest data point. It may become sensitive to noise and overfit.
+
+Q5. Can KNN be used for regression?
+
+Yes. KNN can predict continuous numerical values using the average of neighboring values.
+
+Q6. Why is recall important in diabetes prediction?
+
+Low recall means the model may fail to identify people who actually have diabetes. Therefore, identifying positive cases is particularly important.
+
+Q7. What is the difference between accuracy and error rate?
+
+Accuracy measures correct predictions, whereas error rate measures incorrect predictions.
+
+Q8. Why do we use an odd value of K?
+
+An odd value can reduce the possibility of a tie in binary classification, although ties can still occur in some situations.
+
+7. Short Explanation to Tell the Examiner
+
+"This program predicts diabetes using the K-Nearest Neighbors machine learning algorithm. First, we import the required libraries and load the diabetes dataset. Then, we separate the input features and target variable. We divide the dataset into 80% training and 20% testing data. After that, we normalize the features using StandardScaler and train the KNN model with five neighbors. Finally, we predict the results and evaluate the model using a confusion matrix, accuracy, error rate, precision, and recall."

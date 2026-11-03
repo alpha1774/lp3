@@ -1,0 +1,558 @@
+# =====================================================
+# CELL 1: IMPORT LIBRARY
+# =====================================================
+
+import matplotlib.pyplot as plt
+
+
+# =====================================================
+# CELL 2: DEFINE FUNCTION AND DERIVATIVE
+# =====================================================
+
+# Given function: y = (x + 3)^2
+
+def function(x):
+    return (x + 3) ** 2
+
+# Derivative: dy/dx = 2(x + 3)
+
+def derivative(x):
+    return 2 * (x + 3)
+
+
+# =====================================================
+# CELL 3: INITIALIZE PARAMETERS
+# =====================================================
+
+x = 2               # Starting point
+learning_rate = 0.1
+iterations = 50
+
+x_values = []
+y_values = []
+
+
+# =====================================================
+# CELL 4: APPLY GRADIENT DESCENT
+# =====================================================
+
+for i in range(iterations):
+
+    # Calculate gradient
+    grad = derivative(x)
+
+    # Update x value
+    x = x - learning_rate * grad
+
+    # Store values
+    x_values.append(x)
+    y_values.append(function(x))
+
+
+# =====================================================
+# CELL 5: DISPLAY LOCAL MINIMUM
+# =====================================================
+
+print("Minimum value of x:", x)
+print("Minimum value of y:", function(x))
+
+
+# =====================================================
+# CELL 6: PLOT GRAPH
+# =====================================================
+
+plt.plot(x_values, y_values, marker='o')
+
+plt.title("Gradient Descent")
+plt.xlabel("Iterations")
+plt.ylabel("Function Value")
+
+plt.grid()
+plt.show()
+
+
+
+#====VIVA Questions====
+"""
+1. Basic Concepts
+1. What is Gradient Descent?
+Gradient Descent is an optimization algorithm used to find the minimum value of 
+a function by repeatedly updating its parameters.
+
+2. What is the main purpose of Gradient Descent?
+To, minimize the cost or loss function and find its minimum value.
+
+3. What is a Gradient?
+A gradient represents the slope or rate of change of a function.
+
+4. What is a Derivative?
+A derivative measures how much a function changes when its input changes.
+
+5. What is the Learning Rate?
+The learning rate controls how big a step the algorithm takes while updating the value of a parameter.
+
+6. What happens if the learning rate is too high?
+The algorithm may overshoot the minimum and fail to converge.
+
+7. What happens if the learning rate is too low?
+The algorithm takes very small steps and requires more iterations to reach the minimum.
+
+8. What is an Iteration?
+One complete execution of the gradient descent update step.
+
+9. What is a Local Minimum?
+A point where the function has a lower value than nearby points.
+
+10. What is a Global Minimum?
+The lowest possible value of a function over its entire domain.
+
+15. Why do we subtract the gradient?
+Because subtracting the gradient moves the parameter in the direction of decreasing function value.
+
+3. Python Code-Based Questions
+
+16. Why did you import Matplotlib?
+To, plot and visualize the gradient descent process.
+
+17. What does function(x) return?
+It, returns the value of the function \((x+3)^2\) for the given x.
+
+18. What does derivative(x) return?
+It, returns the gradient of the function at the given x.
+
+19. Why is the initial value of x set to 2?
+It provides the starting point from which gradient descent begins.
+
+20. Why did you choose learning_rate = 0.1?
+It controls the step size during updates and provides a reasonable rate of convergence for this example.
+
+21. Why did you choose iterations = 50?
+To repeat the update process 50 times so that x approaches the minimum.
+
+22. What is the purpose of grad = derivative(x)?
+It calculates the current gradient at the current value of x.
+
+23. Explain x = x - learning_rate * grad.
+It updates x by moving in the opposite direction of the gradient.
+
+24. Why are x_values and y_values used?
+They store the updated x values and corresponding function values for plotting.
+
+25. What does x_values.append(x) do?
+It stores the current updated x value in the list.
+
+26. What does y_values.append(function(x)) do?
+It stores the function value corresponding to the current x.
+
+27. What does plt.plot() do?
+It draws a graph using the stored x and y values.
+
+28. What does marker='o' do?
+It displays circular markers at each plotted data point.
+
+29. What does plt.grid() do?
+It displays grid lines on the graph.
+
+30. What is the final output of your program?
+The value of x approaches -3, and the function value approaches 0.
+
+Q1. What is Supervised Learning?
+Ans: Supervised Learning is a type of Machine Learning in which a model is trained using labelled data (input with correct output).
+
+Example: Spam Email Classification.
+
+Q2. What is Unsupervised Learning?
+Ans: Unsupervised Learning is a type of Machine Learning in which a model learns patterns from unlabelled data without predefined outputs.
+Example: Customer Segmentation using K-Means.
+
+Q3. What is Classification?
+Ans: Classification is a Supervised Learning technique used to predict categories or classes.
+Example: Spam or Not Spam.
+Types of Classification:
+1. Binary Classification: Two classes (Spam / Not Spam).
+2. Multiclass Classification: More than two classes (Red / Green / Blue).
+3. Multilabel Classification: One data point can belong to multiple classes.
+
+Q4. What is Regression?
+Ans: Regression is a Supervised Learning technique used to predict continuous numerical values.
+Example: House Price Prediction.
+Types of Regression:
+1. Linear Regression: Predicts output using a straight-line relationship.
+2. Multiple Linear Regression: Uses multiple input features.
+3. Polynomial Regression: Models curved relationships.
+4. Logistic Regression: Used for classification despite its name.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+GRADIENT DESCENT ALGORITHM
+1. AIM
+
+To implement the Gradient Descent optimization algorithm in Python to find the minimum value of a given mathematical function.
+
+Given function:
+
+y = (x + 3)^2
+
+Derivative:
+
+dy/dx = 2 * (x + 3)
+
+The objective is to find the value of x at which the function reaches its minimum.
+
+2. LINE-BY-LINE CODE EXPLANATION
+CELL 1: IMPORT LIBRARY
+
+Purpose: Import the library required for plotting graphs.
+
+>> import matplotlib.pyplot as plt
+
+Imports Matplotlib for creating graphs.
+plt is the alias used for Matplotlib.
+It helps visualize the optimization process.
+CELL 2: DEFINE FUNCTION AND DERIVATIVE
+
+Purpose: Define the mathematical function and its derivative.
+
+>> def function(x):
+
+Defines a function named function.
+Accepts x as an input parameter.
+
+>> return (x + 3) ** 2
+
+Calculates the value of the given function.
+** 2 means square.
+Represents y = (x + 3)^2.
+
+Derivative:
+
+>> def derivative(x):
+
+Defines another function named derivative.
+Calculates the derivative of the original function.
+
+>> return 2 * (x + 3)
+
+Returns the derivative value.
+Represents dy/dx = 2 * (x + 3).
+The derivative tells us the slope of the function at a particular point.
+
+Important: Gradient Descent uses the derivative to decide the direction in which to update x.
+
+CELL 3: INITIALIZE PARAMETERS
+
+Purpose: Set the initial values required for Gradient Descent.
+
+>> x = 2
+
+Sets the starting value of x to 2.
+This is the initial point from which optimization begins.
+
+>> learning_rate = 0.1
+
+Sets the learning rate to 0.1.
+Learning rate controls the size of each update.
+A very high learning rate may cause the algorithm to overshoot the minimum.
+
+>> iterations = 50
+
+Specifies that the algorithm will execute 50 times.
+Each iteration updates the value of x.
+
+>> x_values = []
+
+Creates an empty list.
+Stores updated x values after every iteration.
+
+>> y_values = []
+
+Creates another empty list.
+Stores the corresponding function values.
+CELL 4: APPLY GRADIENT DESCENT
+
+Purpose: Repeatedly update x to find the minimum value.
+
+>> for i in range(iterations):
+
+Starts a loop that executes 50 times.
+i represents the iteration number.
+
+>> grad = derivative(x)
+
+Calculates the derivative at the current value of x.
+Stores the gradient in grad.
+
+>> x = x - learning_rate * grad
+
+Updates the value of x using the Gradient Descent formula.
+
+Formula:
+
+New x = Old x - (Learning Rate * Gradient)
+x = Current value.
+Learning Rate = Step size.
+Gradient = Derivative of the function.
+
+Why do we subtract the gradient?
+
+Because we want to move in the direction that decreases the function value.
+
+>> x_values.append(x)
+
+Stores the updated x value in the x_values list.
+
+>> y_values.append(function(x))
+
+Calculates the function value using updated x.
+Stores the result in y_values.
+CELL 5: DISPLAY LOCAL MINIMUM
+
+Purpose: Display the final optimized values.
+
+>> print("Minimum value of x:", x)
+
+Displays the final value of x after 50 iterations.
+It approaches -3.
+
+>> print("Minimum value of y:", function(x))
+
+Calculates and displays the function value at the final x.
+It approaches 0.
+
+Expected output approximately:
+
+Minimum value of x: -2.9999...
+Minimum value of y: 0.0000...
+
+The exact decimal values may vary slightly because of floating-point calculations.
+
+CELL 6: PLOT GRAPH
+
+Purpose: Visualize how the function value changes during optimization.
+
+>> plt.plot(x_values, y_values, marker='o')
+
+Creates a line graph.
+X-axis contains updated x values.
+Y-axis contains corresponding function values.
+marker='o' displays circular markers.
+
+>> plt.title("Gradient Descent")
+
+Sets the graph title.
+
+>> plt.xlabel("Iterations")
+
+Labels the X-axis.
+Note: In this code, the X-axis actually contains updated x values, not iteration numbers.
+
+>> plt.ylabel("Function Value")
+
+Labels the Y-axis.
+
+>> plt.grid()
+
+Displays grid lines in the graph.
+
+>> plt.show()
+
+Displays the final graph.
+3. IMPORTANT THEORY FOR VIVA
+Q1. What is Gradient Descent?
+
+Gradient Descent is an optimization algorithm used to find the minimum value of a function by repeatedly updating parameters in the opposite direction of the gradient.
+
+Q2. What is the objective of Gradient Descent?
+
+To minimize the cost or objective function by finding suitable parameter values.
+
+Q3. What is a Gradient?
+
+A gradient represents the direction and rate of the steepest increase of a function. In this single-variable example, it is the derivative.
+
+Q4. What is a Learning Rate?
+
+Learning rate controls how much the value of x changes during each iteration.
+
+Q5. What happens if the learning rate is too high?
+
+The algorithm may overshoot the minimum, oscillate, or fail to converge.
+
+Q6. What happens if the learning rate is too low?
+
+The algorithm takes very small steps and requires more iterations to reach the minimum.
+
+Q7. What is an Iteration?
+
+One complete execution of the Gradient Descent update step is called an iteration.
+
+Q8. What is a Local Minimum?
+
+A local minimum is a point where the function value is lower than the values at nearby points.
+
+Q9. What is a Global Minimum?
+
+A global minimum is the lowest function value over the entire domain.
+
+Q10. What is the difference between Gradient Descent and normal differentiation?
+
+Differentiation calculates the derivative, whereas Gradient Descent uses the derivative repeatedly to find a minimum.
+
+4. MATHEMATICAL CALCULATION
+
+Given function:
+
+y = (x + 3)^2
+
+Derivative:
+
+dy/dx = 2 * (x + 3)
+
+Initial values:
+
+Starting x = 2
+Learning Rate = 0.1
+Iterations = 50
+
+Iteration 1:
+
+Current x = 2
+
+Gradient = 2 * (2 + 3)
+Gradient = 10
+
+New x = 2 - (0.1 * 10)
+New x = 1
+
+Iteration 2:
+
+Current x = 1
+
+Gradient = 2 * (1 + 3)
+Gradient = 8
+
+New x = 1 - (0.1 * 8)
+New x = 0.2
+
+Iteration 3:
+
+Current x = 0.2
+
+Gradient = 2 * (0.2 + 3)
+Gradient = 6.4
+
+New x = 0.2 - (0.1 * 6.4)
+New x = -0.44
+
+The value of x gradually approaches -3.
+
+Final Minimum:
+
+Minimum x = -3
+
+Minimum y = (-3 + 3)^2
+Minimum y = 0
+
+Minimum Point = (-3, 0)
+5. TIME AND SPACE COMPLEXITY
+
+Let N represent the number of iterations.
+
+Operation	Complexity
+Function calculation	O(1)
+Derivative calculation	O(1)
+One Gradient Descent update	O(1)
+Total execution	O(N)
+Storing x and y values	O(N)
+Time Complexity = O(N)
+Space Complexity = O(N), because the program stores values from every iteration.
+6. TOP 10 VIVA QUESTIONS AND ANSWERS
+
+Q1. Which algorithm is implemented in this program?
+
+Gradient Descent optimization algorithm.
+
+Q2. What is the given mathematical function?
+
+y = (x + 3)^2
+
+Q3. What is its derivative?
+
+dy/dx = 2 * (x + 3)
+
+Q4. What is the starting value of x?
+
+x = 2.
+
+Q5. What is the learning rate?
+
+0.1.
+
+Q6. How many iterations are performed?
+
+50 iterations.
+
+Q7. What is the minimum value of x?
+
+-3.
+
+Q8. What is the minimum value of y?
+
+Q9. Why do we use the derivative?
+
+To determine the gradient and direction for updating x.
+
+Q10. Where is Gradient Descent used?
+
+It is widely used in machine learning and deep learning to minimize loss or cost functions during model training.
+
+7. TRICKY VIVA QUESTIONS
+
+Q1. Why do we subtract the gradient instead of adding it?
+
+To move in the direction of decreasing function values.
+
+Q2. Can Gradient Descent find the minimum without a derivative?
+
+Standard Gradient Descent requires gradient information. Other derivative-free optimization methods are available.
+
+Q3. What happens if the derivative becomes zero?
+
+The update becomes zero, meaning the algorithm stops changing x at that point.
+
+Q4. Is Gradient Descent a supervised learning algorithm?
+
+Gradient Descent itself is an optimization algorithm, not a supervised learning algorithm. It is used to train many machine learning models.
+
+Q5. Is the minimum in this program local or global?
+
+It is the global minimum because the given function is a convex quadratic function.
+
+Q6. Why do we store x_values and y_values?
+
+To visualize how the values change during the optimization process.
+
+Q7. What is convergence?
+
+Convergence occurs when the algorithm approaches a stable solution and further updates become very small.
+
+Q8. Can Gradient Descent be used for multiple variables?
+
+Yes. It can optimize functions containing multiple parameters using partial derivatives.
+
+8. SHORT EXPLANATION TO TELL THE EXAMINER
+
+"This program implements the Gradient Descent algorithm to find the minimum of the function y = (x + 3)^2. First, we define the function and its derivative. Then, we initialize x to 2, the learning rate to 0.1, and the number of iterations to 50. Inside the loop, we calculate the gradient and update x using the Gradient Descent formula. We store the updated values and finally display the minimum point and plot the graph. The algorithm approaches x = -3, where the minimum function value is 0."
+
+9. IMPORTANT CORRECTION IN YOUR CODE
+
+Your current graph uses updated x values on the horizontal axis, but labels that axis as "Iterations".
+
+If you want the horizontal axis to show iteration numbers, replace:
+
+>> plt.plot(x_values, y_values, marker='o')
+
+With:
+
+>> plt.plot(range(1, len(y_values) + 1), y_values, marker='o')
+
+This correctly shows how the function value decreases over the 50 iterations.
