@@ -1,0 +1,1270 @@
+GROUP B – MACHINE LEARNING (ML)
+PRACTICAL 6 – Bank Customer Churn Prediction using Neural Networks
+1. Aim
+
+Build a Neural Network-based classifier to predict whether a bank customer will leave the bank within the next six months.
+
+2. What is Customer Churn?
+
+Customer Churn refers to the situation in which a customer stops using the services of a company.
+
+In banking, it means that a customer closes their account or leaves the bank.
+
+Example:
+
+If a bank has 10,000 customers and 1,000 customers leave, the churn rate is:
+
+Churn Rate = (1000 / 10000) × 100
+
+Churn Rate = 10%.
+
+3. What is Machine Learning?
+
+Machine Learning is a branch of Artificial Intelligence that allows computers to learn patterns from data and make predictions without explicitly programming every rule.
+
+4. What is Supervised Learning?
+
+Supervised Learning is a type of Machine Learning in which the model learns from labelled data.
+
+In this practical:
+
+Input: Customer information.
+Output: Whether the customer will leave or stay.
+5. What is Classification?
+
+Classification is a supervised learning technique used to predict categorical outputs.
+
+Here, there are two classes:
+
+0 = Customer stays.
+1 = Customer leaves.
+6. What is an Artificial Neural Network?
+
+An Artificial Neural Network (ANN) is a Machine Learning model inspired by the human brain.
+
+It consists of interconnected neurons organized into layers.
+
+7. Layers of Neural Network
+
+Input Layer:
+
+Receives customer information such as age, balance and credit score.
+
+Hidden Layer:
+
+Processes the input data and learns patterns.
+
+Output Layer:
+
+Predicts whether the customer will leave or stay.
+
+For binary classification, a sigmoid output is commonly used.
+
+8. Dataset Information
+
+Your practical sheet specifies the Kaggle Bank Customer Churn dataset.
+
+It contains approximately:
+
+10,000 records.
+14 original features.
+Customer information such as CustomerId, CreditScore, Geography, Gender, Age, Tenure and Balance.
+
+The target variable is generally:
+
+Exited
+
+Where:
+
+0 = Customer stayed.
+1 = Customer exited.
+9. Important Features
+
+CreditScore: Indicates the customer's credit score.
+
+Geography: Customer's location.
+
+Gender: Customer's gender.
+
+Age: Customer's age.
+
+Tenure: Number of years the customer has been with the bank.
+
+Balance: Amount of money in the account.
+
+NumOfProducts: Number of banking products used.
+
+IsActiveMember: Indicates whether the customer is active.
+
+EstimatedSalary: Estimated annual salary.
+
+Exited: Target variable.
+
+CustomerId and RowNumber are identifiers, not useful predictive features in the usual model.
+
+10. What is Data Preprocessing?
+
+Data Preprocessing is the process of cleaning and transforming raw data before training a model.
+
+Steps:
+
+Read the dataset.
+Check missing values.
+Remove unnecessary columns.
+Separate features and target.
+Encode categorical values.
+Split the dataset.
+Normalize numerical features.
+11. What is Feature Selection?
+
+Feature Selection means choosing the most relevant input variables for the model.
+
+For example, Age, Balance, CreditScore and Tenure may be useful for customer churn prediction.
+
+12. What is Train-Test Split?
+
+The dataset is divided into two parts:
+
+Training Data: Used to train the model.
+
+Testing Data: Used to evaluate the trained model.
+
+A common split is:
+
+80% Training.
+20% Testing.
+13. What is Normalization?
+
+Normalization scales numerical features into a common range, commonly 0 to 1.
+
+Formula:
+
+X' = (X − Xmin) / (Xmax − Xmin)
+
+It helps prevent large-valued features from dominating the learning process.
+
+14. What is One-Hot Encoding?
+
+One-Hot Encoding converts categorical values into numerical binary columns.
+
+Example:
+
+Geography:
+
+France, Germany, Spain.
+
+After encoding, separate columns are created for the categories.
+
+This makes categorical information usable by the neural network.
+
+15. What is Model Training?
+
+Model Training is the process in which the neural network learns patterns from the training data by adjusting weights and biases.
+
+16. What is an Activation Function?
+
+An Activation Function determines the output of a neuron.
+
+Common activation functions:
+
+ReLU.
+Sigmoid.
+Tanh.
+Softmax.
+
+For binary classification, Sigmoid is commonly used in the output layer.
+
+17. What is the Sigmoid Function?
+
+Sigmoid converts an input into a value between 0 and 1.
+
+Formula:
+
+f(x) = 1 / (1 + e⁻ˣ)
+
+The output can be interpreted as a predicted probability for the positive class.
+
+For example:
+
+0.85 → High predicted probability of churn.
+0.20 → Low predicted probability of churn.
+
+The classification threshold is commonly 0.5, although it can be adjusted.
+
+18. What is Loss Function?
+
+A Loss Function measures the difference between actual and predicted outputs.
+
+For binary classification, Binary Cross-Entropy is commonly used.
+
+19. What is an Optimizer?
+
+An Optimizer updates the neural network's weights and biases to reduce the loss.
+
+Examples:
+
+Adam.
+SGD.
+RMSprop.
+20. What is Accuracy?
+
+Accuracy measures the percentage of correct predictions.
+
+Accuracy = Correct Predictions / Total Predictions × 100.
+
+21. What is a Confusion Matrix?
+
+A Confusion Matrix evaluates a classification model by comparing actual and predicted classes.
+
+It contains:
+
+True Positive.
+True Negative.
+False Positive.
+False Negative.
+22. How Can You Improve the Model?
+Increase training data.
+Tune learning rate.
+Change the number of hidden neurons.
+Use dropout.
+Use regularization.
+Adjust batch size.
+Handle class imbalance.
+Tune the classification threshold.
+23. Algorithm
+Import required libraries.
+Read the bank customer dataset.
+Check missing values and duplicates.
+Remove unnecessary identifier columns.
+Separate features and target.
+Encode categorical features.
+Split data into training and testing sets.
+Normalize the data using training-set statistics.
+Build a neural network.
+Compile the model.
+Train the model.
+Predict customer churn.
+Calculate accuracy.
+Display the confusion matrix.
+24. Real-Life Applications
+Bank customer retention.
+Telecom customer churn prediction.
+Subscription cancellation prediction.
+Insurance customer retention.
+E-commerce customer behaviour analysis.
+Important Viva Questions – Practical 6
+
+Q1. What is Customer Churn?
+
+Answer:
+
+Customer Churn means customers stop using a company's products or services.
+
+Q2. What is the objective of this practical?
+
+Answer:
+
+To predict whether a bank customer will leave or stay using a Neural Network classifier.
+
+Q3. Which type of Machine Learning is used?
+
+Answer:
+
+Supervised Learning.
+
+Q4. Which type of problem is this?
+
+Answer:
+
+Binary Classification.
+
+Q5. What is the target variable?
+
+Answer:
+
+Exited.
+
+Q6. What does Exited = 1 mean?
+
+Answer:
+
+The customer has left the bank.
+
+Q7. What does Exited = 0 mean?
+
+Answer:
+
+The customer has stayed with the bank.
+
+Q8. Why do we remove CustomerId?
+
+Answer:
+
+Because it is an identifier and generally does not contain useful predictive information.
+
+Q9. Why do we normalize data?
+
+Answer:
+
+To bring numerical features to a comparable scale.
+
+Q10. Why do we use a Neural Network?
+
+Answer:
+
+To learn complex relationships between customer features and churn behaviour.
+
+Q11. What is an input layer?
+
+Answer:
+
+The layer that receives input features.
+
+Q12. What is a hidden layer?
+
+Answer:
+
+The layer that processes data and learns patterns.
+
+Q13. What is an output layer?
+
+Answer:
+
+The layer that produces the final prediction.
+
+Q14. Which activation function is used for binary classification?
+
+Answer:
+
+Sigmoid is commonly used in the output layer.
+
+Q15. What is the purpose of Binary Cross-Entropy?
+
+Answer:
+
+It measures the error between actual and predicted binary outputs.
+
+Q16. What is an epoch?
+
+Answer:
+
+One complete pass of the training dataset through the neural network.
+
+Q17. What is batch size?
+
+Answer:
+
+The number of training samples processed before updating model parameters.
+
+Q18. What is overfitting?
+
+Answer:
+
+When the model learns training data too closely and performs poorly on unseen data.
+
+Q19. What is the purpose of a confusion matrix?
+
+Answer:
+
+To evaluate classification performance using TP, TN, FP and FN.
+
+Q20. Why is accuracy alone sometimes insufficient for churn prediction?
+
+Answer:
+
+Because if the dataset is imbalanced, a model can achieve high accuracy while failing to identify customers who actually leave.
+
+PRACTICAL 7 – Email Classification using KNN and SVM
+1. Aim
+
+Classify emails into Normal (Not Spam) and Abnormal (Spam) categories using K-Nearest Neighbour and Support Vector Machine algorithms and compare their performance.
+
+2. What is Email Spam?
+
+Email Spam refers to unwanted or unsolicited emails sent in bulk.
+
+Examples:
+
+Fake lottery messages.
+Unwanted advertisements.
+Fraudulent banking messages.
+Phishing emails.
+3. What is Binary Classification?
+
+Binary Classification is a supervised learning problem in which the output contains only two classes.
+
+In this practical:
+
+0 = Not Spam.
+1 = Spam.
+
+The exact numerical encoding depends on the dataset.
+
+4. What is K-Nearest Neighbour?
+
+KNN is a supervised learning algorithm that classifies a new data point based on the majority class among its K nearest training points.
+
+It commonly uses Euclidean distance.
+
+5. Working of KNN
+Choose the value of K.
+Calculate distances from the new data point to training points.
+Identify K nearest neighbours.
+Find their majority class.
+Assign that class to the new email.
+6. What is Euclidean Distance?
+
+It measures the straight-line distance between two points.
+
+Formula:
+
+d = √[(x₂ − x₁)² + (y₂ − y₁)²]
+
+7. What is SVM?
+
+Support Vector Machine is a supervised learning algorithm that finds an optimal decision boundary to separate different classes.
+
+8. What is Hyperplane?
+
+A Hyperplane is a decision boundary that separates different classes.
+
+In two dimensions, it is a line.
+
+9. What are Support Vectors?
+
+Support Vectors are the data points closest to the separating hyperplane.
+
+They determine the position of the decision boundary and its margin.
+
+10. What is Margin?
+
+Margin is the distance between the separating hyperplane and the nearest data points from each class.
+
+SVM attempts to maximize this margin.
+
+11. What is a Kernel?
+
+A Kernel is a mathematical function used by SVM to handle nonlinear classification problems.
+
+Common kernels:
+
+Linear.
+Polynomial.
+RBF.
+Sigmoid.
+12. What is Text Vectorization?
+
+Text Vectorization converts textual information into numerical features that Machine Learning algorithms can process.
+
+Common techniques:
+
+Bag of Words.
+TF-IDF.
+Word Embeddings.
+13. What is TF-IDF?
+
+TF-IDF stands for Term Frequency–Inverse Document Frequency.
+
+It measures how important a word is in a document compared with the entire collection of documents.
+
+It gives greater importance to words that are frequent in a particular document but less common across all documents.
+
+14. Algorithm
+Import libraries.
+Read emails.csv.
+Inspect and clean the dataset.
+Separate email text and labels.
+Convert text into numerical features using TF-IDF or another suitable vectorizer.
+Split data into training and testing sets.
+Train the KNN classifier.
+Train the SVM classifier.
+Predict the test data.
+Calculate accuracy and other metrics.
+Compare both algorithms.
+Display the results.
+15. Difference between KNN and SVM
+
+KNN:
+
+Distance-based algorithm.
+Lazy learning.
+Uses nearest neighbours.
+Prediction can become slow for large datasets.
+
+SVM:
+
+Finds an optimal decision boundary.
+Uses support vectors.
+Can handle nonlinear classification using kernels.
+Can work well with high-dimensional text features.
+16. Real-Life Applications
+Spam email detection.
+Phishing detection.
+Fraudulent message detection.
+Customer feedback classification.
+Document categorization.
+Important Viva Questions – Practical 7
+
+Q1. What is Spam Classification?
+
+Answer:
+
+It is the process of identifying unwanted emails and separating them from legitimate emails.
+
+Q2. Which algorithms are used?
+
+Answer:
+
+KNN and SVM.
+
+Q3. Is this supervised or unsupervised learning?
+
+Answer:
+
+Supervised Learning.
+
+Q4. What is KNN?
+
+Answer:
+
+An algorithm that classifies a data point based on its nearest neighbours.
+
+Q5. What does K represent?
+
+Answer:
+
+The number of nearest neighbours considered.
+
+Q6. What is SVM?
+
+Answer:
+
+Support Vector Machine is an algorithm that finds an optimal decision boundary between classes.
+
+Q7. What is a support vector?
+
+Answer:
+
+A data point closest to the separating hyperplane.
+
+Q8. What is a kernel function?
+
+Answer:
+
+A mathematical function used by SVM to handle nonlinear relationships.
+
+Q9. What is TF-IDF?
+
+Answer:
+
+A technique used to convert text into numerical features based on word importance.
+
+Q10. Why is text vectorization required?
+
+Answer:
+
+Because Machine Learning algorithms generally require numerical input rather than raw text.
+
+Q11. What is Bag of Words?
+
+Answer:
+
+It represents text using word occurrence counts without considering word order.
+
+Q12. What is the difference between KNN and SVM?
+
+Answer:
+
+KNN uses distances between data points, whereas SVM finds an optimal separating boundary.
+
+Q13. Which algorithm is better for text classification?
+
+Answer:
+
+SVM often performs well on high-dimensional text data, but actual performance depends on the dataset and preprocessing.
+
+Q14. What is the role of the training dataset?
+
+Answer:
+
+It is used to teach the model patterns and relationships between email features and spam labels.
+
+Q15. What is a false positive in spam detection?
+
+Answer:
+
+A legitimate email incorrectly classified as spam.
+
+Q16. What is a false negative?
+
+Answer:
+
+A spam email incorrectly classified as legitimate.
+
+PRACTICAL 8 – Diabetes Prediction using KNN
+1. Aim
+
+Implement the K-Nearest Neighbour algorithm on the diabetes.csv dataset and calculate confusion matrix, accuracy, error rate, precision and recall.
+
+2. What is Diabetes?
+
+Diabetes is a medical condition in which blood glucose levels become abnormally high due to problems with insulin production or insulin action.
+
+3. What is Diabetes Prediction?
+
+Diabetes Prediction uses patient information and Machine Learning to estimate whether a person belongs to a diabetic or non-diabetic class.
+
+The model learns from previously labelled patient records.
+
+4. What is KNN?
+
+K-Nearest Neighbour is a supervised learning algorithm used for classification and regression.
+
+It predicts the class of a new observation based on the majority class among its nearest neighbours.
+
+5. Dataset Features
+
+The commonly used Pima Indians Diabetes dataset includes:
+
+Pregnancies.
+Glucose.
+BloodPressure.
+SkinThickness.
+Insulin.
+BMI.
+DiabetesPedigreeFunction.
+Age.
+Outcome.
+
+Your practical sheet specifies diabetes.csv; the exact columns should be confirmed from the downloaded file.
+
+6. What is the Target Variable?
+
+In the commonly used Pima dataset:
+
+Outcome = 0: Non-diabetic.
+Outcome = 1: Diabetic.
+7. What is Data Preprocessing?
+
+Data Preprocessing prepares the dataset for Machine Learning.
+
+It includes:
+
+Checking missing values.
+Handling invalid values.
+Removing duplicates.
+Feature scaling.
+Train-test splitting.
+8. Why is Normalization Important in KNN?
+
+KNN uses distance calculations.
+
+If one feature has very large values and another has small values, the larger feature may dominate the distance calculation.
+
+Normalization helps make features comparable.
+
+9. What is Confusion Matrix?
+
+It evaluates classification predictions using four values:
+
+True Positive: Diabetic correctly predicted as diabetic.
+
+True Negative: Non-diabetic correctly predicted as non-diabetic.
+
+False Positive: Non-diabetic incorrectly predicted as diabetic.
+
+False Negative: Diabetic incorrectly predicted as non-diabetic.
+
+10. What is Accuracy?
+
+Accuracy measures the percentage of correct predictions.
+
+Formula:
+
+Accuracy = (TP + TN) / (TP + TN + FP + FN).
+
+11. What is Error Rate?
+
+Error Rate measures the percentage of incorrect predictions.
+
+Formula:
+
+Error Rate = (FP + FN) / Total Predictions.
+
+It can also be calculated as:
+
+Error Rate = 1 − Accuracy.
+
+12. What is Precision?
+
+Precision measures how many predicted positive cases are actually positive.
+
+Formula:
+
+Precision = TP / (TP + FP).
+
+13. What is Recall?
+
+Recall measures how many actual positive cases are correctly identified.
+
+Formula:
+
+Recall = TP / (TP + FN).
+
+14. Why is Recall Important in Diabetes Prediction?
+
+Recall is important because it measures the ability of the model to identify actual diabetic cases.
+
+A false negative may mean that a person with diabetes is incorrectly classified as non-diabetic.
+
+However, a Machine Learning prediction is not a medical diagnosis.
+
+15. Algorithm
+Import required libraries.
+Read diabetes.csv.
+Inspect the dataset.
+Handle missing or invalid values.
+Separate input features and target.
+Split the dataset into training and testing sets.
+Normalize the features.
+Initialize KNN.
+Train the model.
+Predict test results.
+Calculate confusion matrix.
+Calculate accuracy.
+Calculate error rate.
+Calculate precision and recall.
+Display the results.
+16. Time Complexity
+
+For a straightforward KNN implementation:
+
+Training: Very little computation, generally O(1) for storing the dataset.
+Prediction per query: O(nd), where n is the number of training samples and d is the number of features.
+17. Real-Life Applications
+Medical risk screening.
+Disease classification.
+Patient data analysis.
+Healthcare decision-support systems.
+Important Viva Questions – Practical 8
+
+Q1. What is the objective of this practical?
+
+Answer:
+
+To predict diabetes using KNN and evaluate the model using classification metrics.
+
+Q2. Which type of Machine Learning is used?
+
+Answer:
+
+Supervised Learning.
+
+Q3. Is diabetes prediction regression or classification?
+
+Answer:
+
+Classification.
+
+Q4. What is KNN?
+
+Answer:
+
+An algorithm that predicts a class based on the majority class of nearby data points.
+
+Q5. Why is feature scaling important?
+
+Answer:
+
+Because KNN uses distance calculations and features with larger scales can dominate the results.
+
+Q6. What is the confusion matrix?
+
+Answer:
+
+A matrix that compares actual and predicted classes.
+
+Q7. What is accuracy?
+
+Answer:
+
+The percentage of correctly predicted observations.
+
+Q8. What is error rate?
+
+Answer:
+
+The percentage of incorrectly predicted observations.
+
+Q9. What is precision?
+
+Answer:
+
+The proportion of predicted positive cases that are actually positive.
+
+Q10. What is recall?
+
+Answer:
+
+The proportion of actual positive cases correctly identified.
+
+Q11. What is the difference between precision and recall?
+
+Answer:
+
+Precision focuses on the correctness of positive predictions, while recall focuses on identifying actual positive cases.
+
+Q12. What happens when K is too small?
+
+Answer:
+
+The model may become sensitive to noise.
+
+Q13. What happens when K is too large?
+
+Answer:
+
+The model may become less sensitive to local patterns and may underfit.
+
+Q14. Which distance metric is commonly used in KNN?
+
+Answer:
+
+Euclidean Distance.
+
+Q15. Is KNN a lazy learning algorithm?
+
+Answer:
+
+Yes. It stores training data and performs most calculations during prediction.
+
+PRACTICAL 9 – K-Means or Hierarchical Clustering on Sales Data
+1. Aim
+
+Implement K-Means or Hierarchical Clustering on the sales_data_sample.csv dataset and determine the number of clusters using the Elbow Method.
+
+2. What is Unsupervised Learning?
+
+Unsupervised Learning is a type of Machine Learning in which the model learns patterns from unlabelled data.
+
+There are no predefined output labels.
+
+3. What is Clustering?
+
+Clustering is the process of grouping similar data points together.
+
+Data points in the same cluster should have similar characteristics.
+
+4. What is K-Means Clustering?
+
+K-Means is an unsupervised learning algorithm that divides data into K clusters.
+
+Each cluster is represented by a centroid.
+
+5. What is a Centroid?
+
+A Centroid is the mean position of all data points belonging to a particular cluster.
+
+It represents the centre of that cluster.
+
+6. Working of K-Means
+
+Suppose we want to divide customers into three groups.
+
+K = 3.
+
+Step 1: Select K = 3.
+
+Step 2: Initialize three centroids.
+
+Step 3: Calculate the distance between every data point and each centroid.
+
+Step 4: Assign each data point to its nearest centroid.
+
+Step 5: Recalculate centroids.
+
+Step 6: Repeat until cluster assignments become stable.
+
+7. What is the Elbow Method?
+
+The Elbow Method is used to determine the suitable number of clusters in K-Means.
+
+It plots:
+
+X-axis: Number of clusters K.
+Y-axis: WCSS.
+
+The point where the reduction in WCSS starts slowing significantly is called the Elbow Point.
+
+8. What is WCSS?
+
+WCSS stands for Within-Cluster Sum of Squares.
+
+It measures the total squared distance between data points and their respective cluster centroids.
+
+Lower WCSS indicates more compact clusters.
+
+9. What is Hierarchical Clustering?
+
+Hierarchical Clustering is an unsupervised learning technique that creates a hierarchy of clusters.
+
+It is represented using a Dendrogram.
+
+10. Types of Hierarchical Clustering
+
+Agglomerative Clustering:
+
+Bottom-up approach.
+
+Starts with individual data points and repeatedly merges the closest clusters.
+
+Divisive Clustering:
+
+Top-down approach.
+
+Starts with all data points in one cluster and repeatedly divides them.
+
+11. What is a Dendrogram?
+
+A Dendrogram is a tree-like diagram that shows how clusters are merged or divided.
+
+It helps determine the number of clusters.
+
+12. What is Feature Scaling?
+
+Feature Scaling transforms numerical features into comparable ranges.
+
+It is important because clustering algorithms often use distance calculations.
+
+13. Algorithm – K-Means
+Start.
+Read the sales dataset.
+Select relevant numerical features.
+Handle missing values.
+Scale the features.
+Apply K-Means for different K values.
+Calculate WCSS for each K.
+Plot the Elbow Graph.
+Select a suitable K.
+Train the final K-Means model.
+Assign cluster labels.
+Visualize the clusters.
+Stop.
+14. Time Complexity
+
+A common K-Means implementation has approximate time complexity:
+
+O(n × K × I × d)
+
+Where:
+
+n = Number of data points.
+K = Number of clusters.
+I = Number of iterations.
+d = Number of features.
+15. Real-Life Applications
+Customer segmentation.
+Market research.
+Sales analysis.
+Product grouping.
+Customer behaviour analysis.
+Inventory management.
+Important Viva Questions – Practical 9
+
+Q1. What is clustering?
+
+Answer:
+
+Clustering is the process of grouping similar data points together.
+
+Q2. Which type of learning is used?
+
+Answer:
+
+Unsupervised Learning.
+
+Q3. What is K-Means?
+
+Answer:
+
+An algorithm that divides data into K clusters based on similarity.
+
+Q4. What does K represent?
+
+Answer:
+
+The number of clusters.
+
+Q5. What is a centroid?
+
+Answer:
+
+The centre of a cluster calculated using the mean of its data points.
+
+Q6. What is the Elbow Method?
+
+Answer:
+
+A technique used to select a suitable number of clusters.
+
+Q7. What is WCSS?
+
+Answer:
+
+Within-Cluster Sum of Squares.
+
+Q8. Why does WCSS decrease when K increases?
+
+Answer:
+
+Because more clusters generally allow data points to be closer to their respective centroids.
+
+Q9. What is a Dendrogram?
+
+Answer:
+
+A tree-like diagram representing hierarchical clustering.
+
+Q10. What is Agglomerative Clustering?
+
+Answer:
+
+A bottom-up clustering technique that repeatedly merges smaller clusters.
+
+Q11. What is Divisive Clustering?
+
+Answer:
+
+A top-down clustering technique that repeatedly divides larger clusters.
+
+Q12. What is the difference between K-Means and Hierarchical Clustering?
+
+Answer:
+
+K-Means requires the number of clusters in advance, while Hierarchical Clustering creates a hierarchy that can be cut at a suitable level.
+
+Q13. Why do we scale data before clustering?
+
+Answer:
+
+To prevent features with larger numerical values from dominating distance calculations.
+
+Q14. Can K-Means identify outliers?
+
+Answer:
+
+It is not specifically an outlier detection algorithm and can be affected by outliers.
+
+Q15. What are the applications of customer segmentation?
+
+Answer:
+
+Targeted marketing, personalized offers and customer behaviour analysis.
+
+PRACTICAL 10 – Gradient Descent to Find Local Minima
+1. Aim
+
+Implement the Gradient Descent Algorithm to find the local minimum of a function.
+
+Given:
+
+y = (x + 3)²
+
+Starting point:
+
+x = 2.
+
+2. What is Optimization?
+
+Optimization is the process of finding the best possible solution by minimizing or maximizing a mathematical function.
+
+In this practical, we want to minimize the function.
+
+3. What is Gradient Descent?
+
+Gradient Descent is an optimization algorithm that minimizes a function by repeatedly updating the input parameter in the direction opposite to the gradient.
+
+4. What is Gradient?
+
+A Gradient represents the direction and rate of the steepest increase of a function.
+
+For a single-variable function, it is the derivative.
+
+5. Given Function
+
+y = (x + 3)²
+
+Differentiate:
+
+dy/dx = 2(x + 3).
+
+At the minimum:
+
+dy/dx = 0.
+
+Therefore:
+
+2(x + 3) = 0.
+
+x = -3.
+
+Minimum value:
+
+y = (-3 + 3)² = 0.
+
+Therefore, the minimum point is x = -3 and y = 0.
+
+6. Gradient Descent Formula
+
+New x = Old x − Learning Rate × Gradient.
+
+x(new) = x(old) − α × f'(x).
+
+Where:
+
+α = Learning Rate.
+f'(x) = Derivative of the function.
+7. Working Example
+
+Given:
+
+x = 2.
+
+Learning rate = 0.1.
+
+Derivative:
+
+f'(x) = 2(x + 3).
+
+At x = 2:
+
+f'(2) = 2(5) = 10.
+
+Update:
+
+x(new) = 2 − 0.1 × 10.
+
+x(new) = 1.
+
+The algorithm continues updating x.
+
+It gradually approaches -3.
+
+8. Algorithm
+Start.
+Define the function f(x) = (x + 3)².
+Define its derivative f'(x) = 2(x + 3).
+Initialize x = 2.
+Select a learning rate.
+Calculate the gradient.
+Update x using the Gradient Descent formula.
+Repeat until the gradient or change in x becomes sufficiently small.
+Display the minimum point.
+Stop.
+9. What is Learning Rate?
+
+Learning Rate controls the size of each update.
+
+Too high: May overshoot the minimum or diverge.
+Too low: Convergence may be slow.
+Suitable value: Helps reach the minimum efficiently.
+10. What is Convergence?
+
+Convergence means the algorithm approaches a stable solution or minimum.
+
+11. What is Local Minimum?
+
+A Local Minimum is a point where the function value is lower than nearby points.
+
+12. What is Global Minimum?
+
+A Global Minimum is the lowest value of the function over its entire domain.
+
+For the given function, x = -3 is both the local and global minimum.
+
+13. Real-Life Applications
+Training neural networks.
+Linear Regression.
+Logistic Regression.
+Deep Learning.
+Cost optimization.
+Resource optimization.
+Important Viva Questions – Practical 10
+
+Q1. What is Gradient Descent?
+
+Answer:
+
+It is an optimization algorithm used to minimize a function by updating parameters in the opposite direction of the gradient.
+
+Q2. What is the objective of this practical?
+
+Answer:
+
+To find the minimum of y = (x + 3)² using Gradient Descent.
+
+Q3. What is the derivative of the given function?
+
+Answer:
+
+2(x + 3).
+
+Q4. What is the minimum value of x?
+
+Answer:
+
+x = -3.
+
+Q5. What is the minimum value of y?
+
+Answer:
+
+y = 0.
+
+Q6. What is the starting value of x?
+
+Answer:
+
+x = 2.
+
+Q7. What is the learning rate?
+
+Answer:
+
+It controls the size of each parameter update.
+
+Q8. What happens if the learning rate is very high?
+
+Answer:
+
+The algorithm may overshoot the minimum or fail to converge.
+
+Q9. What happens if the learning rate is very low?
+
+Answer:
+
+The algorithm takes more iterations to reach the minimum.
+
+Q10. What is a local minimum?
+
+Answer:
+
+A point having a lower function value than nearby points.
+
+Q11. What is a global minimum?
+
+Answer:
+
+The lowest function value over the entire domain.
+
+Q12. What is convergence?
+
+Answer:
+
+The process of approaching a stable solution.
+
+Q13. Where is Gradient Descent used?
+
+Answer:
+
+It is widely used to train Machine Learning and Neural Network models.

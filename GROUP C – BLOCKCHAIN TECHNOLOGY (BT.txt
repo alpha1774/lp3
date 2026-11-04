@@ -1,0 +1,1320 @@
+GROUP C – BLOCKCHAIN TECHNOLOGY (BT)
+PRACTICAL 11 – Install MetaMask and Study Ether Spending per Transaction
+1. Aim
+
+Install MetaMask and study the amount of Ether spent during blockchain transactions.
+
+2. What is MetaMask?
+
+MetaMask is a cryptocurrency wallet that allows users to manage blockchain accounts and interact with Ethereum-compatible networks.
+
+It is available as a browser extension and mobile application.
+
+3. What is Cryptocurrency?
+
+Cryptocurrency is a digital asset that uses cryptographic techniques to secure transactions.
+
+Examples:
+
+Bitcoin.
+Ether.
+Litecoin.
+4. What is Ether?
+
+Ether (ETH) is the native cryptocurrency of the Ethereum blockchain.
+
+It is used for:
+
+Paying transaction fees.
+Transferring value.
+Interacting with smart contracts.
+5. What is Gas?
+
+Gas is the unit used to measure the computational work required to execute operations on Ethereum.
+
+6. What is Gas Fee?
+
+Gas Fee is the amount paid for executing a transaction on Ethereum.
+
+Basic formula:
+
+Transaction Fee = Gas Used × Effective Gas Price.
+
+7. What is Gwei?
+
+Gwei is a denomination of Ether used to express gas prices.
+
+1 Gwei = 0.000000001 ETH.
+
+1 ETH = 1,000,000,000 Gwei.
+
+8. What is a Transaction?
+
+A transaction is a digitally signed instruction submitted to a blockchain network.
+
+Examples:
+
+Sending Ether.
+Calling a smart contract.
+Deploying a smart contract.
+9. What is a Transaction Hash?
+
+A Transaction Hash is a unique identifier used to locate and verify a transaction on the blockchain.
+
+10. What is a Block Explorer?
+
+A Block Explorer is a tool used to view blockchain information.
+
+It displays:
+
+Transactions.
+Wallet addresses.
+Blocks.
+Gas fees.
+Transaction status.
+
+Example: Etherscan.
+
+11. Steps to Install MetaMask
+Open the official MetaMask website.
+Install the browser extension.
+Create a new wallet.
+Set a secure password.
+Securely store the Secret Recovery Phrase.
+Confirm the recovery phrase.
+Open the wallet dashboard.
+12. How to Study Ether Spending per Transaction?
+Open MetaMask.
+Connect to an appropriate network.
+Use a test network for practice.
+Perform a test transaction using test ETH.
+Open the transaction details.
+Observe the gas used and gas price.
+Calculate the transaction fee.
+Verify the transaction using a block explorer.
+
+Important: Test ETH has no real monetary value. Never use your real private key or seed phrase in a practical demonstration.
+
+13. Real-Life Applications
+Cryptocurrency payments.
+Smart contract deployment.
+Decentralized applications.
+NFT transactions.
+Decentralized finance.
+Important Viva Questions – Practical 11
+
+Q1. What is MetaMask?
+
+Answer:
+
+MetaMask is a cryptocurrency wallet used to manage blockchain accounts and interact with decentralized applications.
+
+Q2. What is Ether?
+
+Answer:
+
+Ether is the native cryptocurrency of Ethereum.
+
+Q3. What is Gas?
+
+Answer:
+
+Gas measures the computational work required to perform operations on Ethereum.
+
+Q4. What is Gwei?
+
+Answer:
+
+Gwei is a unit used to express Ethereum gas prices.
+
+Q5. What is the transaction fee formula?
+
+Answer:
+
+Gas Used × Effective Gas Price.
+
+Q6. What is a Transaction Hash?
+
+Answer:
+
+A unique identifier of a blockchain transaction.
+
+Q7. What is Etherscan?
+
+Answer:
+
+A block explorer used to view Ethereum transactions, blocks and addresses.
+
+Q8. What is a testnet?
+
+Answer:
+
+A test network used to test blockchain applications without using real cryptocurrency.
+
+Q9. What is test Ether?
+
+Answer:
+
+Test Ether is cryptocurrency used on test networks and has no real monetary value.
+
+Q10. Why do we pay gas fees?
+
+Answer:
+
+To compensate network validators for processing and executing transactions.
+
+Q11. Is gas always the same for every transaction?
+
+Answer:
+
+No. Gas consumption depends on the operation being performed, and the effective gas price can change.
+
+Q12. What happens when a transaction fails?
+
+Answer:
+
+State changes are reverted, but gas may still be consumed.
+
+PRACTICAL 12 – Create a Cryptocurrency Wallet using MetaMask
+1. Aim
+
+Create a cryptocurrency wallet using MetaMask for sending and receiving cryptocurrency.
+
+2. What is a Cryptocurrency Wallet?
+
+A Cryptocurrency Wallet is a software or hardware tool that manages cryptographic keys used to access blockchain assets.
+
+It allows users to send, receive and manage cryptocurrency.
+
+3. Types of Wallets
+
+Hot Wallet:
+
+A wallet connected to the internet.
+
+Example: MetaMask.
+
+Cold Wallet:
+
+A wallet that stores private keys offline.
+
+Example: Hardware Wallet.
+
+4. What is a Public Key?
+
+A Public Key is a cryptographic key that can be shared openly.
+
+It is used in cryptographic operations such as signature verification.
+
+5. What is a Private Key?
+
+A Private Key is a secret cryptographic key used to authorize transactions.
+
+It must be kept confidential.
+
+6. What is a Wallet Address?
+
+A Wallet Address is an identifier used to receive cryptocurrency.
+
+It is generally derived from public-key information.
+
+7. What is a Seed Phrase?
+
+A Seed Phrase is a sequence of words used to recover a cryptocurrency wallet.
+
+It provides access to the wallet's associated accounts and must be stored securely.
+
+8. Steps to Create a MetaMask Wallet
+Install MetaMask.
+Select Create a New Wallet.
+Set a password.
+Generate the Secret Recovery Phrase.
+Write down the phrase securely offline.
+Confirm the recovery phrase.
+Open the wallet.
+Copy the public wallet address.
+9. How to Receive Cryptocurrency?
+Open MetaMask.
+Select the required network.
+Copy your wallet address.
+Share it with the sender.
+Wait for the transaction to be confirmed.
+Check the wallet balance.
+10. How to Send Cryptocurrency?
+Open MetaMask.
+Select Send.
+Enter the receiver's address.
+Enter the amount.
+Review the network and gas fee.
+Confirm the transaction.
+Check transaction status.
+11. What is Self-Custody?
+
+Self-Custody means the user controls their private keys rather than depending on an external organization to control them.
+
+12. Real-Life Applications
+Digital payments.
+Decentralized finance.
+NFT transactions.
+Decentralized applications.
+Digital asset management.
+Important Viva Questions – Practical 12
+
+Q1. What is a crypto wallet?
+
+Answer:
+
+A tool used to manage cryptographic keys and interact with blockchain networks.
+
+Q2. Does a wallet physically store cryptocurrency?
+
+Answer:
+
+No. Cryptocurrency is recorded on the blockchain. A wallet manages the keys used to access and control it.
+
+Q3. What is a public address?
+
+Answer:
+
+An identifier used to receive cryptocurrency.
+
+Q4. What is a private key?
+
+Answer:
+
+A secret key used to authorize transactions.
+
+Q5. What is a Seed Phrase?
+
+Answer:
+
+A sequence of words used to recover a cryptocurrency wallet.
+
+Q6. What happens if someone gets your seed phrase?
+
+Answer:
+
+They may gain control over your wallet and its assets.
+
+Q7. Can we share our wallet address?
+
+Answer:
+
+Yes. It is meant to be shared for receiving cryptocurrency.
+
+Q8. Can we share our private key?
+
+Answer:
+
+No. It must always remain secret.
+
+Q9. What is the difference between Hot and Cold Wallets?
+
+Answer:
+
+Hot wallets are connected to the internet, while cold wallets store keys offline.
+
+Q10. What is self-custody?
+
+Answer:
+
+It means the user controls their own private keys.
+
+Q11. What happens if we lose our recovery phrase?
+
+Answer:
+
+If the wallet becomes inaccessible and no other recovery method exists, the funds may become permanently inaccessible.
+
+Q12. Is MetaMask a blockchain?
+
+Answer:
+
+No. It is a wallet that interacts with blockchain networks.
+
+PRACTICAL 13 – Bank Account Smart Contract using Solidity
+1. Aim
+
+Write and deploy a Smart Contract on an Ethereum test network for a customer's bank account with the following operations:
+
+Deposit Money.
+Withdraw Money.
+Show Balance.
+2. What is Blockchain?
+
+Blockchain is a distributed digital ledger that stores data in blocks connected through cryptographic hashes.
+
+It provides transparency, security and resistance to unauthorized modification.
+
+3. What is Ethereum?
+
+Ethereum is a decentralized blockchain platform that supports smart contracts and decentralized applications.
+
+4. What is a Smart Contract?
+
+A Smart Contract is a program stored on a blockchain that automatically executes according to predefined conditions.
+
+5. What is Solidity?
+
+Solidity is a high-level, statically typed programming language used to write smart contracts for Ethereum-compatible blockchains.
+
+6. What is EVM?
+
+EVM stands for Ethereum Virtual Machine.
+
+It is the execution environment responsible for executing smart contract bytecode.
+
+7. What is Remix IDE?
+
+Remix IDE is a browser-based development environment used to write, compile, test and deploy Solidity smart contracts.
+
+8. What are the Important Solidity Keywords?
+
+pragma:
+
+Specifies the compiler version.
+
+contract:
+
+Defines a smart contract.
+
+mapping:
+
+Stores data in key-value pairs.
+
+function:
+
+Defines an operation.
+
+payable:
+
+Allows a function to receive Ether.
+
+require():
+
+Checks a condition and reverts execution if the condition is false.
+
+msg.sender:
+
+Represents the account or contract that directly called the function.
+
+msg.value:
+
+Represents the amount of Ether sent with the transaction.
+
+9. Understanding the Bank Account Contract
+
+The contract performs three major operations.
+
+Deposit:
+
+Allows the user to send Ether to the contract.
+
+The contract increases the user's recorded balance.
+
+Withdraw:
+
+Allows the user to withdraw Ether from their recorded balance.
+
+It checks whether sufficient balance is available.
+
+Show Balance:
+
+Displays the user's recorded balance.
+
+10. How Does the Contract Work?
+
+Suppose a customer deposits 2 ETH.
+
+The contract records:
+
+Balance = 2 ETH.
+
+The customer withdraws 1 ETH.
+
+Updated balance:
+
+Balance = 1 ETH.
+
+If the customer tries to withdraw 2 ETH, the transaction fails because the balance is insufficient.
+
+11. Algorithm
+Start.
+Write the Solidity smart contract.
+Declare the required variables or mappings.
+Create the deposit function.
+Create the withdrawal function.
+Create the balance display function.
+Compile the contract.
+Connect to an Ethereum-compatible test network.
+Deploy the contract.
+Call the deposit function.
+Call the withdrawal function.
+Check the balance.
+Stop.
+12. What is Deployment?
+
+Deployment is the process of publishing compiled smart contract bytecode to a blockchain network.
+
+13. What is Gas?
+
+Gas measures the computational work required to execute smart contract operations.
+
+14. What is a Constructor?
+
+A Constructor is a special function that executes once when a contract is deployed.
+
+15. Real-Life Applications
+Automated banking operations.
+Digital payment systems.
+Escrow services.
+Loan management.
+Financial record management.
+
+Important practical point: This is an educational bank-account simulation. It is not a real banking system and should not be used to store actual customer deposits.
+
+Important Viva Questions – Practical 13
+
+Q1. What is Solidity?
+
+Answer:
+
+Solidity is a programming language used to develop smart contracts.
+
+Q2. What is a Smart Contract?
+
+Answer:
+
+A program stored on a blockchain that executes according to predefined conditions.
+
+Q3. What is Remix IDE?
+
+Answer:
+
+A browser-based tool used to write, compile and deploy Solidity smart contracts.
+
+Q4. What is EVM?
+
+Answer:
+
+Ethereum Virtual Machine.
+
+Q5. What is the purpose of the deposit function?
+
+Answer:
+
+It receives Ether and updates the user's recorded balance.
+
+Q6. What is the purpose of the withdrawal function?
+
+Answer:
+
+It transfers Ether to the user after checking the available balance.
+
+Q7. What is the purpose of the balance function?
+
+Answer:
+
+It displays the user's recorded balance.
+
+Q8. What is mapping in Solidity?
+
+Answer:
+
+Mapping is a key-value data structure used to store information.
+
+Q9. What is payable?
+
+Answer:
+
+It allows a function or address to receive Ether.
+
+Q10. What is msg.sender?
+
+Answer:
+
+It represents the address that directly called the current function.
+
+Q11. What is msg.value?
+
+Answer:
+
+It represents the amount of Ether sent with a payable transaction.
+
+Q12. What is require()?
+
+Answer:
+
+It checks a condition and stops execution if the condition is false.
+
+Q13. What happens if a user withdraws more money than their balance?
+
+Answer:
+
+The transaction is reverted because the balance condition fails.
+
+Q14. What is a constructor?
+
+Answer:
+
+A special function that executes once during contract deployment.
+
+Q15. What is the difference between call and transaction?
+
+Answer:
+
+A call reads contract information without creating a state-changing transaction, while a transaction can change blockchain state.
+
+Q16. What is the unit of Ether?
+
+Answer:
+
+Wei is the smallest denomination of Ether.
+
+1 ETH = 10¹⁸ Wei.
+
+Q17. What is the file extension of Solidity?
+
+Answer:
+
+.sol
+
+Q18. What is a smart contract address?
+
+Answer:
+
+The blockchain address assigned to a deployed smart contract.
+
+PRACTICAL 14 – Survey Report on Blockchain Types and Real-Time Use Cases
+1. Aim
+
+Study different types of blockchain networks and their real-world applications.
+
+2. What is Blockchain?
+
+Blockchain is a distributed ledger that stores information in cryptographically connected blocks.
+
+It provides secure and transparent record-keeping.
+
+3. Types of Blockchain
+
+There are four commonly discussed categories:
+
+Public Blockchain.
+Private Blockchain.
+Consortium Blockchain.
+Hybrid Blockchain.
+4. Public Blockchain
+
+A Public Blockchain is an open network where anyone can participate according to the protocol rules.
+
+Characteristics:
+
+Open participation.
+Decentralized control.
+Transparency.
+Distributed consensus.
+
+Examples:
+
+Bitcoin.
+Ethereum.
+
+Applications:
+
+Cryptocurrency.
+Decentralized Finance.
+NFTs.
+5. Private Blockchain
+
+A Private Blockchain is controlled by a single organization.
+
+Participation is restricted to authorized users.
+
+Characteristics:
+
+Restricted access.
+Centralized organizational control.
+Faster processing may be possible.
+Greater privacy within the network.
+
+Applications:
+
+Enterprise record management.
+Internal supply chains.
+Private financial systems.
+6. Consortium Blockchain
+
+A Consortium Blockchain is controlled by multiple organizations.
+
+It is also called a Federated Blockchain.
+
+Characteristics:
+
+Multiple controlling organizations.
+Permissioned access.
+Shared decision-making.
+Suitable for collaboration.
+
+Applications:
+
+Banking.
+Supply chain management.
+Inter-organizational data sharing.
+7. Hybrid Blockchain
+
+A Hybrid Blockchain combines public and private blockchain features.
+
+Some data is private, while selected information can be made publicly verifiable.
+
+Applications:
+
+Government services.
+Healthcare.
+Enterprise record management.
+8. Comparison of Blockchain Types
+
+Public:
+Anyone can participate. Example: Bitcoin.
+
+Private:
+One organization controls access. Example: Private Hyperledger Fabric deployment.
+
+Consortium:
+Multiple organizations share control. Example: A banking consortium.
+
+Hybrid:
+Combines public and private features.
+
+9. Real-Time Blockchain Applications
+
+Banking:
+
+Cross-border payments, settlement and financial record management.
+
+Healthcare:
+
+Medical record integrity, medicine tracking and secure data sharing.
+
+Government:
+
+Land records, digital identity and certificate verification.
+
+Retail:
+
+Product tracking and counterfeit prevention.
+
+Education:
+
+Certificate verification and academic record management.
+
+IoT:
+
+Secure communication and device identity management.
+
+Energy:
+
+Peer-to-peer energy trading and renewable energy tracking.
+
+10. Advantages of Blockchain
+Transparency.
+Security.
+Decentralization.
+Immutability.
+Traceability.
+Reduced intermediaries.
+11. Limitations of Blockchain
+Scalability problems.
+Energy consumption in PoW networks.
+Implementation complexity.
+Storage requirements.
+Privacy challenges.
+Regulatory uncertainty.
+Important Viva Questions – Practical 14
+
+Q1. What is the objective of this practical?
+
+Answer:
+
+To study different blockchain types and their real-world applications.
+
+Q2. How many main types of blockchain are commonly discussed?
+
+Answer:
+
+Four: Public, Private, Consortium and Hybrid.
+
+Q3. What is Public Blockchain?
+
+Answer:
+
+A blockchain network that allows open participation.
+
+Q4. What is Private Blockchain?
+
+Answer:
+
+A blockchain network controlled by a single organization.
+
+Q5. What is Consortium Blockchain?
+
+Answer:
+
+A blockchain network managed by multiple organizations.
+
+Q6. What is Hybrid Blockchain?
+
+Answer:
+
+A blockchain that combines public and private features.
+
+Q7. Which blockchain is Bitcoin?
+
+Answer:
+
+Public Blockchain.
+
+Q8. Which blockchain is Ethereum?
+
+Answer:
+
+Public Blockchain.
+
+Q9. Give an example of a permissioned blockchain framework.
+
+Answer:
+
+Hyperledger Fabric.
+
+Q10. Which blockchain type is suitable for banking consortiums?
+
+Answer:
+
+Consortium Blockchain.
+
+Q11. What is the difference between Public and Private Blockchain?
+
+Answer:
+
+Public Blockchain allows open participation, while Private Blockchain restricts participation to authorized users.
+
+Q12. How is blockchain useful in healthcare?
+
+Answer:
+
+It helps maintain data integrity and secure sharing of medical records.
+
+Q13. How is blockchain useful in retail?
+
+Answer:
+
+It helps track products and verify their authenticity.
+
+Q14. How is blockchain useful in government?
+
+Answer:
+
+It helps maintain transparent and tamper-resistant public records.
+
+Q15. What is the biggest limitation of blockchain?
+
+Answer:
+
+Scalability is one of its major limitations, although other limitations depend on the network and application.
+
+PRACTICAL 15 – Create a Business Network using Hyperledger
+1. Aim
+
+Create a Business Network using Hyperledger.
+
+2. What is Hyperledger?
+
+Hyperledger is an open-source collaborative project hosted by the Linux Foundation.
+
+It provides frameworks and tools for developing enterprise blockchain solutions.
+
+3. What is Hyperledger Fabric?
+
+Hyperledger Fabric is a permissioned blockchain framework designed for enterprise applications.
+
+It allows organizations to create blockchain networks with controlled access.
+
+4. What is a Business Network?
+
+A Business Network is a group of organizations that interact and exchange information or transactions.
+
+Example:
+
+A supply chain network involving:
+
+Manufacturer.
+Distributor.
+Retailer.
+Customer.
+5. What is Hyperledger Fabric Architecture?
+
+Important components:
+
+1. Peer:
+
+A node that maintains ledger data and can execute or validate transactions.
+
+2. Orderer:
+
+The ordering service establishes the order of transactions and packages them into blocks.
+
+3. Channel:
+
+A private communication and transaction space between selected network members.
+
+4. Ledger:
+
+Stores blockchain records and the current world state.
+
+5. Chaincode:
+
+The smart contract logic used to implement business rules.
+
+6. Certificate Authority:
+
+Issues and manages digital identities for network participants.
+
+6. What is a Peer?
+
+A Peer is a node in Hyperledger Fabric that maintains a copy of the ledger and participates in transaction processing.
+
+7. What is an Orderer?
+
+An Orderer is a component responsible for ordering transactions into blocks.
+
+8. What is Chaincode?
+
+Chaincode is the smart contract program in Hyperledger Fabric.
+
+It defines the business rules and operations of the network.
+
+9. What is a Channel?
+
+A Channel is a private communication and transaction mechanism that allows selected organizations to maintain a separate ledger.
+
+10. What is a Ledger?
+
+A Ledger is a record of transactions maintained by the blockchain network.
+
+In Hyperledger Fabric, it includes:
+
+Blockchain – Transaction history.
+World State – Latest values of ledger data.
+11. What is MSP?
+
+MSP stands for Membership Service Provider.
+
+It defines how identities are recognized and authenticated in a Hyperledger Fabric network.
+
+12. What is Endorsement Policy?
+
+An Endorsement Policy defines which organizations or peers must approve a transaction before it can be committed.
+
+13. What is a Transaction Flow in Hyperledger Fabric?
+Client submits a transaction proposal.
+Required endorsing peers simulate the transaction.
+Endorsing peers return signed endorsements.
+The client submits the transaction to the ordering service.
+The orderer orders transactions into blocks.
+Peers validate the transactions.
+Valid transactions are committed to the ledger.
+14. Steps to Create a Business Network
+
+At a conceptual level:
+
+Install Hyperledger Fabric prerequisites.
+Set up the development environment.
+Create the required organizations.
+Configure network identities.
+Create peers and ordering service.
+Create a channel.
+Deploy chaincode.
+Submit transactions.
+Verify ledger updates.
+15. What is the Difference Between Ethereum and Hyperledger Fabric?
+
+Ethereum:
+
+Public blockchain by default.
+Supports permissionless participation.
+Uses Solidity for many smart contracts.
+Native cryptocurrency is Ether.
+
+Hyperledger Fabric:
+
+Permissioned blockchain framework.
+Designed for enterprise networks.
+Supports controlled identities.
+Does not require a native cryptocurrency.
+16. Real-Life Applications
+Supply chain management.
+Banking.
+Healthcare.
+Insurance.
+Manufacturing.
+Trade finance.
+Enterprise record management.
+Important Viva Questions – Practical 15
+
+Q1. What is Hyperledger?
+
+Answer:
+
+Hyperledger is an open-source project that provides frameworks and tools for enterprise blockchain development.
+
+Q2. What is Hyperledger Fabric?
+
+Answer:
+
+A permissioned blockchain framework designed for enterprise applications.
+
+Q3. What is a Peer?
+
+Answer:
+
+A node that maintains ledger data and participates in transaction processing.
+
+Q4. What is an Orderer?
+
+Answer:
+
+A component that orders transactions into blocks.
+
+Q5. What is Chaincode?
+
+Answer:
+
+The smart contract logic used in Hyperledger Fabric.
+
+Q6. What is a Channel?
+
+Answer:
+
+A private communication and transaction space for selected network members.
+
+Q7. What is a Ledger?
+
+Answer:
+
+A record of transactions maintained by the blockchain network.
+
+Q8. What is MSP?
+
+Answer:
+
+Membership Service Provider.
+
+Q9. What is the purpose of a Certificate Authority?
+
+Answer:
+
+It issues and manages digital identities and certificates.
+
+Q10. What is an Endorsement Policy?
+
+Answer:
+
+It defines which peers or organizations must approve a transaction.
+
+Q11. Does Hyperledger Fabric require cryptocurrency?
+
+Answer:
+
+No. It does not require a native cryptocurrency.
+
+Q12. Is Hyperledger Fabric public or private?
+
+Answer:
+
+It is permissioned and can be used to build private or consortium networks.
+
+Q13. What is the difference between a Peer and an Orderer?
+
+Answer:
+
+Peers maintain ledger data and process transactions, while Orderers arrange transactions into blocks.
+
+Q14. What is World State?
+
+Answer:
+
+World State stores the latest values of the ledger data.
+
+Q15. What is the difference between Blockchain and Hyperledger?
+
+Answer:
+
+Blockchain is a technology concept, while Hyperledger is an open-source project that provides enterprise blockchain frameworks.
+
+FINAL SECTION – Common External Viva Questions
+
+These are questions an external examiner may ask even if they are not directly related to one particular practical.
+
+A. Programming and DAA Fundamentals
+
+Q1. What is an algorithm?
+
+Answer:
+
+An algorithm is a finite sequence of instructions used to solve a particular problem.
+
+Q2. What is Time Complexity?
+
+Answer:
+
+Time Complexity measures how the execution time of an algorithm grows with input size.
+
+Q3. What is Space Complexity?
+
+Answer:
+
+Space Complexity measures the memory required by an algorithm.
+
+Q4. What is Big O Notation?
+
+Answer:
+
+Big O represents the asymptotic upper bound of an algorithm's growth rate.
+
+Q5. What is the difference between Greedy and Dynamic Programming?
+
+Answer:
+
+Greedy makes the best local choice at each step, whereas Dynamic Programming solves and stores smaller subproblems.
+
+Q6. What is Recursion?
+
+Answer:
+
+Recursion is a technique in which a function calls itself.
+
+Q7. What is a Base Condition?
+
+Answer:
+
+A condition that stops recursive function calls.
+
+Q8. What is Optimization?
+
+Answer:
+
+Finding the best possible solution among available solutions.
+
+B. Machine Learning Fundamentals
+
+Q9. What is the difference between AI and ML?
+
+Answer:
+
+AI is the broader field of making machines perform intelligent tasks. ML is a subset of AI that learns from data.
+
+Q10. What are the types of Machine Learning?
+
+Answer:
+
+Supervised, Unsupervised, Semi-Supervised and Reinforcement Learning.
+
+Q11. What is Training Data?
+
+Answer:
+
+Data used to teach a Machine Learning model.
+
+Q12. What is Testing Data?
+
+Answer:
+
+Data used to evaluate the trained model.
+
+Q13. What is Overfitting?
+
+Answer:
+
+When a model learns training data too closely and performs poorly on unseen data.
+
+Q14. What is Underfitting?
+
+Answer:
+
+When a model is too simple to learn the important patterns in the data.
+
+Q15. What is Classification?
+
+Answer:
+
+Predicting categorical outputs.
+
+Q16. What is Regression?
+
+Answer:
+
+Predicting continuous numerical values.
+
+Q17. What is Clustering?
+
+Answer:
+
+Grouping similar data points together.
+
+Q18. What is Feature Engineering?
+
+Answer:
+
+Creating, selecting and transforming features to improve Machine Learning performance.
+
+Q19. What is Normalization?
+
+Answer:
+
+Scaling numerical features into a common range.
+
+Q20. What is a Confusion Matrix?
+
+Answer:
+
+A matrix that compares actual and predicted classes.
+
+C. Blockchain Fundamentals
+
+Q21. What is Blockchain?
+
+Answer:
+
+A distributed digital ledger that stores information in cryptographically linked blocks.
+
+Q22. What is Decentralization?
+
+Answer:
+
+Distributing control and decision-making across multiple participants instead of one central authority.
+
+Q23. What is Cryptography?
+
+Answer:
+
+The technique of securing information using mathematical methods.
+
+Q24. What is SHA-256?
+
+Answer:
+
+A cryptographic hash function that generates a 256-bit hash.
+
+Q25. What is Consensus?
+
+Answer:
+
+The process through which blockchain participants agree on the valid state of the ledger.
+
+Q26. What is Proof of Work?
+
+Answer:
+
+A consensus mechanism in which miners perform computational work to propose new blocks.
+
+Q27. What is Proof of Stake?
+
+Answer:
+
+A consensus mechanism in which validators stake cryptocurrency to participate in block validation.
+
+Q28. What is a Smart Contract?
+
+Answer:
+
+A program stored on a blockchain that executes according to predefined conditions.
+
+Q29. What is Solidity?
+
+Answer:
+
+A programming language used to write smart contracts.
+
+Q30. What is MetaMask?
+
+Answer:
+
+A cryptocurrency wallet used to manage blockchain accounts and interact with decentralized applications.
+
+Most Important Complexity Cheat Sheet
+
+Memorize these before your practical examination.
+
+Practical	Time Complexity
+Recursive Fibonacci	O(2ⁿ) upper bound
+Iterative Fibonacci	O(n)
+Job Sequencing	O(n log n + nD)
+Huffman Encoding	O(n log n)
+Fractional Knapsack	O(n log n)
+0/1 Knapsack – DP	O(nW)
+KNN Prediction	O(nd) per query
+K-Means	O(nKId)
+Gradient Descent	O(I) for a single-variable function with constant-time gradient calculation
+
+For Machine Learning, the actual training and prediction complexity depends on the dataset, features and implementation.
+
+How to Face Your External Examiner
+
+This is probably the most important part of your preparation.
+
+The external examiner may follow this pattern:
+
+1. First Question – Explain Your Practical
+
+For example:
+
+"Explain the practical you have performed."
+
+Your answer should contain:
+
+Aim.
+Concept.
+Algorithm.
+Expected output.
+Application.
+2. Second Question – Explain the Algorithm
+
+For example:
+
+"Why have you used the Greedy Method?"
+
+Answer:
+
+The Greedy Method selects the best available choice at every step. It is suitable for problems where local optimal choices lead to a global optimal solution.
+
+3. Third Question – Explain the Output
+
+For example:
+
+"What does your output indicate?"
+
+Answer:
+
+It shows the result produced by the algorithm. I can explain how the input is processed and how the final result is obtained.
+
+4. Fourth Question – Ask a Difference
+
+Examples:
+
+Recursion vs Iteration.
+Greedy vs Dynamic Programming.
+KNN vs SVM.
+Classification vs Clustering.
+Public vs Private Blockchain.
+Hot vs Cold Wallet.
+5. Fifth Question – Real-Life Application
+
+Examples:
+
+Where is Huffman Encoding used?
+Where is KNN used?
+Where is Blockchain used?
+Why do banks predict customer churn?
+Why are smart contracts useful?
+
+Always prepare at least two real-life applications for each practical.
