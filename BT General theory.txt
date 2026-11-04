@@ -1,0 +1,1835 @@
+Blockchain Technology – Complete Theory & Viva Questions and Answers
+Unit I – Mathematical Foundation for Blockchain
+Unit II – History and Fundamentals of Blockchain
+Unit III – Blockchain Platforms and Consensus in Blockchain
+Unit IV – Cryptocurrency: Bitcoin and Token
+Unit V – Blockchain Ethereum Platform Using Solidity
+Unit VI – Blockchain Case Studies
+UNIT I – Mathematical Foundation for Blockchain
+Part A: Important Theory Questions and Answers
+
+Q1. What is Cryptography?
+
+Answer:
+
+Cryptography is the technique of securing information by converting readable data (plaintext) into an unreadable format (ciphertext).
+
+It protects information from unauthorized access and ensures secure communication.
+
+Main objectives:
+
+Confidentiality – Protects information from unauthorized users.
+Integrity – Ensures data is not modified.
+Authentication – Verifies the identity of users.
+Non-repudiation – Prevents users from denying their actions.
+Q2. What are the types of Cryptography?
+
+Answer:
+
+There are two main types of cryptography:
+
+Symmetric Key Cryptography.
+Asymmetric Key Cryptography.
+
+Symmetric cryptography uses the same key for encryption and decryption, whereas asymmetric cryptography uses a public key and a private key.
+
+Q3. What is Symmetric Key Cryptography?
+
+Answer:
+
+Symmetric Key Cryptography is an encryption technique in which the same secret key is used for both encryption and decryption.
+
+The sender and receiver must securely share the secret key.
+
+Examples:
+
+AES.
+DES.
+3DES.
+
+Advantages:
+
+Fast encryption and decryption.
+Suitable for large amounts of data.
+Requires less computational power.
+
+Disadvantages:
+
+Secure key sharing is difficult.
+Key management becomes complex when many users communicate.
+Q4. What is Asymmetric Key Cryptography?
+
+Answer:
+
+Asymmetric Key Cryptography is an encryption technique that uses two different keys:
+
+Public Key – Shared openly with others.
+Private Key – Kept secret by the owner.
+
+Data encrypted using a recipient's public key can be decrypted using the corresponding private key.
+
+It is also used for digital signatures.
+
+Examples:
+
+RSA.
+ECC.
+DSA.
+
+Advantages:
+
+Solves the problem of sharing secret encryption keys.
+Supports digital signatures.
+Provides authentication and non-repudiation.
+
+Disadvantages:
+
+Slower than symmetric encryption.
+Requires more computational resources.
+Q5. Differentiate between Symmetric and Asymmetric Cryptography.
+
+Answer:
+
+Symmetric Cryptography:
+
+Uses one secret key.
+Same key is used for encryption and decryption.
+Faster processing.
+Key sharing is difficult.
+Example: AES.
+
+Asymmetric Cryptography:
+
+Uses two keys: public and private.
+Different keys are used for encryption and decryption.
+Generally slower.
+Public key can be shared openly.
+Example: RSA and ECC.
+Q6. What is Elliptic Curve Cryptography (ECC)?
+
+Answer:
+
+Elliptic Curve Cryptography is an asymmetric cryptographic technique based on the mathematical properties of elliptic curves over finite fields.
+
+It provides strong security using comparatively smaller key sizes.
+
+Advantages:
+
+Smaller key size.
+Faster operations in many implementations.
+Less memory requirement.
+Suitable for mobile and IoT devices.
+
+Application: Bitcoin uses Elliptic Curve Cryptography for digital signatures.
+
+Q7. What is a Cryptographic Hash Function?
+
+Answer:
+
+A Cryptographic Hash Function is a mathematical function that converts input data of any size into a fixed-length output called a hash value or digest.
+
+Properties:
+
+Fixed-length output.
+One-way function.
+Difficult to find two inputs with the same hash.
+Small input changes produce significantly different hashes.
+Fast computation.
+
+Examples: SHA-256 and SHA-3.
+
+Q8. What is SHA-256?
+
+Answer:
+
+SHA-256 stands for Secure Hash Algorithm 256-bit.
+
+It is a cryptographic hash function that converts input data into a fixed 256-bit hash value.
+
+It is widely used in blockchain for:
+
+Transaction verification.
+Block identification.
+Data integrity.
+Proof of Work mining.
+
+Important: SHA-256 produces a 256-bit hash, which is represented as 64 hexadecimal characters.
+
+Q9. What is a Digital Signature?
+
+Answer:
+
+A Digital Signature is a cryptographic technique used to verify the authenticity and integrity of a digital message or transaction.
+
+It is created using the sender's private key and verified using the corresponding public key.
+
+Working:
+
+The sender creates a hash of the message.
+The sender signs the hash using their private key.
+The receiver gets the message and digital signature.
+The receiver verifies the signature using the sender's public key.
+
+Advantages:
+
+Authentication.
+Integrity.
+Non-repudiation.
+Q10. What is Digital Signature Algorithm (DSA)?
+
+Answer:
+
+DSA stands for Digital Signature Algorithm.
+
+It is a public-key cryptographic algorithm used to generate and verify digital signatures.
+
+It helps ensure that a message comes from the claimed sender and has not been modified.
+
+DSA is designed for digital signatures, not for encrypting messages.
+
+Q11. What is a Merkle Tree?
+
+Answer:
+
+A Merkle Tree is a tree-like data structure used in blockchain to efficiently verify the integrity of data.
+
+It is constructed by:
+
+Generating hashes of individual transactions.
+Combining pairs of hashes.
+Hashing the combined values.
+Repeating the process until one hash remains.
+
+The final hash is called the Merkle Root.
+
+Advantages:
+
+Efficient transaction verification.
+Detects data modification.
+Reduces storage and verification requirements.
+Q12. What is a Merkle Root?
+
+Answer:
+
+A Merkle Root is the final hash at the top of a Merkle Tree.
+
+It represents all transactions included in that tree.
+
+If even one transaction changes, the Merkle Root also changes.
+
+Q13. What is the difference between Hashing and Encryption?
+
+Answer:
+
+Hashing:
+
+Converts data into a fixed-length hash.
+Generally irreversible.
+Used for integrity verification.
+Example: SHA-256.
+
+Encryption:
+
+Converts readable data into ciphertext.
+Reversible using the appropriate decryption key.
+Used for confidentiality.
+Example: AES.
+Part B: Unit I – Important Viva Questions
+Q14. What is plaintext?
+
+Answer: Plaintext is the original readable message before encryption.
+
+Q15. What is ciphertext?
+
+Answer: Ciphertext is the unreadable encrypted form of the original message.
+
+Q16. What is encryption?
+
+Answer: Encryption is the process of converting plaintext into ciphertext.
+
+Q17. What is decryption?
+
+Answer: Decryption is the process of converting ciphertext back into plaintext.
+
+Q18. What is a public key?
+
+Answer: A public key is a cryptographic key that can be shared openly with other users.
+
+Q19. What is a private key?
+
+Answer: A private key is a secret cryptographic key that must be protected by its owner.
+
+Q20. Which cryptography is used in Bitcoin?
+
+Answer: Bitcoin uses Elliptic Curve Cryptography for digital signatures and SHA-256 for hashing and mining-related operations.
+
+Q21. What is the output size of SHA-256?
+
+Answer: 256 bits or 32 bytes.
+
+Q22. Can a hash be reversed?
+
+Answer: No. Cryptographic hashing is designed to be a one-way process.
+
+Q23. What happens if transaction data changes in a Merkle Tree?
+
+Answer: The transaction hash and corresponding Merkle Root change.
+
+Q24. What is collision resistance?
+
+Answer: It is the property of a hash function that makes it computationally difficult to find two different inputs producing the same hash.
+
+Q25. What is the purpose of a Digital Signature?
+
+Answer: To verify the authenticity and integrity of digital information.
+
+UNIT II – History and Fundamentals of Blockchain
+
+Note: Your syllabus mentions "Feature Engineering" as the Unit II heading, but the actual topics are related to Blockchain fundamentals. I am following the listed topics.
+
+Part A: Important Theory Questions and Answers
+Q1. What is Blockchain?
+
+Answer:
+
+Blockchain is a distributed digital ledger that stores information in blocks connected together using cryptographic hashes.
+
+Each block contains transaction data, a timestamp and the hash of the previous block.
+
+It provides transparency, security and resistance to unauthorized modification.
+
+Q2. Explain the History of Blockchain.
+
+Answer:
+
+The development of blockchain took place in several stages:
+
+1991 – Stuart Haber and W. Scott Stornetta introduced a cryptographically secured method for timestamping digital documents.
+2008 – Satoshi Nakamoto published the Bitcoin whitepaper.
+2009 – Bitcoin was launched as the first widely recognized decentralized cryptocurrency.
+2015 – Ethereum introduced programmable smart contracts.
+Present – Blockchain is used in banking, healthcare, supply chains, government and other industries.
+Q3. What is a Centralized System?
+
+Answer:
+
+A Centralized System is a system in which all data and operations are controlled by a single central authority or organization.
+
+Examples:
+
+Traditional banking systems.
+Centralized databases.
+Government databases.
+
+Advantages:
+
+Easy management.
+Faster decision-making.
+Centralized control.
+
+Disadvantages:
+
+Single point of failure.
+Greater dependency on central authority.
+Risk of data manipulation.
+Possible security breaches.
+Q4. What is a Decentralized System?
+
+Answer:
+
+A Decentralized System is a system in which control and decision-making are distributed among multiple participants instead of being handled by a single central authority.
+
+Examples:
+
+Bitcoin.
+Decentralized blockchain networks.
+
+Advantages:
+
+No single point of failure.
+Greater transparency.
+Distributed control.
+Better resistance to censorship.
+Q5. Differentiate between Centralized and Decentralized Systems.
+
+Answer:
+
+Centralized System:
+
+Controlled by one central authority.
+Data is managed centrally.
+Single point of failure.
+Requires trust in the central authority.
+
+Decentralized System:
+
+Control is distributed.
+Data is maintained across multiple participants.
+No single central point of failure.
+Reduces dependency on a central authority.
+Q6. Explain the Layers of Blockchain.
+
+Answer:
+
+Blockchain architecture consists of the following layers:
+
+1. Application Layer:
+
+This is the top layer where users interact with blockchain applications.
+
+Example: Cryptocurrency wallets and decentralized applications.
+
+2. Execution Layer:
+
+It executes transactions and smart contracts.
+
+Example: Ethereum Virtual Machine.
+
+3. Semantic Layer:
+
+It defines the meaning and interpretation of transactions, smart contracts and blockchain data.
+
+4. Propagation Layer:
+
+It is responsible for distributing transactions and blocks between network nodes.
+
+5. Consensus Layer:
+
+It helps network participants agree on the valid state of the blockchain.
+
+Example: Proof of Work and Proof of Stake.
+
+Q7. Why is Blockchain Important?
+
+Answer:
+
+Blockchain is important because it provides:
+
+Transparency.
+Security.
+Decentralization.
+Data integrity.
+Traceability.
+Reduced dependency on intermediaries.
+Efficient transaction verification.
+Q8. What are the Limitations of Centralized Systems?
+
+Answer:
+
+Single point of failure.
+High dependency on central authority.
+Risk of unauthorized data modification.
+Limited transparency.
+Data breaches can affect the entire system.
+Possibility of censorship.
+Q9. What are the Limitations of Blockchain?
+
+Answer:
+
+Scalability issues.
+High energy consumption in some consensus mechanisms.
+Transaction processing delays.
+Storage requirements.
+Regulatory challenges.
+Complex implementation.
+Irreversible transactions can create problems when mistakes occur.
+Q10. What is Blockchain Adoption?
+
+Answer:
+
+Blockchain Adoption refers to the use and implementation of blockchain technology by individuals, businesses and governments.
+
+It is increasingly being used in:
+
+Banking.
+Healthcare.
+Supply chain management.
+Digital identity.
+Government services.
+Cryptocurrency.
+Q11. What is a Distributed Ledger?
+
+Answer:
+
+A Distributed Ledger is a digital database shared and maintained across multiple computers or nodes in a network.
+
+Every authorized participant can maintain a copy of the ledger.
+
+Blockchain is one type of Distributed Ledger Technology (DLT).
+
+Q12. What is a Node in Blockchain?
+
+Answer:
+
+A Node is a computer or device participating in a blockchain network.
+
+It may store blockchain data, validate transactions or help communicate information between participants.
+
+Q13. What is a Block?
+
+Answer:
+
+A Block is a data structure that stores a collection of verified transactions.
+
+A typical blockchain block contains:
+
+Block Header.
+Transaction Data.
+Previous Block Hash.
+Timestamp.
+Nonce or other consensus-related information.
+Q14. What is a Genesis Block?
+
+Answer:
+
+The Genesis Block is the first block of a blockchain.
+
+It is also known as Block 0 and does not have a previous block in the chain.
+
+Q15. What is Immutability in Blockchain?
+
+Answer:
+
+Immutability means that once information is confirmed and added to the blockchain, changing it becomes extremely difficult.
+
+This is achieved through cryptographic hashing and distributed consensus.
+
+Part B: Unit II – Important Viva Questions
+Q16. Who invented Bitcoin?
+
+Answer: Satoshi Nakamoto.
+
+Q17. When was the Bitcoin whitepaper published?
+
+Answer: 2008.
+
+Q18. When was Bitcoin launched?
+
+Answer: 2009.
+
+Q19. What is DLT?
+
+Answer: Distributed Ledger Technology.
+
+Q20. Is every Distributed Ledger a Blockchain?
+
+Answer: No. Blockchain is one type of Distributed Ledger Technology.
+
+Q21. What is a blockchain ledger?
+
+Answer: It is a distributed record of transactions maintained across the network.
+
+Q22. What is a block header?
+
+Answer: A block header contains important metadata such as the previous block hash, timestamp and other block-related information.
+
+Q23. What is a single point of failure?
+
+Answer: It is a component whose failure can cause the entire system to stop working.
+
+Q24. Is blockchain completely unhackable?
+
+Answer: No. Blockchain provides strong security, but applications, wallets, smart contracts and network implementations can still have vulnerabilities.
+
+Q25. What is transparency in blockchain?
+
+Answer: It means authorized participants can verify and inspect blockchain records according to the network's access rules.
+
+UNIT III – Blockchain Platforms and Consensus in Blockchain
+Part A: Important Theory Questions and Answers
+Q1. What are Blockchain Platforms?
+
+Answer:
+
+Blockchain Platforms are software environments that allow developers to create, deploy and manage blockchain networks and applications.
+
+Examples:
+
+Bitcoin.
+Ethereum.
+Hyperledger Fabric.
+IOTA.
+Corda.
+Q2. Explain the Types of Blockchain Platforms.
+
+Answer:
+
+There are three major types of blockchain networks:
+
+1. Public Blockchain:
+
+A public blockchain is an open network where anyone can participate and verify transactions according to the network rules.
+
+Examples: Bitcoin and Ethereum.
+
+2. Private Blockchain:
+
+A private blockchain is controlled by a single organization. Only authorized users can participate.
+
+Example: A private Hyperledger Fabric deployment.
+
+3. Consortium Blockchain:
+
+A consortium blockchain is managed by multiple organizations instead of a single organization.
+
+Example: A blockchain network jointly managed by multiple banks.
+
+Q3. Differentiate between Public, Private and Consortium Blockchain.
+
+Answer:
+
+Public Blockchain:
+
+Open to everyone.
+Highly decentralized.
+Anyone can participate according to protocol rules.
+Example: Bitcoin.
+
+Private Blockchain:
+
+Controlled by one organization.
+Access is restricted.
+Faster transaction processing may be possible.
+Example: Private Hyperledger Fabric network.
+
+Consortium Blockchain:
+
+Controlled by multiple organizations.
+Access is restricted to authorized participants.
+Shared decision-making.
+Example: Banking consortium network.
+Q4. What is Bitcoin?
+
+Answer:
+
+Bitcoin is a decentralized digital cryptocurrency introduced by Satoshi Nakamoto in 2009.
+
+It allows users to transfer value directly through a peer-to-peer network without requiring a traditional financial intermediary.
+
+It uses Proof of Work as its consensus mechanism.
+
+Q5. What is Ethereum?
+
+Answer:
+
+Ethereum is a decentralized blockchain platform that supports smart contracts and decentralized applications.
+
+It allows developers to write programs that execute automatically when specified conditions are satisfied.
+
+Ethereum uses Ether (ETH) as its native cryptocurrency and currently uses Proof of Stake.
+
+Q6. What is Hyperledger?
+
+Answer:
+
+Hyperledger is an open-source collaborative project hosted by the Linux Foundation.
+
+It provides frameworks and tools for developing enterprise blockchain solutions.
+
+Examples:
+
+Hyperledger Fabric.
+Hyperledger Besu.
+Hyperledger Iroha.
+
+Hyperledger Fabric is a permissioned blockchain framework.
+
+Q7. What is IOTA?
+
+Answer:
+
+IOTA is a distributed ledger technology designed mainly for the Internet of Things (IoT).
+
+It uses a Directed Acyclic Graph-based data structure called the Tangle instead of a traditional blockchain.
+
+It is designed to support data and value transfers between connected devices.
+
+Q8. What is Corda?
+
+Answer:
+
+Corda is a distributed ledger platform developed for businesses, especially financial institutions.
+
+It allows organizations to share and manage agreements and transactions securely.
+
+It focuses on privacy and controlled information sharing.
+
+Q9. What is R3?
+
+Answer:
+
+R3 is an enterprise software company associated with the development of Corda.
+
+It focuses on distributed ledger solutions for financial institutions and businesses.
+
+Q10. What is Consensus in Blockchain?
+
+Answer:
+
+Consensus is the process through which blockchain network participants agree on the validity and order of transactions.
+
+It ensures that all participating nodes maintain a consistent ledger state.
+
+Q11. Why is Consensus Important in Blockchain?
+
+Answer:
+
+Consensus is important because it:
+
+Prevents double spending.
+Maintains agreement between nodes.
+Validates transactions.
+Prevents unauthorized changes.
+Maintains network security.
+Q12. What are the Elements of Consensus?
+
+Answer:
+
+Important elements of a blockchain consensus mechanism include:
+
+Nodes – Participants in the network.
+Transactions – Operations submitted to the network.
+Validation – Checking transaction correctness.
+Agreement – Reaching a common decision.
+Finality – Determining when a transaction is considered confirmed and irreversible under the protocol.
+Q13. What is a Consensus Algorithm?
+
+Answer:
+
+A Consensus Algorithm is a set of rules that helps distributed network participants agree on the valid state of the blockchain.
+
+Examples:
+
+Proof of Work.
+Proof of Stake.
+Proof of Elapsed Time.
+Proof of Activity.
+Proof of Burn.
+Q14. What is Proof of Work (PoW)?
+
+Answer:
+
+Proof of Work is a blockchain consensus mechanism in which miners compete to solve a difficult mathematical puzzle.
+
+The first miner to find a valid solution can propose the next block, which is then validated by the network.
+
+Advantages:
+
+Strong security.
+Resistant to certain attacks.
+Proven in Bitcoin.
+
+Disadvantages:
+
+High energy consumption.
+Requires computational power.
+Can have limited transaction throughput.
+Q15. What is Proof of Stake (PoS)?
+
+Answer:
+
+Proof of Stake is a consensus mechanism in which validators are selected to propose and validate blocks based partly on the cryptocurrency they stake.
+
+Validators lock cryptocurrency as a stake and may lose part of it if they violate protocol rules.
+
+Advantages:
+
+Low energy consumption.
+No mining competition.
+Energy-efficient.
+
+Disadvantages:
+
+Requires cryptocurrency staking.
+Wealth concentration can be a concern.
+Requires mechanisms to prevent malicious validators.
+Q16. What is Proof of Elapsed Time (PoET)?
+
+Answer:
+
+Proof of Elapsed Time is a consensus mechanism in which participating nodes wait for randomly assigned time periods.
+
+The node whose waiting period finishes first gets the opportunity to create the next block.
+
+It is associated with trusted execution environments such as Intel SGX.
+
+Q17. What is Proof of Activity?
+
+Answer:
+
+Proof of Activity is a hybrid consensus mechanism that combines Proof of Work and Proof of Stake.
+
+It uses mining to create a block template and stakeholders to help validate and complete the block.
+
+It combines ideas from both consensus mechanisms.
+
+Q18. What is Proof of Burn?
+
+Answer:
+
+Proof of Burn is a consensus mechanism in which participants permanently destroy or send cryptocurrency to an unspendable address to demonstrate commitment to the network.
+
+Burned coins cannot be recovered or spent.
+
+Q19. What is the Byzantine Generals Problem?
+
+Answer:
+
+The Byzantine Generals Problem is a computer science problem that explains how distributed systems can reach agreement even when some participants behave maliciously or send incorrect information.
+
+It demonstrates the difficulty of achieving reliable consensus in an unreliable network.
+
+Q20. Explain the Byzantine Generals Problem Scenario.
+
+Answer:
+
+Imagine several army generals surrounding a city.
+
+They must agree whether to attack or retreat.
+
+However, they communicate through messengers, and some generals may be traitors who send false messages.
+
+The challenge is to ensure that all loyal generals reach the same decision despite the presence of dishonest participants.
+
+This problem represents the challenge of achieving consensus in distributed systems.
+
+Q21. What is Byzantine Fault Tolerance (BFT)?
+
+Answer:
+
+Byzantine Fault Tolerance is the ability of a distributed system to continue operating correctly even when some nodes behave maliciously or provide incorrect information.
+
+It helps blockchain networks achieve reliable consensus.
+
+Q22. Differentiate between PoW and PoS.
+
+Answer:
+
+Proof of Work:
+
+Uses computational power.
+Miners solve mathematical puzzles.
+Consumes more electricity.
+Used by Bitcoin.
+
+Proof of Stake:
+
+Uses cryptocurrency staking.
+Validators are selected to propose blocks.
+Consumes less electricity.
+Used by Ethereum.
+Q23. Which Consensus Algorithm is used by Bitcoin and Ethereum?
+
+Answer:
+
+Bitcoin uses Proof of Work.
+Ethereum uses Proof of Stake.
+Part B: Unit III – Important Viva Questions
+Q24. What is the full form of PoW?
+
+Answer: Proof of Work.
+
+Q25. What is the full form of PoS?
+
+Answer: Proof of Stake.
+
+Q26. What is the full form of PoET?
+
+Answer: Proof of Elapsed Time.
+
+Q27. What is mining?
+
+Answer: Mining is the process used in Proof of Work networks to validate transactions and create new blocks.
+
+Q28. Who is a miner?
+
+Answer: A miner is a participant who uses computational power to compete in the Proof of Work process.
+
+Q29. Who is a validator?
+
+Answer: A validator is a participant responsible for proposing or validating blocks in a Proof of Stake network.
+
+Q30. What is double spending?
+
+Answer: Double spending is the problem of spending the same digital currency more than once.
+
+Q31. Which consensus algorithm consumes more energy?
+
+Answer: Proof of Work generally consumes more energy.
+
+Q32. Which consensus algorithm is more energy-efficient?
+
+Answer: Proof of Stake.
+
+Q33. What is a permissioned blockchain?
+
+Answer: A blockchain in which participation is restricted to authorized users.
+
+Q34. What is a permissionless blockchain?
+
+Answer: A blockchain in which anyone can participate according to the network protocol.
+
+Q35. Is Bitcoin a public blockchain?
+
+Answer: Yes.
+
+Q36. Is Hyperledger Fabric public or private?
+
+Answer: It is a permissioned blockchain framework that can be used to build private or consortium networks.
+
+Q37. What is the Tangle?
+
+Answer: Tangle is the Directed Acyclic Graph-based data structure used by IOTA.
+
+UNIT IV – Cryptocurrency: Bitcoin and Token
+Part A: Important Theory Questions and Answers
+Q1. What is Cryptocurrency?
+
+Answer:
+
+Cryptocurrency is a digital or virtual currency that uses cryptographic techniques to secure transactions.
+
+It generally operates on blockchain or other distributed ledger technology.
+
+Examples:
+
+Bitcoin.
+Ether.
+Litecoin.
+Solana.
+Q2. What is Bitcoin?
+
+Answer:
+
+Bitcoin is the first widely adopted decentralized cryptocurrency.
+
+It was introduced by Satoshi Nakamoto in 2009.
+
+It allows peer-to-peer digital transactions without depending on a central bank.
+
+Q3. Explain the Basic Working of Cryptocurrency.
+
+Answer:
+
+A user creates a cryptocurrency transaction.
+The transaction is digitally signed.
+It is broadcast to the network.
+Network participants verify the transaction.
+The transaction is included in a block.
+The block is added to the blockchain through the consensus mechanism.
+Q4. What are the Different Types of Cryptocurrency?
+
+Answer:
+
+Common categories include:
+
+1. Payment Cryptocurrencies:
+
+Used mainly for transferring value.
+
+Example: Bitcoin.
+
+2. Platform Cryptocurrencies:
+
+Used within blockchain platforms.
+
+Example: Ether.
+
+3. Stablecoins:
+
+Designed to maintain a relatively stable value, often by referencing a fiat currency.
+
+Example: USDC.
+
+4. Utility Tokens:
+
+Provide access to specific services or features of a platform.
+
+5. Governance Tokens:
+
+Provide holders with voting rights in certain decentralized projects.
+
+Q5. What are the Uses of Cryptocurrency?
+
+Answer:
+
+Digital payments.
+Peer-to-peer transfers.
+International money transfers.
+Decentralized finance.
+Investment and trading.
+Accessing blockchain applications.
+Q6. What is a Cryptocurrency Wallet?
+
+Answer:
+
+A Cryptocurrency Wallet is a software or hardware tool used to manage cryptographic keys and interact with blockchain networks.
+
+It allows users to:
+
+Receive cryptocurrency.
+Send cryptocurrency.
+Check balances.
+Sign transactions.
+
+Important: Cryptocurrency is recorded on the blockchain. The wallet manages the keys that provide access to it.
+
+Q7. What are the Types of Cryptocurrency Wallets?
+
+Answer:
+
+There are two main types:
+
+1. Hot Wallet:
+
+A hot wallet is connected to the internet.
+
+Examples:
+
+MetaMask.
+Coinbase Wallet.
+
+Advantages:
+
+Easy to access.
+Convenient for transactions.
+
+Disadvantages:
+
+More exposed to online threats.
+
+2. Cold Wallet:
+
+A cold wallet stores private keys offline.
+
+Examples:
+
+Hardware wallets.
+Paper wallets.
+
+Advantages:
+
+Better protection against online attacks.
+Suitable for long-term storage.
+
+Disadvantages:
+
+Less convenient for frequent transactions.
+Physical loss or damage can create problems.
+Q8. What is MetaMask?
+
+Answer:
+
+MetaMask is a cryptocurrency wallet that allows users to manage accounts, store private keys and interact with Ethereum-compatible blockchain networks.
+
+It is available as a browser extension and mobile application.
+
+Uses:
+
+Sending and receiving cryptocurrency.
+Connecting to decentralized applications.
+Managing blockchain accounts.
+Signing transactions.
+Q9. What is Coinbase?
+
+Answer:
+
+Coinbase is a cryptocurrency company that provides cryptocurrency-related services.
+
+Its products include cryptocurrency exchange services and Coinbase Wallet, which is a self-custody wallet.
+
+Q10. What is Binance?
+
+Answer:
+
+Binance is a cryptocurrency exchange platform that provides services for buying, selling and trading cryptocurrencies.
+
+It also provides wallet-related services.
+
+Q11. Differentiate between MetaMask, Coinbase and Binance.
+
+Answer:
+
+MetaMask:
+
+Primarily a self-custody wallet.
+Supports Ethereum and compatible networks.
+Used to interact with decentralized applications.
+
+Coinbase:
+
+Provides cryptocurrency exchange services.
+Also offers a separate self-custody wallet called Coinbase Wallet.
+
+Binance:
+
+Primarily known as a cryptocurrency exchange.
+Provides trading and other cryptocurrency services.
+Offers wallet-related products.
+Q12. What is a Private Key?
+
+Answer:
+
+A Private Key is a secret cryptographic key that allows a user to control and authorize transactions from a blockchain account.
+
+It must never be shared with anyone.
+
+Q13. What is a Public Address?
+
+Answer:
+
+A Public Address is an identifier used to receive cryptocurrency.
+
+It can be shared with other users to receive funds.
+
+Q14. What is a Seed Phrase?
+
+Answer:
+
+A Seed Phrase is a sequence of words used to recover a cryptocurrency wallet and its associated keys.
+
+It must be stored securely and never shared with anyone.
+
+Q15. What is a Token?
+
+Answer:
+
+A Token is a digital asset created and managed using an existing blockchain platform.
+
+Tokens can represent:
+
+Utility.
+Ownership.
+Governance rights.
+Digital assets.
+Q16. Differentiate between Coin and Token.
+
+Answer:
+
+Coin:
+
+Has its own native blockchain.
+Used for transactions and network operations.
+Example: Bitcoin and Ether.
+
+Token:
+
+Created on an existing blockchain.
+Can represent utility, assets or governance rights.
+Example: ERC-20 tokens on Ethereum.
+Q17. What is the Difference Between Cryptocurrency and Traditional Currency?
+
+Answer:
+
+Cryptocurrency:
+
+Digital asset.
+Uses cryptographic security.
+Often operates on decentralized networks.
+Transactions are recorded on distributed ledgers.
+
+Traditional Currency:
+
+Issued by a country's central bank.
+Managed through regulated financial systems.
+Includes physical cash and digital bank balances.
+Part B: Unit IV – Important Viva Questions
+Q18. Who created Bitcoin?
+
+Answer: Satoshi Nakamoto.
+
+Q19. What is the maximum supply of Bitcoin?
+
+Answer: 21 million BTC.
+
+Q20. What is the smallest unit of Bitcoin?
+
+Answer: Satoshi.
+
+Q21. How many Satoshis make one Bitcoin?
+
+Answer: 100 million Satoshis.
+
+Q22. What is Ether?
+
+Answer: Ether (ETH) is the native cryptocurrency of the Ethereum blockchain.
+
+Q23. What is a crypto wallet?
+
+Answer: A tool used to manage cryptographic keys and interact with cryptocurrency networks.
+
+Q24. What is a hot wallet?
+
+Answer: A cryptocurrency wallet connected to the internet.
+
+Q25. What is a cold wallet?
+
+Answer: A wallet that stores private keys offline.
+
+Q26. Is MetaMask a cryptocurrency?
+
+Answer: No. MetaMask is a cryptocurrency wallet.
+
+Q27. What happens if you lose your private key?
+
+Answer: You may permanently lose access to the associated cryptocurrency if you do not have another recovery method.
+
+Q28. Can we share a public address?
+
+Answer: Yes. It is used to receive cryptocurrency.
+
+Q29. Should we share a seed phrase?
+
+Answer: No. It must always remain secret.
+
+Q30. What is a transaction fee?
+
+Answer: A transaction fee is the amount paid to process a transaction on a blockchain network.
+
+UNIT V – Blockchain Ethereum Platform Using Solidity
+Part A: Important Theory Questions and Answers
+Q1. What is Ethereum?
+
+Answer:
+
+Ethereum is a decentralized blockchain platform that allows developers to build and deploy smart contracts and decentralized applications.
+
+It uses Ether (ETH) as its native cryptocurrency.
+
+Ethereum supports programmable blockchain transactions through the Ethereum Virtual Machine.
+
+Q2. What are the Types of Ethereum Networks?
+
+Answer:
+
+Ethereum networks can be classified as:
+
+1. Mainnet:
+
+The main public Ethereum network where real transactions take place using real Ether.
+
+2. Testnet:
+
+A testing network used by developers to test smart contracts without spending real Ether.
+
+Examples: Sepolia and Hoodi.
+
+3. Private Network:
+
+A blockchain network created for development, learning or organizational purposes with controlled participation.
+
+Q3. What is Ethereum Virtual Machine (EVM)?
+
+Answer:
+
+EVM stands for Ethereum Virtual Machine.
+
+It is the execution environment that runs smart contract bytecode on Ethereum-compatible networks.
+
+Functions:
+
+Executes smart contracts.
+Processes blockchain transactions.
+Maintains consistent execution across nodes.
+Uses gas to measure computational work.
+Q4. What is a Smart Contract?
+
+Answer:
+
+A Smart Contract is a program stored on a blockchain that automatically executes according to predefined conditions.
+
+It reduces the need for intermediaries and provides transparent execution.
+
+Example:
+
+A smart contract can automatically transfer digital assets when specified conditions are satisfied.
+
+Q5. What is the Purpose of Smart Contracts?
+
+Answer:
+
+The main purposes are:
+
+Automate transactions.
+Reduce intermediaries.
+Improve transparency.
+Increase efficiency.
+Enforce predefined rules.
+Reduce manual errors.
+Q6. Explain the Types of Smart Contracts.
+
+Answer:
+
+Smart contracts can be classified based on their applications:
+
+1. Financial Contracts:
+
+Used for payments, lending and financial transactions.
+
+2. Legal Contracts:
+
+Used to automate certain contractual obligations.
+
+3. Governance Contracts:
+
+Used for voting and decentralized decision-making.
+
+4. Supply Chain Contracts:
+
+Used to track products and automate business operations.
+
+Q7. What is Solidity?
+
+Answer:
+
+Solidity is a high-level, statically typed programming language used to develop smart contracts for Ethereum and other EVM-compatible blockchains.
+
+Its syntax is similar to JavaScript and C++.
+
+Q8. What are the Features of Solidity?
+
+Answer:
+
+Object-oriented programming features.
+Statically typed language.
+Supports inheritance.
+Supports functions and modifiers.
+Used for smart contract development.
+Supports structures, arrays and mappings.
+Q9. What is a Smart Contract Deployment?
+
+Answer:
+
+Smart Contract Deployment is the process of publishing compiled smart contract bytecode to a blockchain network.
+
+After deployment, the contract receives a blockchain address and can be interacted with through transactions and calls.
+
+Q10. Explain the Steps to Create and Deploy a Smart Contract.
+
+Answer:
+
+Write the smart contract using Solidity.
+Compile the contract.
+Check for compilation errors.
+Connect to an Ethereum-compatible network.
+Deploy the contract using a wallet or development tool.
+Pay the required gas fee.
+Obtain the deployed contract address.
+Interact with the contract functions.
+Q11. What is Gas in Ethereum?
+
+Answer:
+
+Gas is the unit used to measure the computational effort required to execute operations on Ethereum.
+
+Users pay transaction fees based on gas consumption and the gas price.
+
+Q12. What is Gas Fee?
+
+Answer:
+
+Gas Fee is the transaction fee paid for performing operations on the Ethereum network.
+
+Basic Formula:
+
+Gas Fee = Gas Used × Effective Gas Price.
+
+Q13. What is a Solidity Compiler?
+
+Answer:
+
+A Solidity Compiler converts Solidity source code into EVM-compatible bytecode and generates other outputs such as the Application Binary Interface (ABI).
+
+It is commonly called solc.
+
+Q14. What is ABI?
+
+Answer:
+
+ABI stands for Application Binary Interface.
+
+It defines how external applications interact with smart contracts.
+
+It describes contract functions, parameters and return values.
+
+Q15. What is Truffle?
+
+Answer:
+
+Truffle is a development framework used to develop, compile, test and deploy smart contracts.
+
+It provides tools that simplify blockchain application development.
+
+Features:
+
+Smart contract compilation.
+Automated testing.
+Deployment management.
+Migration scripts.
+Development environment.
+Q16. What is Truffle Development Environment?
+
+Answer:
+
+Truffle Development Environment provides tools and commands for managing smart contract projects.
+
+Common commands include:
+
+truffle init – Creates a new Truffle project.
+
+truffle compile – Compiles smart contracts.
+
+truffle migrate – Deploys contracts.
+
+truffle test – Runs smart contract tests.
+
+Q17. What is Swarm?
+
+Answer:
+
+Swarm is a decentralized storage and distribution platform associated with the Ethereum ecosystem.
+
+It allows users to store and distribute data across a distributed network.
+
+Q18. What is Whisper?
+
+Answer:
+
+Whisper was a decentralized peer-to-peer messaging protocol associated with the Ethereum ecosystem.
+
+It was designed for communication between decentralized applications.
+
+It is important to note that Whisper is a historical Ethereum component and is no longer the recommended messaging technology.
+
+Q19. What is the Difference Between Swarm and Whisper?
+
+Answer:
+
+Swarm:
+
+Used for decentralized data storage.
+Helps store and distribute files.
+
+Whisper:
+
+Designed for decentralized messaging.
+Used for communication between applications.
+Q20. What is a Decentralized Application (DApp)?
+
+Answer:
+
+A Decentralized Application is an application that uses a blockchain network and smart contracts for its backend operations.
+
+It does not depend entirely on a centralized server.
+
+Examples:
+
+Decentralized exchanges.
+Blockchain games.
+NFT marketplaces.
+Q21. What is the Difference Between Smart Contract and Traditional Contract?
+
+Answer:
+
+Smart Contract:
+
+Written in programming code.
+Executes automatically according to predefined conditions.
+Runs on a blockchain.
+
+Traditional Contract:
+
+Written in natural language.
+Generally requires people or organizations to enforce its terms.
+Does not automatically execute through blockchain code.
+Part B: Unit V – Important Viva Questions
+Q22. What is the full form of EVM?
+
+Answer: Ethereum Virtual Machine.
+
+Q23. What is the full form of DApp?
+
+Answer: Decentralized Application.
+
+Q24. What is the full form of ABI?
+
+Answer: Application Binary Interface.
+
+Q25. What is the native cryptocurrency of Ethereum?
+
+Answer: Ether (ETH).
+
+Q26. Which programming language is used for Ethereum smart contracts?
+
+Answer: Solidity.
+
+Q27. What is the file extension of Solidity?
+
+Answer: .sol
+
+Q28. What is the purpose of Remix IDE?
+
+Answer: Remix IDE is a browser-based development environment used to write, compile, test and deploy Solidity smart contracts.
+
+Q29. What is the purpose of MetaMask in smart contract deployment?
+
+Answer: MetaMask connects the application to an Ethereum-compatible network and allows users to sign transactions.
+
+Q30. What is a constructor in Solidity?
+
+Answer: A constructor is a special function that executes only once when a smart contract is deployed.
+
+Q31. What is a mapping in Solidity?
+
+Answer: Mapping is a key-value data structure used to store and retrieve values.
+
+Q32. What is a modifier in Solidity?
+
+Answer: A modifier is used to add conditions or restrictions before executing a function.
+
+Q33. What is the purpose of the require() function?
+
+Answer: It checks a condition and stops execution if the condition is false.
+
+Q34. What is the purpose of the msg.sender variable?
+
+Answer: It represents the address of the account or contract that directly called the current function.
+
+Q35. What is the difference between view and pure functions?
+
+Answer:
+
+View functions can read contract state but cannot modify it.
+Pure functions neither read nor modify contract state.
+Q36. What is a transaction in Ethereum?
+
+Answer: A transaction is a digitally signed instruction that can change blockchain state or transfer Ether.
+
+UNIT VI – Blockchain Case Studies
+Part A: Important Theory Questions and Answers
+Q1. What are Blockchain Applications?
+
+Answer:
+
+Blockchain Applications are real-world systems that use blockchain technology to store, verify and share information securely.
+
+Major applications include:
+
+Retail.
+Banking.
+Healthcare.
+Government.
+Internet of Things.
+Energy and Utilities.
+Supply Chain Management.
+Q2. Explain Blockchain in Retail.
+
+Answer:
+
+Blockchain in Retail is used to improve product tracking, payment processing and supply chain transparency.
+
+Applications:
+
+Product authenticity verification.
+Supply chain tracking.
+Secure payments.
+Fraud prevention.
+Customer loyalty programs.
+
+Example:
+
+A customer can scan a QR code to check the origin and movement history of a product.
+
+Q3. Explain Blockchain in Banking and Financial Services.
+
+Answer:
+
+Blockchain can improve financial services by providing secure, transparent and efficient transaction processing.
+
+Applications:
+
+Cross-border payments.
+Digital identity verification.
+Trade finance.
+Fraud detection.
+Asset tokenization.
+Secure financial records.
+
+Advantages:
+
+Faster settlement in suitable systems.
+Improved transparency.
+Reduced reconciliation work.
+Better traceability.
+Q4. Explain Blockchain in the Government Sector.
+
+Answer:
+
+Blockchain can be used in government services to maintain secure and transparent records.
+
+Applications:
+
+Land record management.
+Digital identity.
+Voting systems.
+Certificate verification.
+Public distribution records.
+
+Advantages:
+
+Reduces record manipulation.
+Improves transparency.
+Provides traceability.
+Reduces paperwork.
+Q5. Explain Blockchain in Healthcare.
+
+Answer:
+
+Blockchain can help healthcare organizations securely share and verify medical information.
+
+Applications:
+
+Electronic medical records.
+Medicine supply chain tracking.
+Patient identity management.
+Clinical research data.
+Prescription verification.
+
+Advantages:
+
+Better data integrity.
+Improved record traceability.
+Controlled data sharing.
+Reduced chances of record manipulation.
+Q6. Explain Blockchain in IoT.
+
+Answer:
+
+IoT stands for Internet of Things.
+
+Blockchain can help secure communication and data exchange between connected devices.
+
+Applications:
+
+Smart homes.
+Industrial IoT.
+Smart vehicles.
+Device identity management.
+Secure sensor data sharing.
+Q7. Explain Blockchain in Energy and Utilities.
+
+Answer:
+
+Blockchain can be used in energy systems to record and manage energy transactions between producers and consumers.
+
+Applications:
+
+Peer-to-peer energy trading.
+Renewable energy tracking.
+Smart meter management.
+Electricity billing.
+Energy certificate management.
+Q8. What is Blockchain Integration with Other Domains?
+
+Answer:
+
+Blockchain Integration means combining blockchain technology with other technologies to improve security, transparency and efficiency.
+
+Examples:
+
+Blockchain + AI – Secure data sharing for AI systems.
+Blockchain + IoT – Secure device communication.
+Blockchain + Cloud Computing – Distributed data management.
+Blockchain + Big Data – Data integrity and traceability.
+Blockchain + Healthcare – Secure medical record management.
+Q9. What are the Advantages of Blockchain?
+
+Answer:
+
+Decentralization.
+Transparency.
+Security.
+Immutability.
+Traceability.
+Reduced intermediaries.
+Improved data integrity.
+Q10. What are the Disadvantages of Blockchain?
+
+Answer:
+
+Scalability problems.
+High implementation cost.
+Energy consumption in PoW systems.
+Regulatory uncertainty.
+Complex development.
+Privacy challenges.
+Difficulties in correcting incorrect records.
+Q11. Explain Blockchain in Supply Chain Management.
+
+Answer:
+
+Blockchain helps track products throughout the supply chain, from manufacturing to delivery.
+
+Every important transaction or movement can be recorded on the blockchain.
+
+Advantages:
+
+Product tracking.
+Reduced counterfeiting.
+Better transparency.
+Improved accountability.
+Q12. Explain Blockchain in Digital Identity.
+
+Answer:
+
+Blockchain can be used to create secure and verifiable digital identity systems.
+
+It helps users prove their identity without repeatedly depending on a central authority.
+
+Q13. What is Blockchain Voting?
+
+Answer:
+
+Blockchain Voting is a voting system in which votes are recorded using blockchain technology.
+
+It aims to provide transparency, integrity and auditability.
+
+However, voter privacy, identity verification and protection against coercion remain important challenges.
+
+Q14. Explain Blockchain in Education.
+
+Answer:
+
+Blockchain can be used to store and verify educational certificates, degrees and academic records.
+
+It helps employers and institutions verify certificates and reduces fake credentials.
+
+Q15. What is the Future Scope of Blockchain?
+
+Answer:
+
+Blockchain has potential applications in:
+
+Digital identity.
+Financial services.
+Healthcare.
+Supply chains.
+Smart cities.
+Decentralized applications.
+Digital asset management.
+Part B: Unit VI – Important Viva Questions
+Q16. What is the full form of IoT?
+
+Answer: Internet of Things.
+
+Q17. What is a smart city?
+
+Answer: A smart city uses digital technologies to improve public services, infrastructure and resource management.
+
+Q18. How does blockchain help healthcare?
+
+Answer: It improves the integrity, traceability and secure sharing of medical records.
+
+Q19. How does blockchain help banking?
+
+Answer: It can improve transaction processing, payment settlement and financial record transparency.
+
+Q20. How does blockchain help retail?
+
+Answer: It helps track products and verify their authenticity.
+
+Q21. How does blockchain help government?
+
+Answer: It helps maintain transparent and tamper-resistant public records.
+
+Q22. How does blockchain help IoT?
+
+Answer: It can improve device identity management and secure data exchange.
+
+Q23. What is traceability?
+
+Answer: Traceability is the ability to track the history and movement of a product or transaction.
+
+Q24. What is tokenization?
+
+Answer: Tokenization is the process of representing an asset or right as a digital token on a blockchain.
+
+Q25. What is a use case?
+
+Answer: A use case describes how a technology is used to solve a particular real-world problem.
+
+Important Practical Viva Questions
+
+These questions are especially useful for your Blockchain practical examination.
+
+Q1. Which programming language is used to develop smart contracts?
+
+Answer: Solidity.
+
+Q2. Which IDE is used to write Solidity programs?
+
+Answer: Remix IDE.
+
+Q3. What is MetaMask used for?
+
+Answer: It is used to manage blockchain accounts, connect to decentralized applications and sign transactions.
+
+Q4. What is Ganache?
+
+Answer:
+
+Ganache is a local blockchain development tool used to create a personal Ethereum-compatible blockchain for testing smart contracts.
+
+It provides test accounts and simulated Ether.
+
+Q5. What is Truffle?
+
+Answer: Truffle is a development framework used to compile, test and deploy smart contracts.
+
+Q6. What is the purpose of Remix VM?
+
+Answer: Remix VM provides a simulated blockchain environment inside Remix IDE for testing smart contracts.
+
+Q7. What is the difference between Remix VM and MetaMask?
+
+Answer:
+
+Remix VM is a simulated blockchain environment.
+MetaMask is a wallet used to manage accounts and connect to actual blockchain networks.
+Q8. What is the purpose of the SPDX license identifier?
+
+Answer: It specifies the software license associated with the Solidity source code.
+
+Example:
+
+// SPDX-License-Identifier: MIT
+
+Q9. What is the pragma statement?
+
+Answer: It specifies the Solidity compiler version required by the smart contract.
+
+Example:
+
+pragma solidity ^0.8.0;
+
+Q10. What is payable in Solidity?
+
+Answer: The payable keyword allows a function or address to receive Ether.
+
+Q11. What is a smart contract address?
+
+Answer: It is the unique blockchain address assigned to a deployed smart contract.
+
+Q12. What is a transaction hash?
+
+Answer: It is a unique identifier generated for a blockchain transaction.
+
+Q13. What is a block explorer?
+
+Answer: A block explorer is a website or tool used to view blockchain transactions, addresses and blocks.
+
+Example: Etherscan.
+
+Q14. What happens if a smart contract transaction fails?
+
+Answer: The state changes made by that transaction are reverted, although the transaction may still consume gas.

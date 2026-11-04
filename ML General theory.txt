@@ -1,0 +1,2041 @@
+Machine Learning (ML) – Complete Theory & Viva Question
+
+Unit I – Introduction to Machine Learning
+Unit II – Feature Engineering
+Unit III – Supervised Learning: Regression
+Unit IV – Supervised Learning: Classification
+Unit V – Unsupervised Learning
+Unit VI – Introduction to Neural Networks
+
+Q1. What is Machine Learning?
+
+Answer:
+Machine Learning is a branch of Artificial Intelligence that enables computers to learn from data and make predictions or decisions without being explicitly programmed for every task.
+
+Examples: Spam detection, face recognition, product recommendations and stock price prediction.
+
+There will be no question-answer tables.
+
+UNIT I – Introduction to Machine Learning
+Part A: Important Theory Questions and Answers
+Q1. What is Machine Learning?
+
+Answer:
+
+Machine Learning (ML) is a branch of Artificial Intelligence that enables computers to learn from data and improve their performance without being explicitly programmed.
+
+It identifies patterns in data and uses them to make predictions or decisions.
+
+Examples:
+
+Email spam detection.
+Movie recommendations.
+Stock price prediction.
+Face recognition.
+Q2. Explain the working of Machine Learning.
+
+Answer:
+
+Machine Learning works through the following steps:
+
+Data Collection – Collect relevant data.
+Data Preprocessing – Clean and prepare the data.
+Feature Selection – Select important features.
+Model Training – Train the model using data.
+Model Testing – Test the model using new data.
+Prediction – Use the trained model to make predictions.
+Q3. Differentiate between Machine Learning and Traditional Programming.
+
+Answer:
+
+Traditional Programming:
+
+The programmer writes rules and instructions.
+Input and program produce output.
+The computer follows predefined instructions.
+
+Machine Learning:
+
+The computer learns patterns from data.
+Input data and expected outputs are used for training.
+The trained model predicts outputs for new data.
+
+Example:
+
+In traditional programming, we manually define rules to identify spam emails. In ML, we train a model using examples of spam and non-spam emails.
+
+Q4. Differentiate between AI, ML and Data Science.
+
+Answer:
+
+Artificial Intelligence (AI):
+AI is a broad field that makes machines perform tasks requiring human intelligence.
+
+Machine Learning (ML):
+ML is a subset of AI that enables machines to learn from data.
+
+Data Science:
+Data Science is a field that uses statistics, programming and ML to extract useful information from data.
+
+Example:
+
+AI: A self-driving car.
+ML: Predicting whether an email is spam.
+Data Science: Analyzing customer purchasing behaviour.
+Q5. Explain the different types of Machine Learning.
+
+Answer:
+
+There are four major types of Machine Learning:
+
+Supervised Learning.
+Unsupervised Learning.
+Semi-Supervised Learning.
+Reinforcement Learning.
+Q6. What is Supervised Learning?
+
+Answer:
+
+Supervised Learning is a type of ML in which the model is trained using labelled data.
+
+Labelled data means the input data already contains the correct output.
+
+The model learns the relationship between input and output and predicts results for new data.
+
+Examples:
+
+House price prediction.
+Email spam detection.
+Student result prediction.
+Q7. What is Unsupervised Learning?
+
+Answer:
+
+Unsupervised Learning is a type of ML in which the model is trained using unlabelled data.
+
+The model identifies hidden patterns, similarities and groups in the data without knowing the correct output.
+
+Examples:
+
+Customer segmentation.
+Grouping similar documents.
+Market analysis.
+Q8. What is Semi-Supervised Learning?
+
+Answer:
+
+Semi-Supervised Learning uses a combination of labelled and unlabelled data.
+
+A small amount of labelled data and a large amount of unlabelled data are used to train the model.
+
+Example: Image classification where only some images are labelled.
+
+Q9. What is Reinforcement Learning?
+
+Answer:
+
+Reinforcement Learning is a type of ML in which an agent learns by interacting with an environment.
+
+The agent performs actions and receives rewards or penalties based on its actions.
+
+Its objective is to maximize the total reward.
+
+Examples:
+
+Self-driving cars.
+Robotics.
+Game-playing systems.
+Q10. Differentiate between Supervised and Unsupervised Learning.
+
+Answer:
+
+Supervised Learning:
+
+Uses labelled data.
+Predicts known output values.
+Used for classification and regression.
+Example: House price prediction.
+
+Unsupervised Learning:
+
+Uses unlabelled data.
+Finds hidden patterns.
+Used for clustering.
+Example: Customer segmentation.
+Q11. Explain Geometric Models in Machine Learning.
+
+Answer:
+
+Geometric Models represent data points in a geometric space.
+
+They use distances, angles, lines and boundaries to identify relationships between data points.
+
+Example: K-Nearest Neighbour (KNN) uses distance to classify data points.
+
+Q12. What are Probabilistic Models?
+
+Answer:
+
+Probabilistic Models use probability theory to make predictions and handle uncertainty.
+
+They calculate the probability of different possible outcomes.
+
+Example: Naive Bayes Classifier.
+
+Q13. What are Logical Models?
+
+Answer:
+
+Logical Models use logical rules and conditions to make predictions or decisions.
+
+They generally follow IF-THEN rules.
+
+Example:
+
+IF marks > 40, THEN result = Pass.
+
+Decision Trees are examples of logical models.
+
+Q14. What are Grouping and Grading Models?
+
+Answer:
+
+Grouping Models:
+
+These models divide data into different groups based on similarities.
+
+Example: Customer segmentation using K-Means.
+
+Grading Models:
+
+These models assign scores, rankings or grades to data based on certain criteria.
+
+Example: Credit scoring to determine loan eligibility.
+
+Q15. Differentiate between Parametric and Non-Parametric Models.
+
+Answer:
+
+Parametric Models:
+
+Have a fixed number of parameters.
+Make assumptions about the data distribution or model structure.
+Require less training data in many cases.
+Example: Linear Regression.
+
+Non-Parametric Models:
+
+Do not assume a fixed functional form.
+Model complexity can grow with the training data.
+Can handle complex relationships.
+Example: KNN and Decision Trees.
+Q16. What are the important elements of Machine Learning?
+
+Answer:
+
+Important elements include:
+
+Data – Information used for training.
+Features – Input variables used by the model.
+Model – Mathematical representation that learns patterns.
+Learning Algorithm – Method used to train the model.
+Loss Function – Measures prediction error.
+Evaluation – Measures model performance.
+Q17. What are different Data Formats in Machine Learning?
+
+Answer:
+
+Data can be represented in different formats:
+
+Numerical Data – Numbers such as age and salary.
+Categorical Data – Categories such as gender and city.
+Text Data – Reviews and messages.
+Image Data – Photographs and scanned documents.
+Audio Data – Voice recordings.
+Time-Series Data – Stock prices and temperature readings.
+Q18. What is Learnability?
+
+Answer:
+
+Learnability refers to the ability of a machine learning algorithm to learn patterns from training data and make accurate predictions on unseen data.
+
+It depends on:
+
+Quality of data.
+Number of training examples.
+Model complexity.
+Learning algorithm.
+Q19. What is Statistical Learning?
+
+Answer:
+
+Statistical Learning uses statistical methods to understand relationships between input and output variables.
+
+It helps in prediction, classification and identifying patterns in data.
+
+Examples include Linear Regression and Logistic Regression.
+
+Part B: Unit I – Important Viva Questions
+Q20. What is the full form of ML?
+
+Answer: Machine Learning.
+
+Q21. Who is known as the father of Machine Learning?
+
+Answer: Arthur Samuel is commonly known as the father of Machine Learning.
+
+Q22. What is training data?
+
+Answer: Training data is the data used to teach a machine learning model.
+
+Q23. What is testing data?
+
+Answer: Testing data is used to evaluate the performance of a trained model on unseen examples.
+
+Q24. What is labelled data?
+
+Answer: Data that contains input features along with their correct output labels.
+
+Q25. What is unlabelled data?
+
+Answer: Data that contains input information but does not have predefined output labels.
+
+Q26. What is an agent in Reinforcement Learning?
+
+Answer: An agent is the learner that interacts with the environment and takes actions.
+
+Q27. What is a reward?
+
+Answer: A reward is feedback given to an agent after performing an action.
+
+Q28. What is a penalty?
+
+Answer: A penalty is negative feedback given for an undesirable action.
+
+Q29. Give an example of Supervised Learning.
+
+Answer: Email spam detection.
+
+Q30. Give an example of Unsupervised Learning.
+
+Answer: Customer segmentation.
+
+Q31. Give an example of Reinforcement Learning.
+
+Answer: Training a robot to walk.
+
+Q32. What is a feature?
+
+Answer: A feature is an individual input variable used by a machine learning model.
+
+Example: Age, salary and experience.
+
+Q33. What is a model?
+
+Answer: A model is a mathematical representation that learns patterns from training data.
+
+Q34. What is prediction?
+
+Answer: Prediction is the process of using a trained model to estimate an output for new data.
+
+UNIT II – Feature Engineering
+Part A: Important Theory Questions and Answers
+Q1. What is Feature Engineering?
+
+Answer:
+
+Feature Engineering is the process of selecting, creating, transforming and modifying input variables to improve the performance of a Machine Learning model.
+
+It helps the model understand important patterns in the data.
+
+Example: Calculating a person's BMI using height and weight.
+
+Q2. What is a Feature?
+
+Answer:
+
+A feature is an individual measurable property or characteristic of data used as input to a Machine Learning model.
+
+Example:
+
+For predicting house prices:
+
+Area.
+Number of bedrooms.
+Location.
+Age of the house.
+
+These are features.
+
+Q3. What is Data Preprocessing?
+
+Answer:
+
+Data Preprocessing is the process of cleaning and transforming raw data into a suitable format before training a Machine Learning model.
+
+Steps:
+
+Handling missing values.
+Removing duplicate data.
+Normalization.
+Standardization.
+Encoding categorical data.
+Feature selection.
+Q4. What is Normalization?
+
+Answer:
+
+Normalization is a data preprocessing technique that scales numerical values into a fixed range, usually between 0 and 1.
+
+Formula:
+
+X' = (X − Xmin) / (Xmax − Xmin)
+
+It is useful when features have different ranges.
+
+Q5. What is Standardization?
+
+Answer:
+
+Standardization is a technique that transforms data so that it has a mean of 0 and a standard deviation of 1.
+
+Formula:
+
+Z = (X − Mean) / Standard Deviation
+
+It is useful for algorithms such as SVM and KNN.
+
+Q6. Differentiate between Normalization and Standardization.
+
+Answer:
+
+Normalization:
+
+Scales data into a fixed range.
+Usually between 0 and 1.
+Uses minimum and maximum values.
+
+Standardization:
+
+Transforms data using mean and standard deviation.
+Produces mean 0 and standard deviation 1.
+Values are not restricted to a fixed range.
+Q7. What are Missing Values?
+
+Answer:
+
+Missing values are data entries that are not available or recorded in a dataset.
+
+They can occur due to:
+
+Human errors.
+Technical problems.
+Incomplete data collection.
+
+Methods to handle missing values:
+
+Remove rows or columns.
+Replace with mean.
+Replace with median.
+Replace with mode.
+Use prediction-based imputation.
+Q8. What is Dimensionality Reduction?
+
+Answer:
+
+Dimensionality Reduction is the process of reducing the number of features in a dataset while preserving important information.
+
+It helps to:
+
+Reduce computation time.
+Reduce storage requirements.
+Remove unnecessary features.
+Improve model performance.
+Q9. What is PCA?
+
+Answer:
+
+PCA stands for Principal Component Analysis.
+
+It is a dimensionality reduction technique that transforms a large number of correlated features into a smaller number of uncorrelated features called principal components.
+
+The first principal component captures the maximum possible variance.
+
+Q10. Explain the steps of PCA.
+
+Answer:
+
+Standardize the dataset.
+Calculate the covariance matrix.
+Find eigenvalues and eigenvectors.
+Select principal components.
+Transform the original data into a lower-dimensional space.
+Q11. What are Eigenvalues and Eigenvectors in PCA?
+
+Answer:
+
+Eigenvalues: Represent the amount of variance captured by each principal component.
+
+Eigenvectors: Represent the directions of the principal components.
+
+Q12. What is Kernel PCA?
+
+Answer:
+
+Kernel PCA is an extension of PCA that performs nonlinear dimensionality reduction using kernel functions.
+
+It helps identify complex patterns that ordinary PCA may not capture.
+
+Q13. What is Local Binary Pattern (LBP)?
+
+Answer:
+
+Local Binary Pattern is a feature extraction technique mainly used in image processing.
+
+It describes the local texture of an image by comparing each pixel with its neighbouring pixels and converting the results into binary patterns.
+
+Applications:
+
+Face recognition.
+Texture classification.
+Object recognition.
+Q14. What is Feature Selection?
+
+Answer:
+
+Feature Selection is the process of selecting the most relevant features from a dataset and removing unnecessary or irrelevant features.
+
+It helps reduce complexity and improve model performance.
+
+Q15. Explain different Feature Selection Techniques.
+
+Answer:
+
+Common feature selection techniques are:
+
+Filter Methods – Select features using statistical measures such as correlation.
+Wrapper Methods – Evaluate different feature combinations using a machine learning model.
+Embedded Methods – Perform feature selection during model training.
+Q16. What is Sequential Forward Selection?
+
+Answer:
+
+Sequential Forward Selection is a feature selection technique that starts with an empty set of features.
+
+It adds one feature at a time that improves model performance the most.
+
+This process continues until the required number of features is selected or no significant improvement occurs.
+
+Q17. What is Sequential Backward Selection?
+
+Answer:
+
+Sequential Backward Selection starts with all available features.
+
+It removes one feature at a time that has the least negative impact on model performance.
+
+This process continues until the desired number of features remains.
+
+Q18. Differentiate between Forward and Backward Selection.
+
+Answer:
+
+Forward Selection:
+
+Starts with zero features.
+Adds important features one by one.
+
+Backward Selection:
+
+Starts with all features.
+Removes less important features one by one.
+Q19. What is Statistical Feature Engineering?
+
+Answer:
+
+Statistical Feature Engineering creates new features using statistical calculations from existing data.
+
+Common statistical measures include:
+
+Count – Number of occurrences.
+Mean – Average value.
+Median – Middle value.
+Mode – Most frequently occurring value.
+Length – Number of characters or elements.
+Q20. What is Multidimensional Scaling (MDS)?
+
+Answer:
+
+Multidimensional Scaling is a dimensionality reduction technique that represents high-dimensional data in a lower-dimensional space while preserving the distances between data points as much as possible.
+
+It is useful for data visualization.
+
+Q21. What is Matrix Factorization?
+
+Answer:
+
+Matrix Factorization is a technique that decomposes a large matrix into smaller matrices.
+
+It is commonly used in recommendation systems to identify hidden relationships between users and items.
+
+Example: Movie recommendation systems.
+
+Part B: Unit II – Important Viva Questions
+Q22. What is feature extraction?
+
+Answer: Feature extraction converts raw data into meaningful features that can be used by a machine learning model.
+
+Q23. What is feature selection?
+
+Answer: Feature selection selects the most useful features and removes unnecessary ones.
+
+Q24. What is the difference between feature selection and feature extraction?
+
+Answer: Feature selection chooses existing features, while feature extraction creates new features from existing data.
+
+Q25. What is the range of Min-Max Normalization?
+
+Answer: Usually 0 to 1.
+
+Q26. What is the mean in standardization?
+
+Answer: Zero.
+
+Q27. What is the standard deviation in standardization?
+
+Answer: One.
+
+Q28. Which technique is used for dimensionality reduction?
+
+Answer: PCA.
+
+Q29. What is the full form of PCA?
+
+Answer: Principal Component Analysis.
+
+Q30. What is the full form of LBP?
+
+Answer: Local Binary Pattern.
+
+Q31. What is an outlier?
+
+Answer: An outlier is a data point that is significantly different from other observations.
+
+Q32. Why is feature selection important?
+
+Answer: It removes irrelevant features, reduces computation and can improve model performance.
+
+Q33. What is correlation?
+
+Answer: Correlation measures the relationship between two variables.
+
+Q34. Which value represents the middle observation?
+
+Answer: Median.
+
+Q35. Which value occurs most frequently?
+
+Answer: Mode.
+
+UNIT III – Supervised Learning: Regression
+Part A: Important Theory Questions and Answers
+Q1. What is Supervised Learning?
+
+Answer:
+
+Supervised Learning is a type of Machine Learning in which a model is trained using labelled data to predict the output for new inputs.
+
+It is mainly divided into:
+
+Regression.
+Classification.
+Q2. What is Regression?
+
+Answer:
+
+Regression is a supervised learning technique used to predict continuous numerical values based on input features.
+
+Examples:
+
+House price prediction.
+Stock price prediction.
+Temperature prediction.
+Salary prediction.
+Q3. What is Linear Regression?
+
+Answer:
+
+Linear Regression is a supervised learning algorithm used to predict a continuous output by establishing a linear relationship between independent and dependent variables.
+
+Equation:
+
+Y = mX + C
+
+Where:
+
+Y = Predicted output.
+X = Input variable.
+m = Slope.
+C = Intercept.
+Q4. What are Independent and Dependent Variables?
+
+Answer:
+
+Independent Variable: The input variable used to make predictions.
+
+Dependent Variable: The output variable that we want to predict.
+
+Example:
+
+For house price prediction:
+
+House area = Independent variable.
+House price = Dependent variable.
+Q5. What is Multiple Linear Regression?
+
+Answer:
+
+Multiple Linear Regression predicts an output using two or more independent variables.
+
+Example: Predicting house prices using area, location, number of bedrooms and age.
+
+Q6. What is Bias in Machine Learning?
+
+Answer:
+
+Bias is the error caused by overly simple assumptions made by a Machine Learning model.
+
+High bias can cause underfitting because the model cannot learn complex patterns.
+
+Q7. What is Variance?
+
+Answer:
+
+Variance refers to how much a model's predictions change when it is trained on different training datasets.
+
+High variance can cause overfitting.
+
+Q8. What is the Bias-Variance Tradeoff?
+
+Answer:
+
+The Bias-Variance Tradeoff is the balance between bias and variance to achieve good model performance.
+
+High Bias: Model is too simple.
+High Variance: Model is too complex.
+
+The objective is to minimize both as much as possible.
+
+Q9. What is Generalization?
+
+Answer:
+
+Generalization is the ability of a trained Machine Learning model to perform accurately on new and unseen data.
+
+A good model should perform well on both training and testing data.
+
+Q10. What is Underfitting?
+
+Answer:
+
+Underfitting occurs when a model is too simple to learn the important patterns in the training data.
+
+Characteristics:
+
+High training error.
+High testing error.
+Poor prediction performance.
+Q11. What is Overfitting?
+
+Answer:
+
+Overfitting occurs when a model learns the training data too closely, including noise and unnecessary details.
+
+Characteristics:
+
+Very low training error.
+High testing error.
+Poor performance on unseen data.
+Q12. How can we prevent Overfitting?
+
+Answer:
+
+Overfitting can be reduced using:
+
+Regularization.
+Cross-validation.
+More training data.
+Feature selection.
+Reducing model complexity.
+Q13. What is Lasso Regression?
+
+Answer:
+
+Lasso Regression is a regularization technique that adds an L1 penalty to the regression cost function.
+
+It reduces unnecessary coefficients and can make some coefficients exactly zero.
+
+Therefore, it also performs feature selection.
+
+Q14. What is Ridge Regression?
+
+Answer:
+
+Ridge Regression is a regularization technique that adds an L2 penalty to the regression cost function.
+
+It reduces the size of coefficients and helps prevent overfitting.
+
+However, it generally does not make coefficients exactly zero.
+
+Q15. Differentiate between Lasso and Ridge Regression.
+
+Answer:
+
+Lasso Regression:
+
+Uses L1 regularization.
+Can make coefficients zero.
+Performs feature selection.
+
+Ridge Regression:
+
+Uses L2 regularization.
+Shrinks coefficients towards zero.
+Generally retains all features.
+Q16. What is Gradient Descent?
+
+Answer:
+
+Gradient Descent is an optimization algorithm used to minimize the loss or cost function of a Machine Learning model.
+
+It updates model parameters in the direction opposite to the gradient to reduce prediction error.
+
+Q17. Explain the working of Gradient Descent.
+
+Answer:
+
+Initialize model parameters.
+Calculate the predicted output.
+Calculate the error or loss.
+Calculate the gradient.
+Update the parameters.
+Repeat until the loss becomes sufficiently small.
+
+Formula:
+
+New Parameter = Old Parameter − Learning Rate × Gradient.
+
+Q18. What is Learning Rate?
+
+Answer:
+
+Learning Rate controls how much the model parameters are updated during each Gradient Descent iteration.
+
+Very high learning rate may cause the algorithm to overshoot the minimum.
+Very low learning rate makes training slow.
+Q19. What is MAE?
+
+Answer:
+
+MAE stands for Mean Absolute Error.
+
+It calculates the average absolute difference between actual and predicted values.
+
+Formula:
+
+MAE = Sum of |Actual − Predicted| / Number of Observations.
+
+Lower MAE indicates better prediction accuracy.
+
+Q20. What is RMSE?
+
+Answer:
+
+RMSE stands for Root Mean Square Error.
+
+It measures the square root of the average squared difference between actual and predicted values.
+
+It gives more importance to large prediction errors.
+
+Lower RMSE indicates better performance.
+
+Q21. What is R² Score?
+
+Answer:
+
+R² Score, also called the coefficient of determination, measures how much variation in the dependent variable is explained by the regression model.
+
+Its best possible value is 1.
+
+A higher R² generally indicates a better fit.
+
+Part B: Unit III – Important Viva Questions
+Q22. What is the full form of MAE?
+
+Answer: Mean Absolute Error.
+
+Q23. What is the full form of RMSE?
+
+Answer: Root Mean Square Error.
+
+Q24. What is the full form of R²?
+
+Answer: R-squared or coefficient of determination.
+
+Q25. Which regression uses L1 regularization?
+
+Answer: Lasso Regression.
+
+Q26. Which regression uses L2 regularization?
+
+Answer: Ridge Regression.
+
+Q27. Which regression can perform feature selection?
+
+Answer: Lasso Regression.
+
+Q28. What is the equation of Linear Regression?
+
+Answer: Y = mX + C.
+
+Q29. What is the objective of Gradient Descent?
+
+Answer: To minimize the loss function.
+
+Q30. What happens when the learning rate is too high?
+
+Answer: The algorithm may overshoot the minimum and fail to converge.
+
+Q31. What is overfitting?
+
+Answer: Learning the training data too closely and performing poorly on unseen data.
+
+Q32. What is underfitting?
+
+Answer: When a model is too simple to learn the patterns in the data.
+
+Q33. Which metric measures absolute prediction error?
+
+Answer: MAE.
+
+Q34. Which metric penalizes large errors more?
+
+Answer: RMSE.
+
+Q35. What does an R² score of 1 indicate?
+
+Answer: A perfect fit on the evaluated dataset.
+
+UNIT IV – Supervised Learning: Classification
+Part A: Important Theory Questions and Answers
+Q1. What is Classification?
+
+Answer:
+
+Classification is a supervised learning technique used to predict categorical or class-based outputs.
+
+It assigns input data to predefined categories.
+
+Examples:
+
+Spam or Not Spam.
+Pass or Fail.
+Disease or No Disease.
+Positive or Negative.
+Q2. What is K-Nearest Neighbour (KNN)?
+
+Answer:
+
+K-Nearest Neighbour is a supervised learning algorithm used for classification and regression.
+
+It predicts the class of a new data point based on the majority class among its K nearest neighbours.
+
+It commonly uses Euclidean distance.
+
+Q3. Explain the working of KNN.
+
+Answer:
+
+Select the value of K.
+Calculate the distance between the new point and training points.
+Find the K nearest neighbours.
+Identify their classes.
+Assign the majority class to the new point.
+Q4. What is the role of K in KNN?
+
+Answer:
+
+K represents the number of nearest neighbours considered while making a prediction.
+
+Small K may be sensitive to noise.
+Large K may cause underfitting.
+Q5. What is Euclidean Distance?
+
+Answer:
+
+Euclidean Distance measures the straight-line distance between two points.
+
+Formula:
+
+d = √[(x₂ − x₁)² + (y₂ − y₁)²]
+
+It is commonly used in KNN.
+
+Q6. What is Support Vector Machine (SVM)?
+
+Answer:
+
+Support Vector Machine is a supervised learning algorithm mainly used for classification.
+
+It finds an optimal decision boundary called a hyperplane that separates different classes with the maximum margin.
+
+Q7. What is a Hyperplane?
+
+Answer:
+
+A hyperplane is a decision boundary that separates different classes in a dataset.
+
+In 2D, it is a line. In 3D, it is a plane.
+
+Q8. What are Support Vectors?
+
+Answer:
+
+Support Vectors are the data points closest to the decision boundary.
+
+They help determine the position and margin of the optimal hyperplane.
+
+Q9. What is Ensemble Learning?
+
+Answer:
+
+Ensemble Learning is a technique that combines multiple Machine Learning models to produce better and more reliable predictions than individual models in many cases.
+
+Examples:
+
+Bagging.
+Boosting.
+Random Forest.
+AdaBoost.
+Q10. What is Bagging?
+
+Answer:
+
+Bagging stands for Bootstrap Aggregating.
+
+It trains multiple models independently using different bootstrap samples of the training data and combines their predictions.
+
+It mainly helps reduce variance.
+
+Q11. What is Boosting?
+
+Answer:
+
+Boosting is an ensemble learning technique in which models are trained sequentially.
+
+Each new model focuses more on the errors made by previous models.
+
+It aims to improve prediction accuracy.
+
+Q12. What is Random Forest?
+
+Answer:
+
+Random Forest is an ensemble learning algorithm that combines multiple Decision Trees to make predictions.
+
+For classification, it uses majority voting, while for regression, it generally averages predictions.
+
+Q13. What is AdaBoost?
+
+Answer:
+
+AdaBoost stands for Adaptive Boosting.
+
+It is an ensemble learning technique that combines multiple weak learners into a strong learner.
+
+It gives more importance to incorrectly classified training samples in subsequent iterations.
+
+Q14. Differentiate between Bagging and Boosting.
+
+Answer:
+
+Bagging:
+
+Models are trained independently.
+Uses bootstrap samples.
+Mainly reduces variance.
+Example: Random Forest.
+
+Boosting:
+
+Models are trained sequentially.
+Focuses on previous errors.
+Can reduce bias and improve prediction performance.
+Example: AdaBoost.
+Q15. What is Binary Classification?
+
+Answer:
+
+Binary Classification is a classification problem in which the output contains only two classes.
+
+Examples:
+
+Yes or No.
+Spam or Not Spam.
+Healthy or Diseased.
+Q16. What is Multiclass Classification?
+
+Answer:
+
+Multiclass Classification is a classification problem in which the output contains more than two classes.
+
+Example: Classifying emails into Personal, Work, Promotional and Social.
+
+Q17. What is One-vs-All (OvA)?
+
+Answer:
+
+One-vs-All is a multiclass classification technique in which one classifier is trained for each class against all the remaining classes.
+
+For example, if there are four classes, four binary classifiers are created.
+
+Q18. What is One-vs-One (OvO)?
+
+Answer:
+
+One-vs-One is a multiclass classification technique in which a separate classifier is trained for every pair of classes.
+
+For K classes, the number of classifiers is:
+
+K(K − 1) / 2.
+
+Q19. Differentiate between One-vs-All and One-vs-One.
+
+Answer:
+
+One-vs-All:
+
+One classifier for each class.
+Each classifier separates one class from all others.
+Requires K classifiers.
+
+One-vs-One:
+
+One classifier for every pair of classes.
+Requires K(K−1)/2 classifiers.
+Q20. What is an Imbalanced Dataset?
+
+Answer:
+
+An imbalanced dataset is a dataset in which some classes contain significantly more samples than other classes.
+
+Example: A dataset containing 950 normal transactions and only 50 fraudulent transactions.
+
+Q21. What is Accuracy?
+
+Answer:
+
+Accuracy measures the proportion of correctly predicted observations out of the total observations.
+
+Formula:
+
+Accuracy = (TP + TN) / (TP + TN + FP + FN)
+
+Q22. What is Precision?
+
+Answer:
+
+Precision measures how many predicted positive cases are actually positive.
+
+Formula:
+
+Precision = TP / (TP + FP)
+
+Q23. What is Recall?
+
+Answer:
+
+Recall measures how many actual positive cases are correctly identified by the model.
+
+Formula:
+
+Recall = TP / (TP + FN)
+
+Q24. What is F1-Score?
+
+Answer:
+
+F1-Score is the harmonic mean of Precision and Recall.
+
+It provides a balance between Precision and Recall.
+
+Formula:
+
+F1 = 2 × (Precision × Recall) / (Precision + Recall)
+
+Q25. What are TP, TN, FP and FN?
+
+Answer:
+
+TP – True Positive: Actual positive predicted as positive.
+TN – True Negative: Actual negative predicted as negative.
+FP – False Positive: Actual negative predicted as positive.
+FN – False Negative: Actual positive predicted as negative.
+Q26. What is Cross-Validation?
+
+Answer:
+
+Cross-Validation is a technique used to evaluate a Machine Learning model by dividing the dataset into multiple parts.
+
+In K-Fold Cross-Validation:
+
+Divide data into K equal folds.
+Use one fold for testing.
+Use the remaining folds for training.
+Repeat K times.
+Calculate the average performance.
+Q27. What is Micro-Averaging?
+
+Answer:
+
+Micro-Averaging calculates evaluation metrics by combining the total true positives, false positives and false negatives across all classes before calculating the metric.
+
+It gives more influence to frequently occurring classes.
+
+Q28. What is Macro-Averaging?
+
+Answer:
+
+Macro-Averaging calculates the evaluation metric separately for each class and then takes the average.
+
+Each class receives equal importance, regardless of its size.
+
+Q29. Differentiate between Micro and Macro Averaging.
+
+Answer:
+
+Micro-Averaging:
+
+Combines results across all classes.
+Gives more influence to larger classes.
+Useful for overall performance.
+
+Macro-Averaging:
+
+Calculates metrics separately for each class.
+Gives equal importance to every class.
+Useful for imbalanced datasets.
+Part B: Unit IV – Important Viva Questions
+Q30. What is the full form of KNN?
+
+Answer: K-Nearest Neighbour.
+
+Q31. Is KNN supervised or unsupervised?
+
+Answer: Supervised Learning.
+
+Q32. What is the full form of SVM?
+
+Answer: Support Vector Machine.
+
+Q33. What is the main objective of SVM?
+
+Answer: To find the optimal hyperplane with maximum margin.
+
+Q34. What is the full form of AdaBoost?
+
+Answer: Adaptive Boosting.
+
+Q35. What is the full form of RF?
+
+Answer: Random Forest.
+
+Q36. What is a weak learner?
+
+Answer: A model that performs slightly better than random guessing.
+
+Q37. What is a strong learner?
+
+Answer: A model that produces highly accurate predictions.
+
+Q38. Which algorithm uses majority voting?
+
+Answer: Random Forest classification.
+
+Q39. What is a confusion matrix?
+
+Answer: A table used to evaluate a classification model by comparing actual and predicted classes.
+
+Q40. Which metric is useful for imbalanced data?
+
+Answer: Precision, Recall and F1-Score are generally more informative than accuracy alone.
+
+Q41. What is the range of Accuracy?
+
+Answer: 0 to 1 or 0% to 100%.
+
+Q42. What is the range of Precision and Recall?
+
+Answer: 0 to 1.
+
+Q43. What is the best possible F1-Score?
+
+Answer: 1.
+
+Q44. What is the difference between Classification and Regression?
+
+Answer: Classification predicts categories, whereas Regression predicts continuous numerical values.
+
+UNIT V – Unsupervised Learning
+Part A: Important Theory Questions and Answers
+Q1. What is Unsupervised Learning?
+
+Answer:
+
+Unsupervised Learning is a type of Machine Learning in which the model learns patterns from unlabelled data without predefined output values.
+
+It is mainly used for clustering and pattern discovery.
+
+Examples:
+
+Customer segmentation.
+Grouping similar documents.
+Fraud detection.
+Q2. What is Clustering?
+
+Answer:
+
+Clustering is an unsupervised learning technique that groups similar data points together based on their characteristics.
+
+Data points within the same cluster are more similar to each other than to points in other clusters.
+
+Q3. What is K-Means Clustering?
+
+Answer:
+
+K-Means is an unsupervised clustering algorithm that divides a dataset into K clusters.
+
+Each cluster is represented by a centroid, which is the mean of the points belonging to that cluster.
+
+Q4. Explain the working of K-Means.
+
+Answer:
+
+Select the number of clusters K.
+Initialize K centroids.
+Calculate the distance between data points and centroids.
+Assign each point to its nearest centroid.
+Recalculate the centroids.
+Repeat until the clusters stop changing significantly.
+Q5. What is a Centroid?
+
+Answer:
+
+A centroid is the centre point of a cluster calculated using the mean of all data points belonging to that cluster.
+
+Q6. What is K-Medoids Clustering?
+
+Answer:
+
+K-Medoids is a clustering algorithm similar to K-Means.
+
+The main difference is that K-Medoids uses an actual data point as the centre of each cluster, called a medoid.
+
+It is generally more robust to outliers than K-Means.
+
+Q7. Differentiate between K-Means and K-Medoids.
+
+Answer:
+
+K-Means:
+
+Uses the mean as the cluster centre.
+Centroid may not be an actual data point.
+Sensitive to outliers.
+
+K-Medoids:
+
+Uses an actual data point as the centre.
+More robust to outliers.
+Can be computationally more expensive.
+Q8. What is Hierarchical Clustering?
+
+Answer:
+
+Hierarchical Clustering is an unsupervised learning technique that creates a hierarchy of clusters.
+
+It is represented using a tree-like structure called a Dendrogram.
+
+There are two types:
+
+Agglomerative – Bottom-up approach.
+Divisive – Top-down approach.
+Q9. What is Agglomerative Clustering?
+
+Answer:
+
+Agglomerative Clustering starts by considering every data point as an individual cluster.
+
+It repeatedly merges the closest clusters until the required number of clusters is obtained.
+
+Q10. What is Divisive Clustering?
+
+Answer:
+
+Divisive Clustering starts with all data points in a single cluster.
+
+It repeatedly divides clusters into smaller clusters.
+
+Q11. What is a Dendrogram?
+
+Answer:
+
+A Dendrogram is a tree-like diagram used to represent the merging or splitting of clusters in Hierarchical Clustering.
+
+It helps determine the number of clusters.
+
+Q12. What is Density-Based Clustering?
+
+Answer:
+
+Density-Based Clustering groups data points based on the density of nearby points.
+
+It can identify clusters of irregular shapes and detect noise or outliers.
+
+Example: DBSCAN.
+
+Q13. What is DBSCAN?
+
+Answer:
+
+DBSCAN stands for Density-Based Spatial Clustering of Applications with Noise.
+
+It groups closely packed data points into clusters and identifies isolated points as noise.
+
+Q14. What are the important parameters of DBSCAN?
+
+Answer:
+
+Epsilon (ε): Maximum distance between neighbouring points.
+MinPts: Minimum number of points required to form a dense region.
+Q15. What are Core, Border and Noise Points in DBSCAN?
+
+Answer:
+
+Core Point: A point having at least MinPts points within its ε-neighbourhood.
+
+Border Point: A point that is near a core point but does not have enough neighbours to be a core point itself.
+
+Noise Point: A point that does not belong to any cluster.
+
+Q16. What is Spectral Clustering?
+
+Answer:
+
+Spectral Clustering is a clustering technique that uses eigenvalues and eigenvectors of a similarity matrix or graph Laplacian to group data points.
+
+It is useful for identifying complex and non-spherical clusters.
+
+Q17. What is Outlier Analysis?
+
+Answer:
+
+Outlier Analysis is the process of identifying data points that are significantly different from normal observations.
+
+Examples:
+
+Fraudulent transactions.
+Unusual network activity.
+Abnormal medical readings.
+Q18. What is Isolation Factor?
+
+Answer:
+
+Isolation Factor describes how easily a data point can be separated or isolated from the remaining data.
+
+In isolation-based outlier detection, unusual points are generally isolated more easily than normal points.
+
+Q19. What is Local Outlier Factor (LOF)?
+
+Answer:
+
+Local Outlier Factor is an outlier detection algorithm that identifies unusual data points by comparing their local density with the density of their neighbouring points.
+
+A point having significantly lower local density than its neighbours may be considered an outlier.
+
+Q20. What is the Elbow Method?
+
+Answer:
+
+The Elbow Method is used to determine the optimal number of clusters in K-Means.
+
+It plots the number of clusters against the Within-Cluster Sum of Squares (WCSS).
+
+The point where the reduction in WCSS starts slowing down significantly is called the elbow point.
+
+Q21. What is WCSS?
+
+Answer:
+
+WCSS stands for Within-Cluster Sum of Squares.
+
+It measures the sum of squared distances between data points and their respective cluster centroids.
+
+Lower WCSS indicates more compact clusters.
+
+Q22. What are Intrinsic Evaluation Methods?
+
+Answer:
+
+Intrinsic Evaluation Methods evaluate clustering quality using only the data and the generated clusters.
+
+They do not require actual class labels.
+
+Examples:
+
+Silhouette Score.
+Davies-Bouldin Index.
+Q23. What are Extrinsic Evaluation Methods?
+
+Answer:
+
+Extrinsic Evaluation Methods evaluate clustering results by comparing them with known actual class labels or ground-truth information.
+
+Examples:
+
+Adjusted Rand Index.
+Normalized Mutual Information.
+Q24. Differentiate between Intrinsic and Extrinsic Evaluation.
+
+Answer:
+
+Intrinsic Evaluation:
+
+Does not require actual labels.
+Measures cluster quality using internal properties.
+Example: Silhouette Score.
+
+Extrinsic Evaluation:
+
+Requires known labels or ground truth.
+Compares predicted clusters with actual classes.
+Example: Adjusted Rand Index.
+Part B: Unit V – Important Viva Questions
+Q25. What is the full form of K-Means?
+
+Answer: K-Means does not have a full form. It is the name of a clustering algorithm.
+
+Q26. Is K-Means supervised or unsupervised?
+
+Answer: Unsupervised Learning.
+
+Q27. What is the main objective of K-Means?
+
+Answer: To divide data into K clusters by minimizing within-cluster variation.
+
+Q28. What is a Medoid?
+
+Answer: A Medoid is an actual data point that represents the centre of a cluster.
+
+Q29. What is the full form of DBSCAN?
+
+Answer: Density-Based Spatial Clustering of Applications with Noise.
+
+Q30. What is the full form of LOF?
+
+Answer: Local Outlier Factor.
+
+Q31. Which clustering algorithm detects noise?
+
+Answer: DBSCAN.
+
+Q32. What is the range of Silhouette Score?
+
+Answer: -1 to +1.
+
+Q33. What does a Silhouette Score close to +1 indicate?
+
+Answer: Well-separated and compact clusters.
+
+Q34. Which method is used to find the optimal K in K-Means?
+
+Answer: Elbow Method.
+
+Q35. What is the main difference between K-Means and DBSCAN?
+
+Answer: K-Means requires the number of clusters in advance, while DBSCAN identifies clusters based on density.
+
+Q36. What is an outlier?
+
+Answer: A data point that is significantly different from other observations.
+
+Q37. What is a cluster?
+
+Answer: A group of similar data points.
+
+UNIT VI – Introduction to Neural Networks
+Part A: Important Theory Questions and Answers
+Q1. What is an Artificial Neural Network (ANN)?
+
+Answer:
+
+An Artificial Neural Network is a Machine Learning model inspired by the structure and working of the human brain.
+
+It consists of interconnected artificial neurons that process information and learn patterns from data.
+
+Applications:
+
+Image recognition.
+Speech recognition.
+Prediction.
+Medical diagnosis.
+Q2. Explain the structure of an Artificial Neural Network.
+
+Answer:
+
+An ANN generally consists of three types of layers:
+
+Input Layer – Receives input data.
+Hidden Layer – Processes information and learns patterns.
+Output Layer – Produces the final prediction.
+
+Neurons in one layer are connected to neurons in another layer through weights.
+
+Q3. What is an Artificial Neuron?
+
+Answer:
+
+An Artificial Neuron is the basic processing unit of a Neural Network.
+
+It receives inputs, multiplies them by weights, adds a bias and applies an activation function to produce an output.
+
+Formula:
+
+Output = Activation Function (Σ Weight × Input + Bias).
+
+Q4. What is a Single Layer Neural Network?
+
+Answer:
+
+A Single Layer Neural Network is a neural network that contains an input layer and an output layer without hidden layers.
+
+It is used to solve simple problems that can be separated using a linear decision boundary.
+
+Example: Perceptron.
+
+Q5. What is a Multilayer Perceptron (MLP)?
+
+Answer:
+
+A Multilayer Perceptron is a feedforward Artificial Neural Network consisting of an input layer, one or more hidden layers and an output layer.
+
+It can learn complex nonlinear relationships using activation functions.
+
+Q6. Differentiate between Single Layer and Multilayer Neural Networks.
+
+Answer:
+
+Single Layer Neural Network:
+
+Does not contain hidden layers.
+Solves simple problems.
+Has limited learning capability.
+
+Multilayer Neural Network:
+
+Contains one or more hidden layers.
+Can learn complex patterns.
+Uses backpropagation for training in common implementations.
+Q7. What is Backpropagation?
+
+Answer:
+
+Backpropagation is a learning algorithm used to train Neural Networks.
+
+It calculates the prediction error and propagates it backwards through the network to update weights and biases.
+
+Its objective is to minimize the loss function.
+
+Q8. Explain the working of Backpropagation.
+
+Answer:
+
+Initialize weights and biases.
+Pass input through the network.
+Calculate the predicted output.
+Calculate the error using a loss function.
+Propagate the error backwards.
+Update weights and biases using Gradient Descent.
+Repeat until the error is sufficiently reduced.
+Q9. What is an Activation Function?
+
+Answer:
+
+An Activation Function determines whether and how strongly a neuron should be activated.
+
+It introduces non-linearity into the neural network, allowing it to learn complex patterns.
+
+Q10. Explain different Activation Functions.
+
+Answer:
+
+1. Sigmoid:
+
+Converts values into a range between 0 and 1.
+
+It is commonly used in binary classification output layers.
+
+2. ReLU:
+
+ReLU stands for Rectified Linear Unit.
+
+It returns zero for negative inputs and the input itself for positive inputs.
+
+Formula: f(x) = max(0, x).
+
+3. Tanh:
+
+Converts values into a range between -1 and +1.
+
+4. Softmax:
+
+Converts output values into probabilities whose sum is 1.
+
+It is commonly used in multiclass classification.
+
+Q11. What is Functional Link Artificial Neural Network?
+
+Answer:
+
+Functional Link Artificial Neural Network is a neural network that expands the input features using mathematical functions before passing them to the output layer.
+
+It generally does not require hidden layers.
+
+It can learn nonlinear relationships through functional expansion.
+
+Q12. What is Radial Basis Function Network (RBFN)?
+
+Answer:
+
+Radial Basis Function Network is a feedforward neural network that uses radial basis functions as activation functions in its hidden layer.
+
+It is commonly used for:
+
+Classification.
+Function approximation.
+Prediction.
+Q13. What is Recurrent Neural Network (RNN)?
+
+Answer:
+
+Recurrent Neural Network is a type of neural network designed to process sequential data.
+
+It maintains information from previous steps using recurrent connections.
+
+Applications:
+
+Speech recognition.
+Language processing.
+Time-series prediction.
+Q14. What is the main feature of RNN?
+
+Answer:
+
+Its main feature is that it maintains a hidden state that carries information from previous time steps.
+
+Q15. What is Convolutional Neural Network (CNN)?
+
+Answer:
+
+Convolutional Neural Network is a deep learning model mainly designed for processing image data.
+
+It automatically extracts features such as edges, shapes and patterns using convolutional layers.
+
+Applications:
+
+Face recognition.
+Object detection.
+Medical image analysis.
+Q16. Explain the main layers of CNN.
+
+Answer:
+
+Convolutional Layer – Extracts features from images.
+Activation Layer – Introduces non-linearity, commonly using ReLU.
+Pooling Layer – Reduces the dimensions of feature maps.
+Fully Connected Layer – Performs final classification or prediction.
+Output Layer – Produces the final result.
+Q17. Differentiate between CNN and RNN.
+
+Answer:
+
+CNN:
+
+Mainly used for image and spatial data.
+Extracts features using convolution.
+Example: Face recognition.
+
+RNN:
+
+Mainly used for sequential data.
+Maintains information from previous steps.
+Example: Speech recognition.
+Q18. What is Deep Learning?
+
+Answer:
+
+Deep Learning is a subset of Machine Learning that uses neural networks with multiple layers to learn complex patterns from large amounts of data.
+
+Examples:
+
+Image recognition.
+Voice assistants.
+Autonomous vehicles.
+Q19. What is a Weight in Neural Networks?
+
+Answer:
+
+A weight represents the importance of a particular input connection in a neural network.
+
+Weights are adjusted during training to reduce prediction errors.
+
+Q20. What is Bias in Neural Networks?
+
+Answer:
+
+Bias is an additional learnable parameter added to the weighted sum of inputs.
+
+It helps the neuron adjust its output independently of the input values.
+
+Q21. What is an Epoch?
+
+Answer:
+
+An epoch represents one complete pass of the entire training dataset through the neural network during training.
+
+Q22. What is Batch Size?
+
+Answer:
+
+Batch Size is the number of training samples processed before updating the model parameters.
+
+Part B: Unit VI – Important Viva Questions
+Q23. What is ANN?
+
+Answer: Artificial Neural Network.
+
+Q24. What is the basic unit of ANN?
+
+Answer: Artificial Neuron.
+
+Q25. How many main layers are present in a basic ANN?
+
+Answer: Three types: Input, Hidden and Output.
+
+Q26. What is the full form of MLP?
+
+Answer: Multilayer Perceptron.
+
+Q27. What is the full form of RNN?
+
+Answer: Recurrent Neural Network.
+
+Q28. What is the full form of CNN?
+
+Answer: Convolutional Neural Network.
+
+Q29. Which neural network is mainly used for images?
+
+Answer: CNN.
+
+Q30. Which neural network is suitable for sequential data?
+
+Answer: RNN.
+
+Q31. What is ReLU?
+
+Answer: Rectified Linear Unit.
+
+Q32. What is the output range of Sigmoid?
+
+Answer: 0 to 1.
+
+Q33. What is the output range of Tanh?
+
+Answer: -1 to +1.
+
+Q34. Which activation function is commonly used in hidden layers?
+
+Answer: ReLU.
+
+Q35. Which activation function is commonly used for multiclass classification?
+
+Answer: Softmax.
+
+Q36. What is Backpropagation?
+
+Answer: A learning algorithm that propagates errors backwards to update network weights.
+
+Q37. What is the purpose of Pooling in CNN?
+
+Answer: To reduce the dimensions of feature maps and computational complexity.
+
+Q38. What is the purpose of the Convolutional Layer?
+
+Answer: To extract important features from images.
+
+Q39. What is an Epoch?
+
+Answer: One complete pass through the training dataset.
+
+Q40. What is a hidden layer?
+
+Answer: A layer between the input and output layers that processes information and learns patterns.
+
+Important Case Study-Based Viva Questions
+
+Your syllabus includes specific case studies. Examiners may ask questions based on these scenarios.
+
+1. UNIT I – Uber: Increasing Sales
+
+Q1. If you are working for Uber and asked to increase sales, how will you use Machine Learning?
+
+Answer:
+
+I would first understand the business requirements and collect data related to customers, bookings, locations, pricing and demand.
+
+Then I would:
+
+Analyze customer behaviour.
+Identify high-demand locations.
+Predict customer demand.
+Offer personalized discounts.
+Optimize pricing and promotions.
+
+This can help increase bookings and customer satisfaction.
+
+Q2. Which type of Machine Learning can be used?
+
+Answer:
+
+Supervised Learning for demand prediction.
+Unsupervised Learning for customer segmentation.
+Reinforcement Learning for dynamic pricing optimization.
+2. UNIT II – Marketing Campaign Analysis
+
+Q1. How will you analyze customer and sales data to identify the best marketing campaign?
+
+Answer:
+
+I would follow these steps:
+
+Collect customer, sales and campaign data.
+Clean missing and duplicate values.
+Perform exploratory data analysis.
+Identify important features.
+Use statistical methods to compare campaign performance.
+Build an ML model to predict campaign success.
+Identify the most effective marketing strategy.
+
+Q2. How will you select important features?
+
+Answer:
+
+I would use feature selection techniques such as:
+
+Correlation Analysis.
+Sequential Forward Selection.
+Sequential Backward Selection.
+Feature importance.
+
+Q3. Which statistical measures will you use?
+
+Answer:
+
+Mean, Median, Mode, Standard Deviation and Correlation.
+
+3. UNIT III – Stock Market Price Prediction
+
+Q1. How can Machine Learning predict stock prices?
+
+Answer:
+
+Machine Learning can analyze historical stock prices, trading volume and other market indicators to predict future prices.
+
+I would:
+
+Collect historical stock data.
+Clean and preprocess the data.
+Select important features.
+Train a regression model.
+Evaluate it using MAE, RMSE and R².
+Predict future stock prices.
+
+Q2. Which algorithm can be used?
+
+Answer:
+
+Linear Regression, Ridge Regression and Lasso Regression can be used as basic regression models. More advanced time-series models can also be considered.
+
+4. UNIT IV – Thyroid Disorder Prediction
+
+Q1. How can Machine Learning predict thyroid disorders?
+
+Answer:
+
+A classification model can be trained using patient data such as TSH, T3, T4 and other relevant medical features.
+
+The model can classify patients into:
+
+Hyperthyroid.
+Hypothyroid.
+Euthyroid-sick.
+Euthyroid.
+
+Q2. Which algorithm can be used?
+
+Answer:
+
+KNN, SVM, Random Forest and AdaBoost can be used for multiclass classification.
+
+Q3. Which evaluation metrics are important?
+
+Answer:
+
+Accuracy, Precision, Recall and F1-Score.
+
+For imbalanced medical datasets, Recall and Macro F1-Score are particularly important.
+
+5. UNIT VI – Movie Recommendation System
+
+Q1. How can Machine Learning build a movie recommendation system?
+
+Answer:
+
+A Movie Recommendation System suggests movies to users based on their interests, ratings and watching history.
+
+Steps:
+
+Collect user ratings and movie information.
+Analyze user preferences.
+Find similarities between users or movies.
+Apply recommendation algorithms.
+Recommend suitable movies.
+
+Q2. Which technique can be used?
+
+Answer:
+
+Collaborative Filtering, Content-Based Filtering and Matrix Factorization.
+
+Q3. What is Collaborative Filtering?
+
+Answer:
+
+Collaborative Filtering recommends movies based on the preferences and ratings of similar users.
+
+Q4. What is Content-Based Filtering?
+
+Answer:
+
+Content-Based Filtering recommends movies based on their features, such as genre, actors and director, matching the user's previous preferences.

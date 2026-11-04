@@ -1,0 +1,852 @@
+DAA General Theory 
+1. Design and Analysis of Algorithms (DAA)
+Unit I – Algorithms and Problem Solving
+Unit II – Analysis of Algorithms and Complexity Theory
+Unit III – Greedy and Dynamic Programming Algorithmic Strategies
+Unit IV – Backtracking and Branch-and-Bound
+Unit V – Amortized Analysis
+Unit VI Multithreaded And Distributed Algorithms 
+-----------------------------------------------------------------------------------------------------
+UNIT I – Algorithms and Problem Solving
+Part A: Important Theory Questions and Answers
+Q1. What is an Algorithm?
+
+An algorithm is a finite sequence of step-by-step instructions used to solve a particular problem.
+
+Characteristics of an algorithm:
+
+Input – Accepts zero or more inputs.
+Output – Produces at least one output.
+Definiteness – Every step must be clear.
+Finiteness – Must terminate after a finite number of steps.
+Effectiveness – Every step must be simple and executable.
+Q2. What is the role of algorithms in computing?
+
+Algorithms help computers solve problems efficiently. They provide a systematic approach to problem-solving and help reduce execution time and memory usage.
+
+Applications:
+
+Searching and sorting.
+Banking systems.
+Navigation systems.
+Artificial intelligence.
+Data processing.
+Q3. What is Algorithm as a Technology?
+
+An algorithm is considered a technology because it provides an efficient method to solve computational problems.
+
+For example, Merge Sort is faster than Bubble Sort for large datasets.
+
+Q4. Explain the evolution of algorithms.
+
+Algorithms have evolved from simple mathematical calculations to advanced computational techniques.
+
+Major developments include:
+
+Ancient mathematical algorithms.
+Sorting and searching algorithms.
+Graph algorithms.
+Dynamic programming.
+Randomized algorithms.
+Machine learning and AI algorithms.
+Q5. What is Algorithm Design?
+
+Algorithm design is the process of developing a step-by-step solution to a given problem.
+
+Steps:
+
+Understand the problem.
+Identify inputs and outputs.
+Select a suitable approach.
+Write the algorithm.
+Analyze its complexity.
+Test its correctness.
+Q6. What is the correctness of an algorithm?
+
+Correctness means that an algorithm produces the expected output for every valid input.
+
+An algorithm is correct if:
+
+It produces the correct result.
+It terminates after a finite number of steps.
+Q7. How do you confirm the correctness of an algorithm?
+
+Algorithm correctness can be verified using:
+
+Mathematical induction.
+Loop invariants.
+Preconditions and postconditions.
+Testing with different inputs.
+Q8. What is an Iterative Algorithm?
+
+An iterative algorithm uses loops such as for and while to repeat instructions until a condition is satisfied.
+
+Example: Finding the factorial of a number using a loop.
+
+Q9. What are the issues in iterative algorithm design?
+Initialization of variables.
+Loop termination condition.
+Correct updating of variables.
+Avoiding infinite loops.
+Handling boundary conditions.
+Q10. What is Problem Solving?
+
+Problem-solving is the process of understanding a problem and developing an effective solution using suitable algorithms.
+
+Q11. Explain the classification of problems.
+
+Problems can be classified into:
+
+Decision Problems: Give answers in Yes or No.
+Optimization Problems: Find the best possible solution.
+Search Problems: Find a required solution.
+Counting Problems: Count the number of possible solutions.
+Q12. Explain problem-solving strategies.
+
+Common problem-solving strategies are:
+
+Brute Force – Checks all possible solutions.
+Divide and Conquer – Divides a problem into smaller problems.
+Greedy Method – Selects the locally best option.
+Dynamic Programming – Stores results of previously solved subproblems.
+Backtracking – Tries solutions and goes back when a choice fails.
+Branch and Bound – Uses bounds to eliminate unnecessary solutions.
+Q13. What is the Tower of Hanoi problem?
+
+Tower of Hanoi is a mathematical puzzle consisting of three rods and multiple disks of different sizes.
+
+Rules:
+
+Move only one disk at a time.
+Only the top disk can be moved.
+A larger disk cannot be placed on a smaller disk.
+
+For n disks, the minimum number of moves is:
+
+T(n) = 2ⁿ − 1
+
+Part B: Unit I – Viva Questions
+Q.	Viva Question	Easy Answer
+1	What is DAA?	Design and Analysis of Algorithms.
+2	What is an algorithm?	A step-by-step procedure to solve a problem.
+3	What is pseudocode?	A simple, language-independent representation of an algorithm.
+4	What is a flowchart?	A graphical representation of an algorithm.
+5	What is algorithm correctness?	Producing the correct output for every valid input.
+6	What is an iterative algorithm?	An algorithm that uses loops.
+7	What is recursion?	A function calling itself.
+8	What is brute force?	Trying all possible solutions.
+9	What is optimization?	Finding the best solution among possible solutions.
+10	What is Tower of Hanoi?	A puzzle involving three rods and disks.
+11	How many rods are used in Tower of Hanoi?	Three.
+12	What is the minimum number of moves for 3 disks?	7.
+13	What is the formula for Tower of Hanoi?	2ⁿ − 1.
+14	What is the base condition?	The condition that stops recursion.
+15	What happens without a base condition?	Infinite recursion may occur.
+UNIT II – Analysis of Algorithms and Complexity Theory
+Part A: Important Theory Questions and Answers
+Q1. What is Algorithm Analysis?
+
+Algorithm analysis is the process of evaluating an algorithm based on its execution time and memory requirements.
+
+It mainly includes:
+
+Time Complexity.
+Space Complexity.
+Q2. What is Input Size?
+
+Input size refers to the amount of data given to an algorithm.
+
+For example, if an array contains 100 elements, its input size is n = 100.
+
+Q3. Explain Best Case, Worst Case and Average Case.
+
+1. Best Case:
+Minimum time required by an algorithm for any input of size n.
+
+2. Worst Case:
+Maximum time required by an algorithm for any input of size n.
+
+3. Average Case:
+Expected time required for all possible inputs of size n.
+
+Example: Linear Search
+
+Best Case: O(1)
+Worst Case: O(n)
+Average Case: O(n)
+Q4. What is Time Complexity?
+
+Time complexity measures how the execution time of an algorithm grows with the input size.
+
+Examples:
+
+O(1) – Constant time.
+O(n) – Linear time.
+O(n²) – Quadratic time.
+O(log n) – Logarithmic time.
+Q5. What is Space Complexity?
+
+Space complexity measures the total memory required by an algorithm during execution.
+
+It includes:
+
+Input space.
+Auxiliary space.
+Q6. What are Dominant Operators?
+
+Dominant operators are the basic operations that are performed most frequently in an algorithm.
+
+Examples:
+
+Comparisons.
+Assignments.
+Arithmetic operations.
+
+They help calculate the time complexity of an algorithm.
+
+Q7. What is Growth Rate?
+
+Growth rate describes how the time or space requirements of an algorithm increase as input size increases.
+
+For example:
+
+O(1) grows very slowly.
+O(n) grows linearly.
+O(n²) grows quadratically.
+Q8. Explain Asymptotic Notations.
+
+Asymptotic notations describe the performance of an algorithm when input size becomes very large.
+
+1. Big O – O(n)
+
+Represents the asymptotic upper bound of an algorithm.
+
+2. Big Omega – Ω(n)
+
+Represents the asymptotic lower bound.
+
+3. Big Theta – Θ(n)
+
+Represents the tight asymptotic bound.
+
+4. Little o – o(n)
+
+Represents a strict asymptotic upper bound.
+
+5. Little omega – ω(n)
+
+Represents a strict asymptotic lower bound.
+
+Q9. What is Polynomial Time Complexity?
+
+An algorithm has polynomial time complexity if its running time is bounded by a polynomial function of input size.
+
+Examples:
+
+O(n)
+O(n²)
+O(n³)
+Q10. What are Non-Polynomial Problems?
+
+These are problems for which no polynomial-time algorithm is currently known in the general case.
+
+Examples:
+
+Travelling Salesman Problem (optimization version).
+Hamiltonian Cycle.
+3-SAT.
+Q11. What is a Deterministic Algorithm?
+
+A deterministic algorithm always follows the same execution path for the same input and produces the same output.
+
+Example: Binary Search.
+
+Q12. What is a Non-Deterministic Algorithm?
+
+A non-deterministic algorithm can conceptually choose among multiple possible execution paths and accepts if at least one path finds a valid solution.
+
+It is mainly used in theoretical complexity analysis.
+
+Q13. What is P Class?
+
+P is the class of decision problems that can be solved in polynomial time by a deterministic algorithm.
+
+Example:
+
+Graph connectivity.
+Shortest path decision problem.
+Q14. What is NP Class?
+
+NP is the class of decision problems whose proposed solutions can be verified in polynomial time by a deterministic algorithm.
+
+Example:
+
+SAT.
+Hamiltonian Cycle.
+3-SAT.
+Q15. Difference between P and NP.
+P	NP
+Problems can be solved in polynomial time.	Solutions can be verified in polynomial time.
+Uses deterministic algorithms.	Verification is possible in polynomial time.
+P is a subset of NP.	NP may contain problems not known to be in P.
+Q16. What is NP-Hard?
+
+A problem is NP-Hard if every problem in NP can be reduced to it in polynomial time.
+
+It does not necessarily belong to NP.
+
+Q17. What is NP-Complete?
+
+A problem is NP-Complete if:
+
+It belongs to NP.
+It is NP-Hard.
+
+Examples:
+
+3-SAT.
+Vertex Cover (decision version).
+Hamiltonian Cycle.
+Subset Sum (decision version).
+Q18. Difference between NP-Hard and NP-Complete.
+NP-Hard	NP-Complete
+At least as hard as every problem in NP.	Both NP and NP-Hard.
+Need not belong to NP.	Must belong to NP.
+Can be an optimization problem.	Must be a decision problem.
+Q19. What is Polynomial Time Reduction?
+
+Polynomial time reduction is a technique used to convert one problem into another in polynomial time.
+
+It helps prove that a problem is NP-Hard or NP-Complete.
+
+Q20. What is the Vertex Cover Problem?
+
+Vertex Cover is a graph problem in which we find the minimum number of vertices such that every edge has at least one endpoint selected.
+
+Q21. What is the 3-SAT Problem?
+
+3-SAT is a Boolean satisfiability problem in which each clause contains exactly three literals.
+
+The objective is to determine whether there exists an assignment of TRUE or FALSE values that makes the entire formula true.
+
+Q22. What is the Hamiltonian Cycle?
+
+A Hamiltonian Cycle is a cycle in a graph that visits every vertex exactly once and returns to the starting vertex.
+
+Part B: Unit II – Viva Questions
+Q.	Viva Question	Easy Answer
+1	What is time complexity?	Time taken by an algorithm as input size increases.
+2	What is space complexity?	Memory required by an algorithm.
+3	What is input size?	Amount of data given to an algorithm.
+4	What is Big O?	Asymptotic upper bound.
+5	What is Big Omega?	Asymptotic lower bound.
+6	What is Big Theta?	Tight asymptotic bound.
+7	What is O(1)?	Constant time complexity.
+8	What is O(n)?	Linear time complexity.
+9	What is O(n²)?	Quadratic time complexity.
+10	Which is faster, O(n) or O(n²)?	O(n), for sufficiently large n.
+11	What is P?	Problems solvable in polynomial time.
+12	What is NP?	Problems whose solutions are verifiable in polynomial time.
+13	What is NP-Hard?	Problems at least as hard as every problem in NP.
+14	What is NP-Complete?	Problems belonging to both NP and NP-Hard.
+15	Is P a subset of NP?	Yes.
+16	Is P = NP?	It is an unsolved mathematical problem.
+17	What is reduction?	Converting one problem into another.
+18	What is 3-SAT?	SAT where each clause has three literals.
+19	What is a Hamiltonian Cycle?	A cycle visiting every vertex exactly once.
+20	What is Vertex Cover?	A set of vertices covering every edge.
+Important: Complexity Order
+
+Remember this order for viva:
+
+Complexity	Name
+O(1)	Constant
+O(log n)	Logarithmic
+O(n)	Linear
+O(n log n)	Linearithmic
+O(n²)	Quadratic
+O(n³)	Cubic
+O(2ⁿ)	Exponential
+O(n!)	Factorial
+UNIT III – Greedy and Dynamic Programming Algorithmic Strategies
+Part A: Important Theory Questions and Answers
+Q1. What is the Greedy Method?
+
+The Greedy Method is an algorithmic technique that selects the best possible choice at each step to obtain an optimal solution.
+
+It does not reconsider previous choices.
+
+Examples:
+
+Fractional Knapsack.
+Job Scheduling.
+Activity Selection.
+Minimum Spanning Tree.
+Q2. What is the Principle of Greedy Strategy?
+
+The greedy strategy works on the principle of making a locally optimal choice at every step, hoping to achieve a globally optimal solution.
+
+Q3. What is Control Abstraction?
+
+Control abstraction is a general structure that describes the working of an algorithm without focusing on implementation details.
+
+It defines the sequence of steps and decisions.
+
+Q4. What is Fractional Knapsack?
+
+Fractional Knapsack is an optimization problem in which items can be divided into fractions to maximize total profit within a given weight capacity.
+
+Formula:
+
+Profit/Weight Ratio = Profit ÷ Weight
+
+Items are selected in decreasing order of their profit-to-weight ratio.
+
+Time Complexity: O(n log n) using sorting.
+
+Q5. What is Job Scheduling with Deadlines?
+
+Job Scheduling is a greedy problem in which each job has a deadline and profit.
+
+The objective is to schedule jobs before their deadlines to maximize total profit.
+
+Q6. What is Activity Selection?
+
+Activity Selection is a greedy problem in which we select the maximum number of non-overlapping activities.
+
+The activity with the earliest finishing time is selected first.
+
+Q7. What is Dynamic Programming?
+
+Dynamic Programming is an algorithmic technique that solves complex problems by dividing them into smaller overlapping subproblems and storing their results to avoid repeated calculations.
+
+Examples:
+
+0/1 Knapsack.
+Matrix Chain Multiplication.
+Optimal Binary Search Tree.
+Fibonacci Series.
+Q8. What are the characteristics of Dynamic Programming?
+Optimal Substructure.
+Overlapping Subproblems.
+
+Optimal Substructure: The optimal solution can be constructed from optimal solutions of smaller subproblems.
+
+Overlapping Subproblems: The same subproblems are solved multiple times.
+
+Q9. Difference between Greedy and Dynamic Programming.
+Greedy	Dynamic Programming
+Makes the best local choice.	Solves and stores subproblems.
+Does not reconsider choices.	Combines stored results.
+Usually requires less memory.	May require more memory.
+Not always optimal.	Gives an optimal solution when the DP formulation is correct.
+Q10. What is 0/1 Knapsack?
+
+0/1 Knapsack is an optimization problem in which each item is either completely selected or rejected.
+
+Items cannot be divided.
+
+The objective is to maximize profit without exceeding the given capacity.
+
+Q11. Difference between Fractional and 0/1 Knapsack.
+Fractional Knapsack	0/1 Knapsack
+Items can be divided.	Items cannot be divided.
+Uses Greedy method.	Commonly solved using DP.
+Greedy gives optimal solution.	Greedy does not always give optimal solution.
+Q12. What is Matrix Chain Multiplication?
+
+Matrix Chain Multiplication is a dynamic programming problem used to find the most efficient order of multiplying matrices.
+
+The objective is to minimize the total number of scalar multiplications.
+
+Q13. What is an Optimal Binary Search Tree (OBST)?
+
+OBST is a binary search tree constructed using the access frequencies of keys to minimize the expected search cost.
+
+Frequently accessed keys are generally placed closer to the root.
+
+Q14. What are Binomial Coefficients?
+
+Binomial coefficients represent the number of ways to select r objects from n objects.
+
+Formula:
+
+C(n,r) = n! / [r!(n-r)!]
+
+They are also called combinations.
+
+Q15. What is a Minimum Spanning Tree?
+
+A Minimum Spanning Tree (MST) is a spanning tree of a connected, weighted, undirected graph having the minimum possible total edge weight.
+
+Common algorithms:
+
+Prim's Algorithm.
+Kruskal's Algorithm.
+Q16. Difference between Prim's and Kruskal's Algorithm.
+Prim's Algorithm	Kruskal's Algorithm
+Starts from any vertex.	Starts with the smallest edge.
+Selects the minimum connecting edge.	Selects the minimum edge without forming a cycle.
+Grows a single tree.	Combines multiple components.
+Uses a priority queue commonly.	Uses sorting and Disjoint Set Union commonly.
+Part B: Unit III – Viva Questions
+Q.	Viva Question	Easy Answer
+1	What is Greedy Algorithm?	It selects the locally best option at each step.
+2	What is Dynamic Programming?	It solves subproblems and stores their results.
+3	Give two greedy examples.	Fractional Knapsack and Activity Selection.
+4	Give two DP examples.	0/1 Knapsack and Matrix Chain Multiplication.
+5	What is Fractional Knapsack?	An item can be divided into fractions.
+6	What is 0/1 Knapsack?	An item is either selected or rejected.
+7	What is the capacity of a knapsack?	Maximum weight it can carry.
+8	What is Activity Selection?	Selecting maximum non-overlapping activities.
+9	What is Job Scheduling?	Scheduling jobs to maximize profit before deadlines.
+10	What is MST?	Minimum Spanning Tree.
+11	Which algorithms find MST?	Prim's and Kruskal's.
+12	What is a cycle?	A path that starts and ends at the same vertex.
+13	What is OBST?	Optimal Binary Search Tree.
+14	What is Matrix Chain Multiplication?	Finding the best order to multiply matrices.
+15	Can matrices be multiplied in any order?	Yes, if dimensions are compatible, but the cost may differ.
+16	What is overlapping subproblem?	A subproblem that occurs repeatedly.
+17	What is optimal substructure?	An optimal solution contains optimal solutions to subproblems.
+18	What is a binomial coefficient?	Number of ways to select r objects from n objects.
+19	What is the full form of MST?	Minimum Spanning Tree.
+20	Does MST contain cycles?	No.
+UNIT IV – Backtracking and Branch and Bound
+Part A: Important Theory Questions and Answers
+Q1. What is Backtracking?
+
+Backtracking is an algorithmic technique that solves problems by building solutions step by step.
+
+If a choice leads to an invalid solution, the algorithm goes back and tries another choice.
+
+Examples:
+
+N-Queen Problem.
+Graph Coloring.
+Sum of Subsets.
+Q2. Explain the Principle of Backtracking.
+
+Backtracking follows a trial-and-error approach.
+
+Steps:
+
+Make a choice.
+Check whether it is valid.
+Continue if valid.
+Go back if invalid.
+Try another possibility.
+Q3. What is Control Abstraction in Backtracking?
+
+Control abstraction is a general recursive structure used to explore possible solutions and reject invalid choices.
+
+It generally uses recursion and a state-space tree.
+
+Q4. What is the 8-Queen Problem?
+
+The 8-Queen Problem involves placing eight queens on an 8×8 chessboard so that no two queens attack each other.
+
+No two queens should be in the same:
+
+Row.
+Column.
+Diagonal.
+Q5. What is Graph Coloring?
+
+Graph Coloring is a problem of assigning colors to the vertices of a graph such that no two adjacent vertices have the same color.
+
+It is commonly solved using backtracking.
+
+Q6. What is the Sum of Subsets Problem?
+
+It is a problem in which we find subsets of a given set whose sum is equal to a specified target value.
+
+Example:
+
+Set = {2, 3, 5, 7}
+
+Target = 10
+
+Possible subset = {3, 7} and {2, 3, 5}.
+
+Q7. What is Branch and Bound?
+
+Branch and Bound is an algorithmic technique used to solve optimization problems.
+
+It divides the problem into smaller subproblems and eliminates branches that cannot produce a better solution.
+
+Q8. Explain the Principle of Branch and Bound.
+
+It works using two operations:
+
+Branching – Dividing a problem into smaller subproblems.
+Bounding – Calculating a bound to eliminate unpromising solutions.
+Q9. What is a State Space Tree?
+
+A State Space Tree is a tree representation of all possible solutions to a problem.
+
+Each node represents a partial solution, and each branch represents a decision.
+
+Q10. Explain FIFO Branch and Bound.
+
+FIFO Branch and Bound selects the next live node using a First-In-First-Out queue.
+
+The node inserted first is explored first.
+
+Q11. Explain LIFO Branch and Bound.
+
+LIFO Branch and Bound selects the most recently inserted live node using a stack.
+
+It follows a depth-first search approach.
+
+Q12. Explain Least Cost (LC) Branch and Bound.
+
+LC Branch and Bound selects the live node having the minimum cost or bound value.
+
+It commonly uses a priority queue.
+
+Q13. Difference between Backtracking and Branch and Bound.
+Backtracking	Branch and Bound
+Used mainly for constraint satisfaction and search problems.	Used mainly for optimization problems.
+Rejects invalid solutions.	Eliminates solutions that cannot improve the current best result.
+Commonly uses DFS.	Uses FIFO, LIFO or Least Cost strategies.
+Example: N-Queen.	Example: TSP.
+Q14. What is Travelling Salesman Problem (TSP)?
+
+TSP is an optimization problem in which a salesman must visit every city exactly once and return to the starting city with minimum total cost.
+
+Q15. What is Knapsack using Branch and Bound?
+
+It is an optimization technique used to find the maximum profit within a given capacity.
+
+It explores possible item selections and uses upper bounds to eliminate unpromising solutions.
+
+Part B: Unit IV – Viva Questions
+Q.	Viva Question	Easy Answer
+1	What is Backtracking?	Trying possibilities and going back when a choice fails.
+2	What is Branch and Bound?	A technique that eliminates unpromising solutions using bounds.
+3	Give an example of Backtracking.	8-Queen Problem.
+4	Give an example of Branch and Bound.	Travelling Salesman Problem.
+5	What is the N-Queen Problem?	Placing N queens so that no two attack each other.
+6	What is Graph Coloring?	Coloring vertices so adjacent vertices have different colors.
+7	What is Sum of Subsets?	Finding subsets having a specified sum.
+8	What is a State Space Tree?	A tree representing all possible solutions.
+9	What is pruning?	Removing unnecessary branches.
+10	What is FIFO?	First-In-First-Out.
+11	What is LIFO?	Last-In-First-Out.
+12	What is LC?	Least Cost.
+13	Which data structure is used in FIFO?	Queue.
+14	Which data structure is used in LIFO?	Stack.
+15	Which data structure is used in LC?	Priority Queue.
+16	What is TSP?	Travelling Salesman Problem.
+17	What is the objective of TSP?	Minimum-cost tour covering every city exactly once.
+18	Can Backtracking use recursion?	Yes.
+19	What is a live node?	A generated node that may still be explored.
+20	What is a dead node?	A node that will not be explored further.
+UNIT V – Amortized Analysis
+Part A: Important Theory Questions and Answers
+Q1. What is Amortized Analysis?
+
+Amortized Analysis is a technique used to calculate the average cost of operations over a sequence of operations.
+
+It gives an upper bound on the average cost per operation over the entire sequence, even when some individual operations are expensive.
+
+Q2. What are the methods of Amortized Analysis?
+
+There are three methods:
+
+Aggregate Method.
+Accounting Method.
+Potential Method.
+Q3. Explain Aggregate Method.
+
+The Aggregate Method calculates the total cost of n operations and divides it by n to find the amortized cost per operation.
+
+Formula:
+
+Amortized Cost = Total Cost / Number of Operations.
+
+Q4. Explain Accounting Method.
+
+In the Accounting Method, we assign an artificial cost to each operation.
+
+Some operations are charged more than their actual cost, and the extra amount is saved as credit to pay for future expensive operations.
+
+Q5. Explain Potential Method.
+
+The Potential Method uses a potential function to represent the stored credit of a data structure.
+
+Formula:
+
+Amortized Cost = Actual Cost + Change in Potential.
+
+Q6. What is a Binary Counter?
+
+A binary counter is a counter that represents numbers using binary digits (0 and 1).
+
+When incremented, some bits may change from 0 to 1 or 1 to 0.
+
+Example:
+
+000 → 001 → 010 → 011 → 100.
+
+Q7. Explain Amortized Analysis of Binary Counter.
+
+In a binary counter, an increment operation may change multiple bits.
+
+Although some increments are expensive, the total number of bit changes over n increments is O(n).
+
+Therefore, the amortized cost per increment is O(1).
+
+Q8. What is a Stack?
+
+A stack is a linear data structure that follows the LIFO principle (Last-In-First-Out).
+
+Operations:
+
+Push – Insert an element.
+Pop – Remove the top element.
+Peek – View the top element.
+Q9. What is Amortized Analysis of Stack?
+
+Stack operations such as Push, Pop and Multipop are analyzed over a sequence of operations.
+
+Although Multipop may take O(n) time in one operation, the amortized cost of each operation is O(1).
+
+Q10. What is Time-Space Tradeoff?
+
+Time-Space Tradeoff means using additional memory to reduce execution time or reducing memory usage at the cost of increased execution time.
+
+Example: Using a HashMap to store previously calculated results.
+
+Q11. What are Tractable Problems?
+
+Tractable problems are problems that can be solved efficiently using polynomial-time algorithms.
+
+Examples:
+
+Sorting.
+Searching.
+Shortest Path.
+Q12. What are Intractable Problems?
+
+Intractable problems are problems for which no polynomial-time algorithm is currently known in the general case.
+
+Examples:
+
+General TSP optimization.
+3-SAT.
+Q13. What is a Randomized Algorithm?
+
+A randomized algorithm uses random numbers or random choices during execution to solve a problem.
+
+Its execution or performance may depend on random choices.
+
+Example: Randomized Quick Sort.
+
+Q14. What is an Approximation Algorithm?
+
+An approximation algorithm finds a near-optimal solution to an optimization problem in reasonable time.
+
+It is useful when finding the exact optimal solution is computationally expensive.
+
+Example: Approximation algorithms for Vertex Cover and TSP.
+
+Q15. What are Embedded Algorithms?
+
+Embedded algorithms are algorithms designed to work inside embedded systems such as smart devices, vehicles and industrial controllers.
+
+They are designed considering:
+
+Limited memory.
+Processing power.
+Energy consumption.
+Real-time requirements.
+Q16. What is Embedded System Scheduling?
+
+Embedded system scheduling determines the order in which tasks are executed in an embedded system.
+
+Its main objective is to complete tasks within their deadlines while efficiently using system resources.
+
+Q17. What is Power Optimized Scheduling?
+
+Power optimized scheduling is a technique used to reduce energy consumption while maintaining the required system performance.
+
+Q18. What is Sorting in Embedded Systems?
+
+Sorting in embedded systems means arranging data in a particular order using algorithms suitable for limited memory and processing resources.
+
+Examples:
+
+Insertion Sort.
+Selection Sort.
+Quick Sort.
+Q19. What is the Cutting Stock Problem?
+
+The Cutting Stock Problem is an optimization problem in which large raw materials are cut into smaller required pieces while minimizing material wastage.
+
+Example: Cutting steel rods or paper rolls into required sizes.
+
+Part B: Unit V – Viva Questions
+Q.	Viva Question						Easy Answer
+1	What is Amortized Analysis?				Analysis of average cost over a sequence of operations.
+2	How many methods are used in Amortized Analysis?	Three.
+3	Name the three methods.					Aggregate, Accounting and Potential.
+4	What is Aggregate Method?					Total cost divided by the number of operations.
+5	What is Accounting Method?				Uses stored credits to pay for future operations.
+6	What is Potential Method?				Uses a potential function to calculate amortized cost.
+7	What is a binary counter?				A counter that uses binary digits.
+8	What is LIFO?						Last-In-First-Out.
+9	What is a stack?					A linear data structure following LIFO.
+10	What is Push?						Inserting an element into a stack.
+11	What is Pop?						Removing the top element.
+12	What is Multipop?					Removing multiple elements from a stack.
+13	What is time-space tradeoff?				Trading memory usage for execution time or vice versa.
+14	What is a tractable problem?				A problem solvable in polynomial time.
+15	What is an intractable problem?				A problem for which no polynomial-time solution is known in general.
+16	What is a randomized algorithm?				An algorithm that uses random choices.
+17	Give an example of a randomized algorithm.		Randomized Quick Sort.
+18	What is an approximation algorithm?			An algorithm that finds a near-optimal solution.
+19	What is an embedded system?				A computer system designed for a specific task.
+20	What is real-time scheduling?				Scheduling tasks to meet their deadlines.
+21	What is power optimization?				Reducing energy consumption.
+22	What is the Cutting Stock Problem?			Cutting raw materials to minimize wastage.
+Important Practical and Algorithm-Based Viva Questions
+
+These questions are particularly useful if your DAA practical examination includes writing or explaining algorithms.
+
+Algorithm	Common Viva Question	Answer
+Linear Search	What is its time complexity?	O(n).
+Binary Search	What is its time complexity?	O(log n).
+Bubble Sort	What is its worst-case complexity?	O(n²).
+Selection Sort	What is its time complexity?	O(n²).
+Insertion Sort	What is its best-case complexity?	O(n).
+Merge Sort	What is its time complexity?	O(n log n).
+Quick Sort	What is its average complexity?	O(n log n).
+Quick Sort	What is its worst-case complexity?	O(n²).
+Prim's Algorithm	What does it find?	Minimum Spanning Tree.
+Kruskal's Algorithm	What does it find?	Minimum Spanning Tree.
+Fractional Knapsack	Which technique is used?	Greedy.
+0/1 Knapsack	Which technique is commonly used?	Dynamic Programming.
+N-Queen	Which technique is used?	Backtracking.
+Graph Coloring	Which technique is used?	Backtracking.
+TSP	Which technique can solve it?	Branch and Bound.
+Matrix Chain Multiplication	Which technique is used?	Dynamic Programming.
+Tower of Hanoi	Which technique is used?	Recursion.
+Activity Selection	Which technique is used?	Greedy.
+Most Important Differences for DAA Viva
+
+These are frequently useful when examiners ask you to differentiate between two concepts.
+
+Concepts	Main Difference
+Time vs Space Complexity	Time measures execution growth; space measures memory requirements.
+Iteration vs Recursion	Iteration uses loops; recursion uses function calls.
+Best vs Worst Case	Minimum vs maximum execution time for a given input size.
+Big O vs Big Omega	Upper bound vs lower bound.
+Greedy vs DP	Local choices vs solving and storing subproblems.
+Fractional vs 0/1 Knapsack	Divisible items vs indivisible items.
+Prim's vs Kruskal's	Vertex-based growth vs edge-based selection.
+Backtracking vs Branch and Bound	Rejects invalid choices vs eliminates unpromising solutions using bounds.
+FIFO vs LIFO	Queue-based vs stack-based node selection.
+Tractable vs Intractable	Polynomial-time solvable vs no known polynomial-time solution in general.
+Randomized vs Approximation	Uses randomness vs finds near-optimal solutions.
+Aggregate vs Accounting	Total cost averaging vs stored credits.
